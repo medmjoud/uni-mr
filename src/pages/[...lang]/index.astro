@@ -1,0 +1,377 @@
+---
+import { Search, ArrowRight } from '@lucide/astro'
+import Layout from '@/layouts/Layout.astro'
+import CountryMap from '@/components/CountryMap.astro'
+import Directory from '@/components/Directory.astro'
+import EnrollmentChart from '@/components/EnrollmentChart.astro'
+import KeyFigures from '@/components/KeyFigures.astro'
+import PathFinder from '@/components/PathFinder.astro'
+import HistoryTimeline from '@/components/HistoryTimeline.astro'
+import { getInstitutions } from '@/lib/institutions'
+import { getContext } from '@/lib/context'
+import { SITE_NAME } from '@/lib/site'
+import { langParams, localePath, toLocale, useTranslations } from '@/i18n'
+
+export function getStaticPaths() {
+  return langParams().map((params) => ({ params }))
+}
+
+const lang = toLocale(Astro.params.lang)
+const { t } = useTranslations(lang)
+const context = getContext(lang)
+const institutions = await getInstitutions()
+const cities = new Set(institutions.map((e) => e.data.city)).size
+const publicCount = institutions.filter((e) => e.data.type === 'public').length
+const steps = context.admissions.steps.slice(0, 4)
+
+const description = t('home.meta', { count: institutions.length })
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_NAME,
+  url: new URL(localePath(lang, '/'), Astro.site).href,
+  inLanguage: lang,
+  description,
+}
+
+const facts = [
+  { value: institutions.length, label: t('home.factInstitutions') },
+  { value: cities, label: t('home.factCities') },
+  { value: publicCount, label: t('home.factPublic') },
+  { value: institutions.length - publicCount, label: t('home.factPrivate') },
+]
+const platform = context.admissions.platform
+---
+
+<Layout lang={lang} description={description} jsonLd={jsonLd}>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-head">
+      <p class="pill">{t('home.pill')}</p>
+      <h1 id="hero-title" class="display hero-title">{t('home.title')}</h1>
+      <p class="hero-lede">{t('home.lede')}</p>
+
+      <form class="hero-search" data-hero-search role="search">
+        <label class="search-field">
+          <Search class="icon" aria-hidden="true" />
+          <span class="visually-hidden">{t('home.searchLabel')}</span>
+          <input name="q" type="search" placeholder={t('home.searchPlaceholder')} autocomplete="off" />
+        </label>
+        <button class="btn btn-primary" type="submit">{t('home.searchButton')}</button>
+      </form>
+
+      <dl class="hero-facts">
+        {
+          facts.map((f) => (
+            <div>
+              <dt>{f.label}</dt>
+              <dd>{f.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+
+    <div id="map" class="wrap hero-stage">
+      <div class="map-panel">
+        <CountryMap institutions={institutions} lang={lang} />
+        {
+          platform && (
+            <a class="hero-card" href={platform.url} rel="noopener">
+              <span class="hero-card-text">
+                <span>{t('home.newBac')}</span>
+                <strong dir="ltr">{new URL(platform.url).hostname}</strong>
+              </span>
+              <ArrowRight class="icon flip-rtl" aria-hidden="true" />
+            </a>
+          )
+        }
+      </div>
+    </div>
+  </section>
+
+  <Directory institutions={institutions} lang={lang} />
+
+  <PathFinder institutions={institutions} lang={lang} />
+
+  <section class="wrap py-16 md:py-20" aria-labelledby="steps-title">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <h2 id="steps-title" class="headline text-3xl md:text-[2.5rem]">{t('home.stepsTitle')}</h2>
+      <a class="link" href={localePath(lang, '/admissions/')}>{t('home.stepsLink')}</a>
+    </div>
+    <ol class="steps">
+      {
+        steps.map((step, i) => (
+          <li class="card step">
+            <span class="step-n" aria-hidden="true">{i + 1}</span>
+            <h3 class="step-title">{step.title}</h3>
+            <p class="text-muted text-[0.95rem]">{step.description}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="wrap pb-20" aria-labelledby="numbers-title">
+    <h2 id="numbers-title" class="headline text-3xl md:text-[2.5rem]">{t('home.numbersTitle')}</h2>
+    <div class="mt-8 grid gap-6 lg:grid-cols-[1.35fr_1fr]">
+      <div class="card p-6 md:p-8">
+        <EnrollmentChart lang={lang} />
+      </div>
+      <KeyFigures figures={context.keyFigures} />
+    </div>
+  </section>
+  <HistoryTimeline institutions={institutions} lang={lang} />
+</Layout>
+
+<style>
+  .hero {
+    border-bottom: 1px solid var(--line);
+    background: var(--mint);
+  }
+
+  .hero-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .hero-head {
+      padding-top: 5.5rem;
+    }
+  }
+
+  .hero-title {
+    margin-top: 1.5rem;
+    max-width: 18ch;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .hero-lede {
+    margin-top: 1.25rem;
+    max-width: 40rem;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  .hero-search {
+    margin-top: 2rem;
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 40rem;
+  }
+
+  .search-field {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 0.6rem;
+    min-width: 0;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-sm);
+    background: #fff;
+    padding-inline: 1rem;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+  }
+
+  .search-field:focus-within {
+    border-color: var(--emerald-700);
+    box-shadow: 0 0 0 3px rgb(47 122 69 / 15%);
+  }
+
+  .search-field :global(.icon) {
+    color: var(--emerald-700);
+  }
+
+  .search-field input {
+    min-width: 0;
+    flex: 1;
+    border: 0;
+    background: transparent;
+    color: var(--text);
+    font: inherit;
+    font-size: 1rem;
+    padding: 0.85rem 0;
+  }
+
+  .search-field input:focus {
+    outline: none;
+  }
+
+  .hero-search .btn {
+    padding-inline: 1.5rem;
+    font-size: 1.02rem;
+  }
+
+  @media (max-width: 480px) {
+    .hero-search {
+      flex-direction: column;
+    }
+  }
+
+  .hero-facts {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    justify-content: center;
+    gap: 1.25rem 3.25rem;
+  }
+
+  @media (max-width: 480px) {
+    .hero-facts {
+      grid-template-columns: repeat(2, auto);
+    }
+  }
+
+  .hero-facts div {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .hero-facts dt {
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+
+  .hero-facts dd {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.85rem;
+    line-height: 1.2;
+    color: var(--emerald-700);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .hero-stage {
+    padding-top: 2.75rem;
+    padding-bottom: 3rem;
+  }
+
+  /* The map gets its own soft green stage under the centred headline. */
+  .map-panel {
+    position: relative;
+    margin-inline: auto;
+    max-width: 62rem;
+    border: 1px solid #cfe5d6;
+    border-radius: var(--radius-lg);
+    background:
+      radial-gradient(60% 55% at 50% 35%, rgb(255 255 255 / 60%), transparent 70%),
+      linear-gradient(170deg, #dcefe2, #c7e4d0);
+    padding: 2rem 1rem 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .map-panel {
+      padding: 2.5rem 2.5rem 1.5rem;
+    }
+  }
+
+  .map-panel :global(.country-map) {
+    margin-inline: auto;
+    max-width: 29rem;
+  }
+
+  .hero-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 1.25rem auto 0;
+    max-width: 34rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: #fff;
+    padding: 0.9rem 1.1rem;
+    color: var(--text);
+    text-decoration: none;
+    box-shadow: var(--shadow-lift);
+    transition: border-color 150ms ease;
+  }
+
+  .hero-card:hover {
+    border-color: var(--emerald-700);
+  }
+
+  .hero-card-text {
+    display: grid;
+    gap: 0.1rem;
+    font-size: 0.88rem;
+    text-align: start;
+  }
+
+  .hero-card strong {
+    font-weight: 600;
+    font-size: 1.02rem;
+    color: var(--emerald-800);
+  }
+
+  :global(:root[dir='rtl']) .hero-card strong {
+    text-align: right;
+  }
+
+  .hero-card :global(.icon) {
+    color: var(--emerald-700);
+    flex-shrink: 0;
+  }
+
+  .steps {
+    margin-top: 2rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 720px) {
+    .steps {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1150px) {
+    .steps {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  .step {
+    padding: 1.5rem;
+  }
+
+  .step-n {
+    display: inline-grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--emerald-50);
+    color: var(--emerald-700);
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+
+  .step-title {
+    margin: 1rem 0 0.4rem;
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--ink);
+  }
+</style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-hero-search]')!
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const q = String(new FormData(form).get('q') ?? '')
+    window.dispatchEvent(new CustomEvent('directory:search', { detail: q }))
+    document.getElementById('directory')?.scrollIntoView()
+    document.querySelector<HTMLInputElement>('[data-filters] input[name="q"]')?.focus({ preventScroll: true })
+  })
+</script>

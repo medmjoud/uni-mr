@@ -1,0 +1,164 @@
+---
+import type { Institution } from '@/lib/institutions'
+import { localePath, useTranslations, type Locale } from '@/i18n'
+
+interface Props {
+  institutions: Institution[]
+  lang: Locale
+}
+
+const { institutions, lang } = Astro.props
+const { t } = useTranslations(lang)
+
+// Group institutions with a known founding year by decade, oldest first.
+const dated = institutions
+  .filter((e) => e.data.founded)
+  .sort((a, b) => a.data.founded! - b.data.founded! || a.data.name.localeCompare(b.data.name))
+const decades = [...new Set(dated.map((e) => Math.floor(e.data.founded! / 10) * 10))].map((decade) => ({
+  decade,
+  entries: dated.filter((e) => Math.floor(e.data.founded! / 10) * 10 === decade),
+}))
+const unknown = institutions.length - dated.length
+const label = (e: Institution) => e.data.acronym ?? (lang === 'ar' && e.data.nameAr ? e.data.nameAr : e.data.name)
+---
+
+<section class="wrap py-16 md:py-20" aria-labelledby="history-title">
+  <div class="text-center">
+    <h2 id="history-title" class="headline text-3xl md:text-[2.4rem]">{t('history.title')}</h2>
+    <p class="mx-auto mt-3 max-w-xl text-muted">{t('history.intro')}</p>
+  </div>
+
+  <ol class="timeline" dir="ltr">
+    {
+      decades.map(({ decade, entries }) => (
+        <li class="decade">
+          <span class="dot" aria-hidden="true" />
+          <h3 class="decade-label">
+            {decade}
+            <span class="count">{entries.length}</span>
+          </h3>
+          <ul class="entries" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+            {entries.map((e) => (
+              <li>
+                <a href={localePath(lang, `/universities/${e.id}/`)} title={e.data.name}>
+                  <span class="year">{e.data.founded}</span>
+                  <span class="name">{label(e)}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))
+    }
+  </ol>
+
+  {unknown > 0 && <p class="mt-6 text-center text-sm text-muted">{t('history.unknown', { count: unknown })}</p>}
+</section>
+
+<style>
+  .timeline {
+    position: relative;
+    margin-top: 2.75rem;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(10.5rem, 1fr);
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scroll-snap-type: x proximity;
+  }
+
+  /* The line the decades sit on */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0.55rem;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--emerald-100), var(--emerald-600));
+  }
+
+  .decade {
+    position: relative;
+    min-width: 0;
+    scroll-snap-align: start;
+    padding-top: 2rem;
+  }
+
+  .dot {
+    position: absolute;
+    top: 0.15rem;
+    left: 0;
+    width: 0.95rem;
+    height: 0.95rem;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    background: var(--emerald-700);
+    box-shadow: 0 0 0 1px var(--emerald-600);
+  }
+
+  .decade-label {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 1.35rem;
+    color: var(--ink);
+  }
+
+  .count {
+    border-radius: 999px;
+    background: var(--emerald-50);
+    padding: 0 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--emerald-700);
+  }
+
+  .entries {
+    margin-top: 0.75rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.4rem;
+  }
+
+  .entries li {
+    min-width: 0;
+  }
+
+  .entries a {
+    display: flex;
+    min-width: 0;
+    overflow: hidden;
+    align-items: baseline;
+    gap: 0.5rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fff;
+    padding: 0.45rem 0.65rem;
+    text-decoration: none;
+    transition: border-color 150ms ease;
+  }
+
+  .entries a:hover {
+    border-color: var(--emerald-600);
+  }
+
+  .year {
+    flex-shrink: 0;
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .name {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+</style>

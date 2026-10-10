@@ -1,0 +1,363 @@
+{
+  "keyFigures": [
+    {
+      "label": "Students in higher education",
+      "value": "51,214",
+      "year": 2026,
+      "note": "Up from 22,679 in 2019, according to the Minister of Higher Education.",
+      "source": {
+        "title": "Journal Tahalil, 4 October 2026",
+        "url": "https://www.journaltahalil.com/le-ministre-de-lenseignement-superieur-presente-dans-lemission-redevabilite-le-bilan-du-departement-et-ses-plans-dextension-des-etablissements-de-renforceme/"
+      }
+    },
+    {
+      "label": "Institutions, public and private",
+      "value": "46",
+      "year": 2026,
+      "note": "As counted on the Ministry of Higher Education website.",
+      "source": {
+        "title": "MESRS website (archived April 2026)",
+        "url": "https://web.archive.org/web/20260414053252/https://www.mesrs.gov.mr/fr"
+      }
+    },
+    {
+      "label": "Bac pass rate, first session",
+      "value": "13.6%",
+      "year": 2026,
+      "note": "8,188 of the 60,376 candidates who sat the exam passed the first session.",
+      "source": {
+        "title": "Le360 Afrique, 25 July 2026",
+        "url": "https://afrique.le360.ma/societe/mauritanie-comment-expliquer-un-si-faible-taux-de-reussite-au-bac-reponses-denseignants_GHMMN5SS3BBCZE3XAWV2AS6O2Q/"
+      }
+    },
+    {
+      "label": "Women among students",
+      "value": "37.7%",
+      "year": 2020,
+      "note": "9,204 of 24,444 tertiary students, the latest UNESCO count.",
+      "source": {
+        "title": "UNESCO Institute for Statistics",
+        "url": "https://uis.unesco.org/en/country/mr"
+      }
+    },
+    {
+      "label": "Access rate to higher education",
+      "value": "10%",
+      "year": 2026,
+      "note": "Ministry figure, up from 5.8% in 2019. It is measured differently from the UNESCO ratio in the chart.",
+      "source": {
+        "title": "Journal Tahalil, 4 October 2026",
+        "url": "https://www.journaltahalil.com/le-ministre-de-lenseignement-superieur-presente-dans-lemission-redevabilite-le-bilan-du-departement-et-ses-plans-dextension-des-etablissements-de-renforceme/"
+      }
+    }
+  ],
+  "system": {
+    "ministry": {
+      "name": "Ministry of Higher Education and Scientific Research (MESRS)",
+      "nameAr": "وزارة التعليم العالي والبحث العلمي",
+      "url": "https://www.mesrs.gov.mr"
+    },
+    "structure": [
+      {
+        "degree": "Licence",
+        "duration": "3 years",
+        "description": "First cycle after the baccalauréat, including professional licences. It replaced the older DEUG and Maîtrise from 2008–2009."
+      },
+      {
+        "degree": "Master",
+        "duration": "2 years",
+        "description": "Second cycle after a Licence, research or professional. Admission is selective, on file."
+      },
+      {
+        "degree": "Doctorat",
+        "duration": "3 years",
+        "description": "Third cycle after a Master, run by doctoral schools (nine in 2026, according to the minister)."
+      }
+    ],
+    "languages": "Teaching is in Arabic and French. Most science programmes are taught in French, Islamic studies and Arabic-track programmes in Arabic, and a growing number of courses in English.",
+    "calendar": "The academic year starts in October. First-session Bac results come out in late July or early August, with a complementary session in mid-August.",
+    "qualityAgency": {
+      "name": "AMAQ-ES, the national quality assurance authority",
+      "url": "https://www.amaqes.mr/"
+    },
+    "studentServices": {
+      "name": "CNOU, the national student services centre"
+    },
+    "sources": [
+      {
+        "title": "AMAQ-ES – official website",
+        "url": "https://www.amaqes.mr/"
+      },
+      {
+        "title": "ENQA – AMAQ-ES Mauritanian Authority for Quality Assurance of Higher Education",
+        "url": "https://www.enqa.eu/membership-database/amaq-es-mauritanian-authority-for-quality-assurance-of-higher-education/"
+      },
+      {
+        "title": "MESRS – Direction de l'Orientation et des Bourses (Wayback snapshot of 17 Mar 2026)",
+        "url": "http://web.archive.org/web/20260317162229/https://www.mesrs.gov.mr/en/direction-de-lorientation-et-des-bourses"
+      }
+    ]
+  },
+  "admissions": {
+    "steps": [
+      {
+        "title": "Pass the baccalauréat",
+        "description": "The first session is held in July, with results in late July or early August. If you miss it, you can sit the complementary session in mid-August."
+      },
+      {
+        "title": "Rank your choices online",
+        "description": "Register on the ministry student platform, etudiants-mesrs.app, and list the programmes you want in order of preference. The same platform handles grant applications."
+      },
+      {
+        "title": "Get your orientation",
+        "description": "The national grants commission (CNB) places students by rank, choice order and capacity. Selective schools such as medicine, ESP and ISSM are filled first, right after the first-session results; open-access programmes follow after the complementary session."
+      },
+      {
+        "title": "Register at your institution",
+        "description": "Since 2025, public institutions register new students online through the Khidmaty portal. Pay the fees by mobile wallet and download your student number and certificate. In 2025 the window ran from 8 October to 9 November."
+      },
+      {
+        "title": "Check grant results",
+        "description": "Being placed does not guarantee a grant. Students at selective schools receive one at orientation; for open-access programmes, grants are decided around January."
+      },
+      {
+        "title": "Watch for competitions",
+        "description": "Some schools add their own selection on file or by competition, for example ISCAE requires a science Bac. The ministry also relays international competitions, such as the CentraleSupélec entrance exam for maths-series students."
+      }
+    ],
+    "platform": {
+      "name": "etudiants-mesrs.app, the ministry student platform",
+      "url": "https://etudiants-mesrs.app"
+    },
+    "bacSeries": [
+      {
+        "code": "C",
+        "name": "Mathématiques",
+        "typicalPaths": "Engineering (ESP), SupNum, sciences, economics/management (ISCAE), medicine (opened to series C in 2021), foreign scholarships for top ranks."
+      },
+      {
+        "code": "D",
+        "name": "Sciences naturelles",
+        "typicalPaths": "Medicine, pharmacy, biology/natural sciences, agronomy/veterinary, health schools, engineering (some), management; largest series by candidates."
+      },
+      {
+        "code": "TMGM",
+        "name": "Technique (Techniques mathématiques / génie mécanique)",
+        "typicalPaths": "Engineering and technology institutes (ESP, ISET Rosso, Institut Supérieur de Génie Industriel); very small series."
+      },
+      {
+        "code": "LM",
+        "name": "Lettres modernes",
+        "typicalPaths": "Letters, languages (French, English), human and social sciences, law, economics, journalism."
+      },
+      {
+        "code": "LO",
+        "name": "Lettres originelles",
+        "typicalPaths": "Arabic letters, Islamic studies and sharia (ISERI, Université des Sciences Islamiques d'Aioun), law (opened to LO in 2021), human sciences."
+      }
+    ],
+    "documents": [
+      "Baccalauréat certificate or pass attestation, with transcript",
+      "National ID card (NNI) or passport",
+      "Bac registration number and orientation decision",
+      "Passport photos",
+      "Proof of fee payment (paid by mobile wallet on Khidmaty)",
+      "Foreign Bac holders: diploma recognition from the ministry"
+    ],
+    "international": "Mauritanians with a foreign Bac are ranked separately, with a reserved quota of grants for science and technical Bacs passed with honours, and must have the diploma recognised by the ministry. Foreign nationals usually apply directly to the institution or through a bilateral scholarship. Since 5 January 2025, most visitors need an e-visa obtained online before travelling; check residence rules with the embassy and your institution.",
+    "sources": [
+      {
+        "title": "MESRS – Direction de l'Orientation et des Bourses (Wayback snapshot of 17 Mar 2026)",
+        "url": "http://web.archive.org/web/20260317162229/https://www.mesrs.gov.mr/en/direction-de-lorientation-et-des-bourses"
+      },
+      {
+        "title": "Madar – Le ministère de l'enseignement supérieur lance une plateforme pour guider les étudiants du baccalauréat et de la licence (8 Aug 2025)",
+        "url": "https://fr.madar.mr/actualites/le-ministere-de-lenseignement-superieur-lance-une-plateforme-pour-guider-les-etudiants-du-baccalaureat-et-de-la-licence/"
+      },
+      {
+        "title": "Madar – Université de Nouakchott : l'inscription des étudiants se fera via une plateforme électronique (6 Oct 2025)",
+        "url": "https://fr.madar.mr/actualites/universite-de-nouakchott-linscription-des-etudiants-dans-les-etablissements-denseignement-superieur-se-fera-via-une-plateforme-electronique/"
+      },
+      {
+        "title": "Le Quotidien de Nouakchott – Lancement officiel de l'inscription universitaire en ligne sur la plateforme « Khadematy »",
+        "url": "https://lequotidien.mr/?p=31238&lang=fr"
+      },
+      {
+        "title": "ISCAE – Conditions d'admission",
+        "url": "https://www.iscae.mr/node/27"
+      },
+      {
+        "title": "AACRAO EDGE – Mauritania country profile",
+        "url": "https://aacrao.org/edge/country/mauritania"
+      },
+      {
+        "title": "Hespress English – Mauritania rolls out E-Visa system, effective January 5 (2025)",
+        "url": "https://en.hespress.com/100022-mauritania-rolls-out-e-visa-system-effective-january-5.html"
+      },
+      {
+        "title": "MESRS homepage (Wayback Machine snapshot of 14 Apr 2026)",
+        "url": "https://web.archive.org/web/20260414053252/https://www.mesrs.gov.mr/fr"
+      },
+      {
+        "title": "Le360 Afrique – Mauritanie: 20,80% d'admis à la première session du bac 2025 (6 Aug 2025)",
+        "url": "https://afrique.le360.ma/societe/mauritanie-2080-dadmis-a-la-premiere-session-du-bac-2025_TR44EDEXBZC43K6IKT2J3W676E/"
+      }
+    ]
+  },
+  "scholarships": [
+    {
+      "name": "Bourse nationale (bourse d'études sur le sol national)",
+      "provider": "MESRS – Commission Nationale des Bourses / Direction de l'Orientation et des Bourses",
+      "level": "Licence, Master, Doctorat",
+      "description": "Monthly grant for students in Mauritanian public institutions; automatic for limited-access institutions (CNB1), awarded in January (CNB3) for open-access institutions based on bac session, honours, centre and programme; 8% quota reserved for girls; 'bourse d'excellence' (double the normal grant) for bac majors of each series.",
+      "url": "https://etudiants-mesrs.app",
+      "scope": "national"
+    },
+    {
+      "name": "Bourse à l'étranger (État mauritanien)",
+      "provider": "MESRS – Commission Nationale des Bourses",
+      "level": "Master, Doctorat (plus top Licence graduates)",
+      "description": "Since Aug 2024 no longer granted to new bacheliers; arrêté 009-2025 (Feb 2025) gives priority to top-ranked Licence graduates of public institutions, winners of international competitions held in Mauritania and students in bilateral exchange programmes.",
+      "url": "https://etudiants-mesrs.app",
+      "scope": "national"
+    },
+    {
+      "name": "Türkiye Bursları (Türkiye Scholarships)",
+      "provider": "Government of Türkiye (YTB)",
+      "level": "Associate, Bachelor, Master, PhD, research",
+      "description": "Fully funded: university placement, monthly stipend, accommodation, health insurance, one return flight and a one-year Turkish language course; open to all nationalities.",
+      "url": "https://www.turkiyeburslari.gov.tr/en",
+      "scope": "international"
+    },
+    {
+      "name": "Chinese Government Scholarship (CSC)",
+      "provider": "China Scholarship Council",
+      "level": "Bachelor, Master, PhD, general/senior scholar",
+      "description": "Full or partial scholarships at Chinese universities; Mauritanian applicants apply via the Chinese embassy/bilateral channel or directly to universities. MESRS also relays UNESCO–China scholarships.",
+      "url": "https://www.campuschina.org",
+      "scope": "international"
+    },
+    {
+      "name": "France Excellence Eiffel",
+      "provider": "French Ministry for Europe and Foreign Affairs / Campus France",
+      "level": "Master, PhD (co-supervised)",
+      "description": "Excellence scholarship for international students nominated by French higher-education institutions; Campus France Mauritanie handles study-in-France procedures.",
+      "url": "https://www.campusfrance.org/en/france-excellence-eiffel-scholarship-program",
+      "scope": "international"
+    },
+    {
+      "name": "Bourses AMCI (Maroc)",
+      "provider": "Agence Marocaine de Coopération Internationale",
+      "level": "Licence, Master, Doctorat, vocational",
+      "description": "Morocco awards a yearly quota to Mauritania (360 grants in 2022, Mauritania being the first African beneficiary); files go through the Mauritanian ministry/Moroccan embassy.",
+      "url": "https://www.amci.ma/",
+      "scope": "international"
+    },
+    {
+      "name": "Bourses de coopération algéro-mauritanienne",
+      "provider": "Ministère algérien de l'Enseignement supérieur (MESRS Algérie) – bilateral programme 2025-2027",
+      "level": "Licence, Master, Doctorat",
+      "description": "Bilateral exchange programme signed 17 Feb 2025 covering higher education and research for 2025-2027; places allocated through the Mauritanian ministry.",
+      "url": "https://www.mesrs.dz",
+      "scope": "international"
+    },
+    {
+      "name": "IsDB Scholarship Programmes",
+      "provider": "Islamic Development Bank",
+      "level": "Master (M.Sc.), PhD/post-doc (Merit), IsDB-ISFD for LDMCs",
+      "description": "Scholarships for nationals of IsDB member countries (Mauritania is a member) in science, technology and development fields.",
+      "url": "https://www.isdb.org/scholarships",
+      "scope": "international"
+    },
+    {
+      "name": "Erasmus+ (International Credit Mobility & Erasmus Mundus Joint Masters)",
+      "provider": "European Union",
+      "level": "Licence, Master, PhD, staff",
+      "description": "Semester/year exchanges via partnerships (e.g. Université de Nouakchott with Paris 1, Italian universities) and fully funded joint masters; 41 Mauritanian participants since 2023 per the EU delegation.",
+      "url": "https://erasmus-plus.ec.europa.eu/opportunities/individuals/students/erasmus-mundus-joint-masters",
+      "scope": "international"
+    },
+    {
+      "name": "Fulbright Foreign Student Program",
+      "provider": "U.S. Department of State (via U.S. Embassy Nouakchott)",
+      "level": "Master, PhD, FLTA",
+      "description": "Graduate study in the U.S.; Mauritania is a participating country (including the Foreign Language Teaching Assistant programme).",
+      "url": "https://foreign.fulbrightonline.org",
+      "scope": "international"
+    },
+    {
+      "name": "Chevening Scholarships",
+      "provider": "UK Foreign, Commonwealth & Development Office",
+      "level": "Master (one year)",
+      "description": "Fully funded one-year master's in the UK; Mauritania is in the list of eligible countries.",
+      "url": "https://www.chevening.org/scholarships/who-can-apply/",
+      "scope": "international"
+    },
+    {
+      "name": "DAAD Scholarships",
+      "provider": "German Academic Exchange Service",
+      "level": "Master, PhD, research",
+      "description": "Scholarship database for international students including development-related postgraduate courses (EPOS).",
+      "url": "https://www.daad.de/en/studying-in-germany/scholarships/",
+      "scope": "international"
+    },
+    {
+      "name": "Global Korea Scholarship (GKS)",
+      "provider": "Government of the Republic of Korea (NIIED)",
+      "level": "Bachelor, Master, PhD",
+      "description": "Fully funded study in Korea; MESRS published a 'bourse internationale coréenne' call in 2026.",
+      "url": "https://www.studyinkorea.go.kr",
+      "scope": "international"
+    },
+    {
+      "name": "Rhodes Scholarship – West Africa",
+      "provider": "Rhodes Trust (University of Oxford)",
+      "level": "Postgraduate",
+      "description": "3 scholarships a year for the West Africa constituency, which includes Mauritania.",
+      "url": "https://www.rhodeshouse.ox.ac.uk/scholarships/applications/west-africa/",
+      "scope": "international"
+    },
+    {
+      "name": "Mastercard Foundation Scholars Program",
+      "provider": "Mastercard Foundation with partner universities",
+      "level": "Bachelor, Master",
+      "description": "Comprehensive scholarships for academically talented, economically disadvantaged young Africans at partner universities in Africa and abroad.",
+      "url": "https://mastercardfdn.org/en/what-we-do/our-programs/mastercard-foundation-scholars-program/",
+      "scope": "international"
+    }
+  ],
+  "faq": [
+    {
+      "q": "How does orientation after the bac work?",
+      "a": "After the first-session results, the Commission Nationale des Bourses (CNB) orients bacheliers to limited-access institutions (medicine, ESP, ISSM, etc.) using an orientation average based on core subjects; after the complementary session a second round orients students to the remaining institutions. Your placement depends on your rank, the order of your choices and programme capacity. Choices are entered on the ministry's student platform (etudiants-mesrs.app)."
+    },
+    {
+      "q": "When does the academic year start?",
+      "a": "In October. In 2025, Université de Nouakchott opened online registration for new bacheliers on 8 October (closing 9 November)."
+    },
+    {
+      "q": "How do I register at university?",
+      "a": "Registration for public institutions such as Université de Nouakchott is done online through the national e-services portal Khidmaty: fill in your file, pay fees by mobile wallet, then download your student number, registration certificate and receipt."
+    },
+    {
+      "q": "Can I get a state scholarship to study abroad right after the bac?",
+      "a": "No. Since August 2024 the state no longer gives foreign scholarships to new bacheliers. Under arrêté 009-2025, priority goes to top-ranked Licence graduates of public institutions, winners of international competitions held in Mauritania and students in bilateral exchanges, mainly at Master/Doctorat level. Bilateral offers (Morocco AMCI, Algeria, Türkiye, China, Korea…) are announced by the ministry."
+    },
+    {
+      "q": "Am I guaranteed a national grant if I am oriented?",
+      "a": "No. Orientation and grants are separate: you can be oriented without a grant. Students at limited-access institutions get a grant through CNB1; others are ranked in January (CNB3) according to bac session, honours, bac centre and programme, with 8% of grants reserved for girls. Bac majors of each series receive an excellence grant worth double the normal grant."
+    },
+    {
+      "q": "What degrees exist?",
+      "a": "Mauritania uses the LMD system: Licence (3 years), Master (2 years) and Doctorat (3 years), plus long-cycle engineering and medical degrees."
+    },
+    {
+      "q": "Are private universities recognised?",
+      "a": "Only institutions approved by MESRS. About ten private institutions are approved (e.g. Université Moderne de Chinguitti, UMLC, LIU Mauritania, Sup'Management, EMSI, ISB). Quality assurance and programme accreditation are handled by AMAQ-ES."
+    },
+    {
+      "q": "I have a foreign bac or I'm an international student – what should I do?",
+      "a": "Mauritanians with a foreign bac are ranked separately from national-bac holders (with a reserved quota for scientific/technical bacs with honours). Have your diploma recognised by MESRS (Direction des Qualifications Académiques et de la Reconnaissance des Diplômes). Foreign nationals usually come through bilateral scholarships or apply directly to the institution, and since January 2025 must obtain an e-visa online before travelling unless visa-exempt."
+    }
+  ]
+}

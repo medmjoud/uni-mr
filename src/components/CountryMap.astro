@@ -1,0 +1,244 @@
+---
+import geo from '@/data/geo/mauritania.json'
+import type { Institution } from '@/lib/institutions'
+import { useTranslations, type Locale } from '@/i18n'
+
+interface Props {
+  institutions: Institution[]
+  lang: Locale
+}
+
+const { institutions, lang } = Astro.props
+const { t, city: cityName } = useTranslations(lang)
+const { projection: p, width, height, regions } = geo
+
+function project([lat, lon]: [number, number]) {
+  return [(lon - p.minLon) * p.kx * p.scale, (p.maxLat - lat) * p.scale] as const
+}
+
+// One marker per city, placed at the mean of its institutions' coordinates.
+const byCity = new Map<string, Institution[]>()
+for (const entry of institutions) {
+  byCity.set(entry.data.city, [...(byCity.get(entry.data.city) ?? []), entry])
+}
+
+const markers = [...byCity.entries()]
+  .map(([city, entries]) => {
+    const lat = entries.reduce((s, e) => s + e.data.coordinates[0], 0) / entries.length
+    const lon = entries.reduce((s, e) => s + e.data.coordinates[1], 0) / entries.length
+    const [x, y] = project([lat, lon])
+    return { city, count: entries.length, x, y, r: 20 + Math.sqrt(entries.length) * 7 }
+  })
+  // Draw big markers first so small ones stay clickable on top.
+  .sort((a, b) => b.count - a.count)
+
+const allRegions = regions.map((r) => r.d).join('')
+---
+
+<figure class="country-map">
+  <svg viewBox={`0 0 ${width} ${height}`} role="group" aria-label={t('map.aria')}>
+    <defs>
+      <pattern id="dune-dots" width="14" height="14" patternUnits="userSpaceOnUse">
+        <circle cx="7" cy="7" r="1.5" fill="#3d9653"></circle>
+      </pattern>
+      <linearGradient id="dune-fade" x1="0" y1="0" x2="0.4" y2="1">
+        <stop offset="0" stop-color="#fff" stop-opacity="0.85"></stop>
+        <stop offset="1" stop-color="#fff" stop-opacity="0.15"></stop>
+      </linearGradient>
+      <mask id="dune-mask">
+        <rect width={width} height={height} fill="url(#dune-fade)"></rect>
+      </mask>
+      <clipPath id="country-clip">
+        <path d={allRegions}></path>
+      </clipPath>
+      <filter id="glow" x="-10%" y="-10%" width="120%" height="120%">
+        <feGaussianBlur stdDeviation="12"></feGaussianBlur>
+      </filter>
+    </defs>
+
+    <g aria-hidden="true">
+      <path d={allRegions} class="glow" filter="url(#glow)"></path>
+      <g clip-path="url(#country-clip)">
+        <rect width={width} height={height} class="land"></rect>
+        <rect width={width} height={height} fill="url(#dune-dots)" mask="url(#dune-mask)" class="dots"></rect>
+      </g>
+      <g class="regions">
+        {regions.map((region) => <path d={region.d}><title>{region.name}</title></path>)}
+      </g>
+    </g>
+
+    <g class="markers">
+      {
+        markers.map((m, i) => {
+          const labelStart = m.x < width * 0.62
+          const name = cityName(m.city)
+          return (
+            <a
+              href="#directory"
+              class="marker"
+              data-city={m.city}
+              style={`--delay:${200 + i * 90}ms; transform-origin:${m.x}px ${m.y}px`}
+              aria-label={t('map.marker', { city: name, count: m.count })}
+            >
+              <circle cx={m.x} cy={m.y} r={m.r + 12} class="marker-ring" />
+              <circle cx={m.x} cy={m.y} r={m.r} class="marker-dot" />
+              <text x={m.x} y={m.y} dy="0.35em" text-anchor="middle" class="marker-count">
+                {m.count}
+              </text>
+              <text
+                x={labelStart ? m.x + m.r + 14 : m.x - m.r - 14}
+                y={m.y}
+                dy="0.35em"
+                text-anchor={labelStart ? 'start' : 'end'}
+                class="marker-label"
+                direction="ltr"
+              >
+                {name}
+              </text>
+            </a>
+          )
+        })
+      }
+    </g>
+  </svg>
+  <figcaption class="map-caption">
+    <span>{t('map.caption')}</span>
+    <span class="map-credit" dir="ltr">{geo.source.title}, {geo.source.license}</span>
+  </figcaption>
+</figure>
+
+<style>
+  .country-map {
+    margin: 0;
+  }
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .glow {
+    fill: none;
+    stroke: #173a28;
+    stroke-width: 14;
+    opacity: 0.12;
+  }
+
+  .land {
+    fill: rgb(255 255 255 / 78%);
+  }
+
+  .dots {
+    opacity: 0.35;
+  }
+
+  .regions path {
+    fill: transparent;
+    stroke: #8cc29c;
+    stroke-width: 1.6;
+    stroke-linejoin: round;
+    transition: fill 200ms ease;
+  }
+
+  .regions path:hover {
+    fill: rgb(61 150 83 / 8%);
+  }
+
+  .marker {
+    cursor: pointer;
+    outline: none;
+    animation: marker-in 500ms cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+    animation-delay: var(--delay);
+  }
+
+  @keyframes marker-in {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .marker-ring {
+    fill: rgb(61 150 83 / 16%);
+    stroke: none;
+    transition: fill 150ms ease;
+  }
+
+  .marker-dot {
+    fill: #173a28;
+    stroke: #fff;
+    stroke-width: 4;
+  }
+
+  .marker-count {
+    fill: #fff;
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    pointer-events: none;
+  }
+
+  .marker-label {
+    fill: #173a28;
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    paint-order: stroke;
+    stroke: #fff;
+    stroke-width: 8px;
+    stroke-linejoin: round;
+  }
+
+  :global(:root[lang='ar']) .marker-label {
+    font-size: 34px;
+  }
+
+  /* On phones the map renders small, so labels scale up in map units to stay readable. */
+  @media (max-width: 640px) {
+    .marker-label,
+    :global(:root[lang='ar']) .marker-label {
+      font-size: 46px;
+      stroke-width: 10px;
+    }
+    .marker-count {
+      font-size: 30px;
+    }
+  }
+
+  .marker:hover .marker-ring,
+  .marker:focus-visible .marker-ring {
+    fill: rgb(61 150 83 / 32%);
+  }
+
+  .marker:focus-visible .marker-dot {
+    stroke: #2f6fe0;
+  }
+
+  .marker[aria-current='true'] .marker-dot {
+    fill: #3d9653;
+  }
+
+  .marker[aria-current='true'] .marker-ring {
+    fill: rgb(61 150 83 / 35%);
+  }
+
+  .map-caption {
+    margin-top: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    font-size: 0.82rem;
+    color: #2c3a32;
+  }
+
+  .map-credit {
+    color: #5f6d65;
+  }
+</style>

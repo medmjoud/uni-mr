@@ -1,0 +1,234 @@
+---
+import { Menu } from '@lucide/astro'
+import Logo from './Logo.astro'
+import { NAV } from '@/lib/site'
+import { LOCALES, LOCALE_META, localePath, useTranslations, type Locale } from '@/i18n'
+
+interface Props {
+  lang: Locale
+  /** Locale-free path of the current page, for the language switcher */
+  path: string
+}
+
+const { lang, path } = Astro.props
+const { t } = useTranslations(lang)
+---
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a href={localePath(lang, '/')} class="home" aria-label="UniMauritania">
+      <Logo />
+    </a>
+
+    <nav aria-label="Main" class="nav-desktop">
+      <ul>
+        {
+          NAV.map((item) => (
+            <li>
+              <a
+                href={localePath(lang, item.path)}
+                class="nav-link"
+                aria-current={path === item.path ? 'page' : undefined}
+              >
+                {t(item.label)}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="actions">
+      <nav class="lang-switch" aria-label={t('nav.language')}>
+        {
+          LOCALES.map((l) => (
+            <a
+              href={localePath(l, path)}
+              hreflang={LOCALE_META[l].htmlLang}
+              lang={LOCALE_META[l].htmlLang}
+              aria-current={l === lang ? 'true' : undefined}
+              title={LOCALE_META[l].label}
+            >
+              {LOCALE_META[l].short}
+            </a>
+          ))
+        }
+      </nav>
+
+      <details class="mobile-nav">
+        <summary class="btn btn-quiet" aria-label={t('nav.menu')}>
+          <Menu class="icon" aria-hidden="true" />
+          <span class="menu-label">{t('nav.menu')}</span>
+        </summary>
+        <ul>
+          {
+            NAV.map((item) => (
+              <li>
+                <a href={localePath(lang, item.path)}>{t(item.label)}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </details>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    border-bottom: 1px solid rgb(12 42 31 / 8%);
+    background: color-mix(in oklab, var(--bg) 82%, transparent);
+    backdrop-filter: saturate(160%) blur(14px);
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 4.25rem;
+  }
+
+  .home {
+    text-decoration: none;
+  }
+
+  .nav-desktop ul {
+    display: none;
+    gap: 0.25rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  @media (min-width: 1024px) {
+    .nav-desktop ul {
+      display: flex;
+    }
+  }
+
+  .nav-link {
+    display: block;
+    border-radius: 999px;
+    padding: 0.45rem 0.85rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 150ms ease, background-color 150ms ease;
+  }
+
+  .nav-link:hover {
+    color: var(--ink);
+    background: rgb(12 42 31 / 5%);
+  }
+
+  .nav-link[aria-current='page'] {
+    color: var(--emerald-800);
+    background: var(--emerald-50);
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .lang-switch {
+    display: flex;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: var(--surface);
+    padding: 3px;
+  }
+
+  .lang-switch a {
+    min-width: 2.2rem;
+    border-radius: 999px;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  .lang-switch a[lang='ar'] {
+    font-size: 0.95rem;
+    line-height: 1.25;
+  }
+
+  .lang-switch a:hover {
+    color: var(--ink);
+  }
+
+  .lang-switch a[aria-current='true'] {
+    background: var(--emerald-800);
+    color: #fff;
+  }
+
+  .mobile-nav {
+    position: relative;
+  }
+
+  @media (min-width: 1024px) {
+    .mobile-nav {
+      display: none;
+    }
+  }
+
+  .mobile-nav summary {
+    list-style: none;
+    padding: 0.55rem 0.9rem;
+  }
+
+  @media (max-width: 480px) {
+    .menu-label {
+      display: none;
+    }
+    .mobile-nav summary {
+      padding: 0.6rem;
+    }
+    .lang-switch a {
+      min-width: 1.9rem;
+      padding-inline: 0.45rem;
+    }
+  }
+
+  .mobile-nav summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-nav ul {
+    position: absolute;
+    inset-inline-end: 0;
+    top: calc(100% + 0.5rem);
+    min-width: 14rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    padding: 0.4rem;
+    box-shadow: var(--shadow-lift);
+  }
+
+  .mobile-nav a {
+    display: block;
+    border-radius: 10px;
+    padding: 0.65rem 0.85rem;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .mobile-nav a:hover {
+    background: var(--emerald-50);
+  }
+</style>
+
+<script>
+  // Close the mobile menu after choosing a same-page anchor.
+  document.querySelectorAll<HTMLDetailsElement>('.mobile-nav').forEach((menu) => {
+    menu.addEventListener('click', (event) => {
+      if ((event.target as HTMLElement).closest('a')) menu.open = false
+    })
+  })
+</script>

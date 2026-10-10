@@ -1,0 +1,389 @@
+---
+import { ExternalLink, FileCheck, Globe, Building, Plus } from '@lucide/astro'
+import Layout from '@/layouts/Layout.astro'
+import { getContext } from '@/lib/context'
+import { langParams, toLocale, useTranslations } from '@/i18n'
+
+export function getStaticPaths() {
+  return langParams().map((params) => ({ params }))
+}
+
+const lang = toLocale(Astro.params.lang)
+const { t } = useTranslations(lang)
+const { admissions, system, faq } = getContext(lang)
+const sources = [...admissions.sources, ...system.sources].filter(
+  (s, i, all) => all.findIndex((o) => o.url === s.url) === i,
+)
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: lang,
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+}
+---
+
+<Layout lang={lang} title={t('adm.title')} description={t('adm.meta')} jsonLd={jsonLd}>
+  <header class="page-band">
+    <div class="wrap py-14 md:py-20">
+      <h1 class="display page-title">{t('adm.title')}</h1>
+      <p class="page-band-lede mt-5 text-lg measure">{t('adm.intro')}</p>
+      {
+        admissions.platform && (
+          <a class="btn btn-primary mt-8" href={admissions.platform.url} rel="noopener">
+            {admissions.platform.name}
+            <ExternalLink class="icon" aria-hidden="true" />
+          </a>
+        )
+      }
+    </div>
+  </header>
+
+  <div class="wrap grid gap-10 py-14 lg:grid-cols-[minmax(0,1fr)_21rem]">
+    <div class="grid gap-14">
+      <section aria-labelledby="steps">
+        <h2 id="steps" class="headline text-2xl md:text-3xl">{t('adm.steps')}</h2>
+        <ol class="timeline">
+          {
+            admissions.steps.map((step, i) => (
+              <li>
+                <span class="timeline-n" aria-hidden="true">{i + 1}</span>
+                <div class="card timeline-body">
+                  <h3 class="timeline-title">{step.title}</h3>
+                  <p class="text-[0.98rem]">{step.description}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      {
+        admissions.bacSeries.length > 0 && (
+          <section aria-labelledby="series">
+            <h2 id="series" class="headline text-2xl md:text-3xl">{t('adm.series')}</h2>
+            <div class="series-grid">
+              {admissions.bacSeries.map((s) => (
+                <article class="card series">
+                  <div class="flex items-center gap-3">
+                    <span class="series-code" dir="ltr">{s.code}</span>
+                    <h3 class="series-name">{s.name}</h3>
+                  </div>
+                  <p class="mt-3 text-[0.95rem] text-muted">{s.typicalPaths}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+        )
+      }
+
+      <section aria-labelledby="degrees">
+        <h2 id="degrees" class="headline text-2xl md:text-3xl">{t('adm.degrees')}</h2>
+        <ol class="degrees">
+          {
+            system.structure.map((s, i) => (
+              <li class="card degree">
+                <span class="degree-years">{s.duration}</span>
+                <h3 class="degree-name">{s.degree}</h3>
+                <p class="text-[0.95rem] text-muted">{s.description}</p>
+                {i < system.structure.length - 1 && <Plus class="degree-plus" aria-hidden="true" />}
+              </li>
+            ))
+          }
+        </ol>
+        <div class="card mt-4 grid gap-3 p-5 text-[0.95rem] md:grid-cols-2">
+          <p>{system.languages}</p>
+          <p>{system.calendar}</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="faq">
+        <h2 id="faq" class="headline text-2xl md:text-3xl">{t('adm.faq')}</h2>
+        <div class="faq">
+          {
+            faq.map((item) => (
+              <details class="card">
+                <summary>{item.q}</summary>
+                <p>{item.a}</p>
+              </details>
+            ))
+          }
+        </div>
+      </section>
+    </div>
+
+    <aside class="aside">
+      <section class="card p-5">
+        <h2 class="aside-title"><FileCheck class="icon" aria-hidden="true" />{t('adm.documents')}</h2>
+        <ul class="checklist">
+          {admissions.documents.map((doc) => <li>{doc}</li>)}
+        </ul>
+      </section>
+
+      <section class="card p-5">
+        <h2 class="aside-title"><Globe class="icon" aria-hidden="true" />{t('adm.abroad')}</h2>
+        <p class="text-[0.95rem]">{admissions.international}</p>
+      </section>
+
+      <section class="card p-5">
+        <h2 class="aside-title"><Building class="icon" aria-hidden="true" />{t('adm.bodies')}</h2>
+        <ul class="space-y-2 text-[0.95rem]">
+          <li><a class="link" href={system.ministry.url}>{system.ministry.name}</a></li>
+          {system.qualityAgency?.url && <li><a class="link" href={system.qualityAgency.url}>{system.qualityAgency.name}</a></li>}
+          {system.studentServices?.url && <li><a class="link" href={system.studentServices.url}>{system.studentServices.name}</a></li>}
+        </ul>
+      </section>
+
+      <section class="card p-5">
+        <h2 class="aside-title">{t('common.sources')}</h2>
+        <ul class="source-list">
+          {sources.map((s) => <li><a href={s.url}>{s.title}</a></li>)}
+        </ul>
+      </section>
+    </aside>
+  </div>
+</Layout>
+
+<style>
+  .page-title {
+    font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+  }
+
+  .timeline {
+    position: relative;
+    margin-top: 1.75rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: 1.3rem;
+    top: 1rem;
+    bottom: 1rem;
+    width: 2px;
+    background: var(--emerald-100);
+  }
+
+  .timeline li {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2.6rem 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .timeline-n {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 50%;
+    background: var(--emerald-700);
+    color: #fff;
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-weight: 700;
+    box-shadow: 0 0 0 5px var(--bg);
+  }
+
+  .timeline-body {
+    padding: 1.1rem 1.25rem;
+  }
+
+  .timeline-title {
+    margin-bottom: 0.35rem;
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--ink);
+  }
+
+  .series-grid {
+    margin-top: 1.5rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 720px) {
+    .series-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .series {
+    padding: 1.2rem 1.25rem;
+  }
+
+  .series-code {
+    display: inline-grid;
+    place-items: center;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 10px;
+    background: var(--emerald-50);
+    color: var(--emerald-700);
+    padding-inline: 0.5rem;
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .series-name {
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .degrees {
+    margin-top: 1.5rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .degrees {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .degree {
+    position: relative;
+    padding: 1.25rem;
+  }
+
+  .degree-years {
+    display: inline-block;
+    border-radius: 999px;
+    background: var(--gold-50);
+    color: var(--gold-700);
+    padding: 0.1rem 0.65rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .degree-name {
+    margin: 0.7rem 0 0.35rem;
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-weight: 650;
+    font-size: 1.25rem;
+    color: var(--ink);
+  }
+
+  .degree-plus {
+    display: none;
+  }
+
+  .faq {
+    margin-top: 1.5rem;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .faq details {
+    padding: 0 1.25rem;
+  }
+
+  .faq summary {
+    position: relative;
+    cursor: pointer;
+    list-style: none;
+    padding: 1.1rem 0;
+    padding-inline-end: 2rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .faq summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq summary::after {
+    content: '+';
+    position: absolute;
+    inset-inline-end: 0;
+    top: 50%;
+    translate: 0 -50%;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--emerald-600);
+    transition: rotate 200ms ease;
+  }
+
+  .faq details[open] summary::after {
+    rotate: 45deg;
+  }
+
+  .faq details p {
+    padding-bottom: 1.2rem;
+    color: var(--text);
+  }
+
+  .aside {
+    display: grid;
+    gap: 1rem;
+    align-content: start;
+  }
+
+  .aside-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.9rem;
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .aside-title :global(.icon) {
+    color: var(--emerald-600);
+  }
+
+  .checklist {
+    display: grid;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+  }
+
+  .checklist li {
+    position: relative;
+    padding-inline-start: 1.7rem;
+  }
+
+  .checklist li::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0.3em;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid var(--emerald-600);
+    border-radius: 5px;
+  }
+
+  .source-list {
+    display: grid;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    line-height: 1.45;
+  }
+
+  .source-list a {
+    color: var(--muted);
+    text-decoration: underline;
+    text-decoration-color: var(--line-strong);
+    text-underline-offset: 3px;
+    overflow-wrap: anywhere;
+  }
+
+  .source-list a:hover {
+    color: var(--emerald-700);
+    text-decoration-color: currentColor;
+  }
+</style>

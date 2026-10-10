@@ -1,0 +1,113 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '@/layouts/Layout.astro'
+import { LAST_VERIFIED, getInstitutions } from '@/lib/institutions'
+import { CORRECTIONS_URL } from '@/lib/site'
+import { langParams, toLocale, useTranslations } from '@/i18n'
+import geo from '@/data/geo/mauritania.json'
+
+export function getStaticPaths() {
+  return langParams().map((params) => ({ params }))
+}
+
+const lang = toLocale(Astro.params.lang)
+const { t, date } = useTranslations(lang)
+const institutions = await getInstitutions()
+const indicators = await getCollection('indicators')
+const sourceCount = new Set(institutions.flatMap((e) => e.data.sources.map((s) => s.url))).size
+const withWebsite = institutions.filter((e) => e.data.website).length
+const campusMapped = institutions.filter((e) => e.data.coordinatesPrecision === 'campus').length
+const verified = date(LAST_VERIFIED)
+
+const stats = [
+  [t('about.statInstitutions'), institutions.length],
+  [t('about.statSources'), sourceCount],
+  [t('about.statWebsites'), withWebsite],
+  [t('about.statCampus'), campusMapped],
+] as const
+---
+
+<Layout lang={lang} title={t('about.title')} description={t('about.meta')}>
+  <header class="page-band">
+    <div class="wrap py-14 md:py-20">
+      <h1 class="display page-title">{t('about.title')}</h1>
+      <dl class="stats">
+        {stats.map(([label, value]) => <div><dt>{label}</dt><dd>{value}</dd></div>)}
+      </dl>
+    </div>
+  </header>
+
+  <div class="wrap grid gap-8 py-14 lg:grid-cols-[minmax(0,1fr)_21rem]">
+    <article class="card prose-block p-6 text-[1.05rem] md:p-10">
+      <div class="measure">
+        <p>{t('about.p1')}</p>
+        <p>{t('about.p2')}</p>
+        <p>{t('about.p3', { date: verified })}</p>
+        <p>{t('about.p4')}</p>
+        <h2 class="headline mt-10 text-2xl">{t('about.mistakeTitle')}</h2>
+        <p class="mt-3">{t('about.mistakeText')}</p>
+        <a class="btn btn-primary mt-6" href={CORRECTIONS_URL}>{t('footer.report')}</a>
+      </div>
+    </article>
+
+    <aside class="card h-fit p-6">
+      <h2 class="font-semibold text-[var(--ink)]">{t('about.openData')}</h2>
+      <ul class="mt-4 space-y-3 text-[0.95rem]">
+        <li><a class="link" href={geo.source.url}>{geo.source.title}</a>, {geo.source.license}</li>
+        <li>
+          <a class="link" href="https://data.worldbank.org/country/mauritania">World Bank Open Data</a>,
+          {t('about.indicators', { count: indicators.length })}
+        </li>
+        <li><a class="link" href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, {t('about.tiles')}, ODbL</li>
+        <li><a class="link" href="https://www.wikidata.org">Wikidata</a>, CC0</li>
+      </ul>
+      <p class="mt-6 text-sm text-muted">{t('about.statChecked')}: {verified}</p>
+    </aside>
+  </div>
+</Layout>
+
+<style>
+  .page-title {
+    font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+  }
+
+  .stats {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    max-width: 48rem;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  @media (min-width: 720px) {
+    .stats {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  .stats div {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 0.2rem;
+    background: #fff;
+    padding: 1rem 1.2rem;
+  }
+
+  .stats dt {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .stats dd {
+    margin: 0;
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    color: var(--emerald-700);
+    font-variant-numeric: tabular-nums;
+  }
+</style>

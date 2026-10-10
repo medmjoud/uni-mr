@@ -1,0 +1,61 @@
+---
+interface Props {
+  inverted?: boolean
+}
+const { inverted = false } = Astro.props
+---
+
+<!-- Wordmark only: a two-weight name with a dune-shaped stroke under "Uni". -->
+<span class:list={['logo', { inverted }]}>
+  <span class="uni">Uni<svg class="dune" viewBox="0 0 40 8" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M1 6.5C9 1.5 15 1 20 3.5S31 7.5 39 2" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path>
+    </svg></span><span class="rest">Mauritania</span>
+</span>
+
+<style>
+  .logo {
+    display: inline-flex;
+    align-items: baseline;
+    color: var(--ink);
+    font-size: 1.3rem;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    direction: ltr;
+    white-space: nowrap;
+  }
+
+  .uni {
+    position: relative;
+    font-weight: 700;
+    color: var(--emerald-700);
+  }
+
+  .dune {
+    position: absolute;
+    left: 0;
+    right: 0.05em;
+    bottom: -0.42em;
+    width: calc(100% - 0.05em);
+    height: 0.36em;
+    color: var(--gold-400);
+    overflow: visible;
+  }
+
+  .rest {
+    font-weight: 400;
+  }
+
+  @media (max-width: 380px) {
+    .logo {
+      font-size: 1.12rem;
+    }
+  }
+
+  .inverted {
+    color: #fff;
+  }
+
+  .inverted .uni {
+    color: var(--gold-300);
+  }
+</style>

@@ -1,0 +1,72 @@
+---
+import Logo from './Logo.astro'
+import { CORRECTIONS_URL, NAV } from '@/lib/site'
+import { LAST_VERIFIED } from '@/lib/institutions'
+import { localePath, useTranslations, type Locale } from '@/i18n'
+
+interface Props {
+  lang: Locale
+}
+
+const { lang } = Astro.props
+const { t, date } = useTranslations(lang)
+---
+
+<footer class="site-footer">
+  <div class="wrap grid gap-10 py-14 md:grid-cols-[1.5fr_1fr_1fr]">
+    <div>
+      <Logo />
+      <p class="mt-4 max-w-sm text-[0.95rem] text-muted">
+        {t('footer.about', { date: date(LAST_VERIFIED) })}
+      </p>
+    </div>
+
+    <div>
+      <h2 class="footer-title">{t('footer.explore')}</h2>
+      <ul class="mt-4 space-y-2.5">
+        {
+          NAV.map((item) => (
+            <li>
+              <a href={localePath(lang, item.path)}>{t(item.label)}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="footer-title">{t('footer.helpTitle')}</h2>
+      <p class="mt-4 text-[0.95rem] text-muted">{t('footer.helpText')}</p>
+      <a class="btn btn-quiet mt-5" href={CORRECTIONS_URL}>{t('footer.report')}</a>
+    </div>
+  </div>
+
+  <div class="wrap border-t border-[var(--line)] py-6 text-sm text-muted">
+    {t('footer.disclaimer')}
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 2rem;
+    border-top: 1px solid var(--line);
+    background: var(--mint);
+    color: var(--text);
+  }
+
+  .site-footer ul a {
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .site-footer ul a:hover {
+    color: var(--emerald-700);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .footer-title {
+    font-weight: 600;
+    color: var(--ink);
+  }
+</style>

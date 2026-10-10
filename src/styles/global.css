@@ -1,0 +1,325 @@
+@import 'tailwindcss';
+
+/*
+  UniMauritania design tokens.
+  Light and calm: soft mint surfaces, deep forest-green ink, a fresh mid green for
+  accents and figures. Actions use the deep ink green so they stand out without a loud colour.
+*/
+:root {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f6faf7;
+  --ink: #173a28;
+  --text: #2c3a32;
+  --muted: #5f6d65;
+  --line: #e2eae4;
+  --line-strong: #cdd9d0;
+
+  /* Greens (names kept from the previous palette so components stay stable) */
+  --emerald-950: #173a28;
+  --emerald-900: #1d4632;
+  --emerald-800: #24573d;
+  --emerald-700: #2f7a45;
+  --emerald-600: #3d9653;
+  --emerald-100: #d9eedf;
+  --emerald-50: #eef7f1;
+  --mint: #f1f8f3;
+
+  /* Warm accent, from the flag's yellow, toned down for text and tags */
+  --gold-50: #fff8e1;
+  --gold-200: #fbe8a8;
+  --gold-300: #f5d776;
+  --gold-400: #f0c43c;
+  --gold-500: #ddaa1a;
+  --gold-700: #7a5a00;
+
+
+  --clay: #d63b30;
+  --focus: #2f6fe0;
+
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 8px;
+  --shadow-card: 0 1px 2px rgb(23 58 40 / 5%);
+  --shadow-lift: 0 10px 30px -14px rgb(23 58 40 / 25%);
+
+  color-scheme: light;
+}
+
+@theme {
+  --font-sans: var(--font-readex), system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-readex), system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Arabic needs a little more line height and a touch more size to read comfortably. */
+:root[lang='ar'] body {
+  font-size: 1.125rem;
+  line-height: 1.85;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Type scale (1.25 ratio), display set in Alexandria */
+.display {
+  font-family: var(--font-readex), system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.headline {
+  font-family: var(--font-readex), system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+:root[lang='ar'] .display,
+:root[lang='ar'] .headline {
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+
+.measure {
+  max-width: 64ch;
+}
+
+.wrap {
+  margin-inline: auto;
+  max-width: 78rem;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 768px) {
+  .wrap {
+    padding-inline: 2rem;
+  }
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+/* Links and buttons */
+.link {
+  color: var(--emerald-700);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--emerald-600) 35%, transparent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 150ms ease, color 150ms ease;
+}
+
+.link:hover {
+  color: var(--emerald-800);
+  text-decoration-color: currentColor;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1.25rem;
+  font-weight: 500;
+  font-size: 0.97rem;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease,
+    border-color 150ms ease;
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--emerald-800);
+}
+
+.btn-quiet {
+  border-color: var(--line-strong);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.btn-quiet:hover {
+  border-color: var(--ink);
+}
+
+/* Icons inside text flow; arrows flip in right-to-left layouts. */
+.icon {
+  width: 1.1em;
+  height: 1.1em;
+  flex-shrink: 0;
+}
+
+:root[dir='rtl'] .flip-rtl {
+  transform: scaleX(-1);
+}
+
+/* Small tag for fields of study and degree names */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: var(--emerald-50);
+  color: var(--emerald-800);
+  padding: 0.2rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+a.tag:hover {
+  background: var(--emerald-100);
+}
+
+.tag-gold {
+  background: var(--gold-50);
+  color: var(--gold-700);
+}
+
+/* Cards: one radius for containers, smaller radii for controls inside them */
+.card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+/* Form controls */
+.field {
+  width: 100%;
+  appearance: none;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.95rem;
+  padding: 0.65rem 0.85rem;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.field:hover {
+  border-color: var(--muted);
+}
+
+.field:focus-visible {
+  outline: none;
+  border-color: var(--emerald-600);
+  box-shadow: 0 0 0 4px rgb(18 115 77 / 15%);
+}
+
+select.field {
+  padding-inline-end: 2.4rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%235d6b64' stroke-width='1.6'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+}
+
+:root[dir='rtl'] select.field {
+  background-position: left 0.85rem center;
+}
+
+.section-title {
+  font-family: var(--font-readex), system-ui, sans-serif;
+  font-weight: 650;
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.prose-block p + p {
+  margin-top: 1em;
+}
+
+.visually-hidden:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Page header band used by inner pages: the hero's mint, without the map. */
+.page-band {
+  position: relative;
+  background: var(--mint);
+  border-bottom: 1px solid var(--line);
+}
+
+.page-band-lede {
+  color: var(--text);
+}
+
+/* Outlined pill used as a small label above hero headlines */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1.5px solid var(--emerald-700);
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--emerald-700);
+}
+
+/* A name in the other script lines up with the page's reading edge, not its own. */
+:root[dir='ltr'] .alt-script {
+  text-align: left;
+}
+
+:root[dir='rtl'] .alt-script {
+  text-align: right;
+}

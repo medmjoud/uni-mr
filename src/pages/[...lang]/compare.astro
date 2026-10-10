@@ -1,0 +1,228 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { getInstitutions, hostname, localized } from '@/lib/institutions'
+import { langParams, localePath, toLocale, useTranslations } from '@/i18n'
+
+export function getStaticPaths() {
+  return langParams().map((params) => ({ params }))
+}
+
+const lang = toLocale(Astro.params.lang)
+const { t, term, city, num } = useTranslations(lang)
+const institutions = await getInstitutions()
+
+// Everything the comparison table needs, keyed by id, rendered client-side from ?ids=.
+const payload = Object.fromEntries(
+  institutions.map((e) => {
+    const d = e.data
+    const name = lang === 'ar' && d.nameAr ? d.nameAr : d.name
+    return [
+      e.id,
+      {
+        name,
+        alt: lang === 'ar' ? (d.nameAr ? d.name : null) : d.nameAr,
+        href: localePath(lang, `/universities/${e.id}/`),
+        rows: [
+          [t('cmp.rowType'), `${t(`type.${d.type}`)}, ${t(`cat.${d.category}`)}`],
+          [t('cmp.rowCity'), city(d.city)],
+          [t('cmp.rowFounded'), d.founded ? String(d.founded) : null],
+          [
+            t('cmp.rowStudents'),
+            d.studentCount ? `${num(d.studentCount)}${d.studentCountYear ? ` (${d.studentCountYear})` : ''}` : null,
+          ],
+          [t('cmp.rowFields'), d.fields.map(term).join(', ')],
+          [t('cmp.rowDegrees'), d.degrees.map(term).join(', ') || null],
+          [t('cmp.rowLanguages'), d.languages.map(term).join(', ') || null],
+          [t('cmp.rowWebsite'), d.website ? hostname(d.website) : null],
+          [t('cmp.rowAdmission'), localized(e, lang).admission],
+        ],
+      },
+    ]
+  }),
+)
+---
+
+<Layout lang={lang} title={t('cmp.title')} description={t('cmp.meta')}>
+  <header class="page-band">
+    <div class="wrap py-14 md:py-16">
+      <h1 class="display text-[clamp(2.2rem,5vw,3.8rem)]">{t('cmp.title')}</h1>
+      <p class="page-band-lede mt-4 measure">{t('cmp.intro')}</p>
+    </div>
+  </header>
+
+  <div class="wrap py-10">
+    <form class="card pickers" data-pickers>
+      {
+        [1, 2, 3].map((n) => (
+          <label class="flex flex-col gap-1.5">
+            <span class="text-sm font-semibold text-muted">{t('cmp.pick', { n })}</span>
+            <select class="field" name="pick">
+              <option value="">{t('cmp.choose')}</option>
+              {institutions.map((e) => (
+                <option value={e.id}>
+                  {e.data.acronym ? `${e.data.acronym}, ` : ''}
+                  {lang === 'ar' && e.data.nameAr ? e.data.nameAr : e.data.name}
+                </option>
+              ))}
+            </select>
+          </label>
+        ))
+      }
+    </form>
+
+    <div class="card table-wrap" data-table-wrap hidden>
+      <table class="compare" data-table></table>
+    </div>
+    <p class="card empty" data-empty data-not-published={t('common.notPublished')}>{t('cmp.empty')}</p>
+  </div>
+
+  <script is:inline type="application/json" id="compare-data" set:html={JSON.stringify(payload)} />
+</Layout>
+
+<style>
+  .pickers {
+    display: grid;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .pickers {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .table-wrap {
+    margin-top: 1.5rem;
+    overflow-x: auto;
+    padding: 0.5rem 1.25rem;
+  }
+
+  .compare {
+    width: 100%;
+    min-width: 42rem;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  .compare :global(th),
+  .compare :global(td) {
+    border-bottom: 1px solid var(--line);
+    padding: 0.9rem 1rem;
+    padding-inline-start: 0;
+    text-align: start;
+    vertical-align: top;
+    font-size: 0.95rem;
+  }
+
+  .compare :global(tr:last-child th),
+  .compare :global(tr:last-child td) {
+    border-bottom: 0;
+  }
+
+  .compare :global(thead th) {
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1.3;
+    color: var(--ink);
+  }
+
+  .compare :global(thead a) {
+    color: inherit;
+    text-decoration-color: var(--emerald-600);
+    text-underline-offset: 4px;
+  }
+
+  .compare :global(tbody th) {
+    width: 10rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .compare :global(.missing) {
+    color: var(--muted);
+  }
+
+  .compare :global(.alt) {
+    display: block;
+    margin-top: 0.25rem;
+    font-family: var(--font-readex), sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .empty {
+    margin-top: 1.5rem;
+    padding: 2.5rem;
+    text-align: center;
+    color: var(--muted);
+  }
+</style>
+
+<script>
+  type Entry = { name: string; alt: string | null; href: string; rows: [string, string | null][] }
+  const data: Record<string, Entry> = JSON.parse(document.getElementById('compare-data')!.textContent!)
+  const form = document.querySelector<HTMLFormElement>('[data-pickers]')!
+  const selects = [...form.querySelectorAll<HTMLSelectElement>('select')]
+  const table = document.querySelector<HTMLTableElement>('[data-table]')!
+  const wrap = document.querySelector<HTMLElement>('[data-table-wrap]')!
+  const empty = document.querySelector<HTMLElement>('[data-empty]')!
+  const notPublished = empty.dataset.notPublished!
+
+  const ids = (new URLSearchParams(location.search).get('ids') ?? '')
+    .split(',')
+    .filter((id) => id in data)
+    .slice(0, 3)
+  ids.forEach((id, i) => (selects[i].value = id))
+
+  function el<K extends keyof HTMLElementTagNameMap>(tag: K, text?: string, className?: string) {
+    const node = document.createElement(tag)
+    if (text !== undefined) node.textContent = text
+    if (className) node.className = className
+    return node
+  }
+
+  function render() {
+    const chosen = [...new Set(selects.map((s) => s.value).filter(Boolean))]
+    history.replaceState(null, '', chosen.length ? `?ids=${chosen.join(',')}` : location.pathname)
+
+    wrap.hidden = chosen.length < 2
+    empty.hidden = chosen.length >= 2
+    if (chosen.length < 2) return
+
+    const entries = chosen.map((id) => data[id])
+    const headRow = el('tr')
+    headRow.append(el('td'))
+    for (const e of entries) {
+      const th = el('th')
+      th.scope = 'col'
+      const link = el('a', e.name)
+      link.href = e.href
+      th.append(link)
+      if (e.alt) th.append(el('span', e.alt, 'alt'))
+      headRow.append(th)
+    }
+    const head = el('thead')
+    head.append(headRow)
+
+    const body = el('tbody')
+    entries[0].rows.forEach(([label], r) => {
+      const tr = el('tr')
+      const th = el('th', label)
+      th.scope = 'row'
+      tr.append(th)
+      for (const e of entries) {
+        const value = e.rows[r][1]
+        tr.append(el('td', value ?? notPublished, value ? undefined : 'missing'))
+      }
+      body.append(tr)
+    })
+
+    table.replaceChildren(head, body)
+  }
+
+  form.addEventListener('change', render)
+  render()
+</script>

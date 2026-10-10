@@ -1,0 +1,2036 @@
+[
+  {
+    "id": "universite-de-nouakchott",
+    "name": "Université de Nouakchott",
+    "nameAr": "جامعة نواكشوط",
+    "nameEn": "University of Nouakchott",
+    "acronym": "UN",
+    "type": "public",
+    "category": "university",
+    "city": "Nouakchott",
+    "wilaya": "Nouakchott-Ouest",
+    "founded": 1981,
+    "studentCount": 30000,
+    "studentCountYear": 2025,
+    "faculties": [
+      "Faculté des Sciences et Techniques",
+      "Faculté de Médecine",
+      "Faculté des Lettres et des Sciences Humaines",
+      "Faculté des Sciences Juridiques et Politiques",
+      "Faculté d'Économie et de Gestion",
+      "Institut Universitaire Professionnel"
+    ],
+    "fields": [
+      "Sciences",
+      "Engineering",
+      "Computer Science",
+      "Medicine",
+      "Health",
+      "Law",
+      "Economics",
+      "Business",
+      "Humanities",
+      "Statistics"
+    ],
+    "degrees": [
+      "Licence",
+      "Master",
+      "Doctorat",
+      "Doctorat en médecine"
+    ],
+    "languages": [
+      "Arabic",
+      "French"
+    ],
+    "website": "https://www.univ-nkc.mr",
+    "email": "info.un@univ-nkc.mr",
+    "phone": null,
+    "coordinates": [
+      18.1609,
+      -15.9923
+    ],
+    "coordinatesPrecision": "campus",
+    "wikidata": "Q3119358",
+    "wikipedia": "https://fr.wikipedia.org/wiki/Université_de_Nouakchott_Al_Aasriya",
+    "summary": "The University of Nouakchott is Mauritania's main public university and by far its largest higher-education institution. Its current form dates from July 2016, when the original University of Nouakchott (founded 1981) merged with the Université des Sciences, de Technologie et de Médecine (USTM) under the name Université de Nouakchott Al Aasriya; the institution now presents itself simply as Université de Nouakchott. It offers Licence, Master and Doctorat programmes across sciences, medicine, law, economics and the humanities.",
+    "highlights": [
+      "Original University of Nouakchott created on 16 September 1981 (ordonnance no. 81.208).",
+      "Merged with the USTM in July 2016 (decree no. 2016-138) to form the Université de Nouakchott Al Aasriya.",
+      "In March 2025 the government approved splitting the former law and economics faculty into a Faculty of Legal and Political Sciences and a Faculty of Economics and Management.",
+      "In October 2025 the Council of Ministers approved a draft decree creating a national school of architecture attached to the university.",
+      "WHED lists about 30,000 students and 599 full-time staff for 2024-2025."
+    ],
+    "admission": null,
+    "sources": [
+      {
+        "title": "Université de Nouakchott – official website (Présentation)",
+        "url": "https://www.univ-nkc.mr/content/presentation"
+      },
+      {
+        "title": "Université de Nouakchott – official website (home, faculties menu)",
+        "url": "https://www.univ-nkc.mr"
+      },
+      {
+        "title": "Wikipédia (fr) – Université de Nouakchott Al Aasriya",
+        "url": "https://fr.wikipedia.org/wiki/Universit%C3%A9_de_Nouakchott_Al_Aasriya"
+      },
+      {
+        "title": "Wikidata – Q3119358",
+        "url": "https://www.wikidata.org/wiki/Q3119358"
+      },
+      {
+        "title": "WHED (IAU) – Université de Nouakchott Al Aasriya",
+        "url": "https://whed.net/institutions/IAU-019633"
+      },
+      {
+        "title": "AMI – Création d'une faculté des sciences juridiques et politiques et d'une faculté des sciences économiques et de gestion (12 Mar 2025)",
+        "url": "https://www.ami.mr/archives/223266"
+      },
+      {
+        "title": "AMI – Création d'une école nationale d'architecture rattachée à l'Université de Nouakchott (15 Oct 2025)",
+        "url": "https://www.ami.mr/archives/241061"
+      },
+      {
+        "title": "OpenStreetMap – Université de Nouakchott Al Asrya campus (way 228762881)",
+        "url": "https://www.openstreetmap.org/way/228762881"
+      },
+      {
+        "title": "MESRS – Universités publiques (archived 17 Mar 2026)",
+        "url": "https://web.archive.org/web/20260317154002/https://www.mesrs.gov.mr/fr/universites-publiques-0"
+      }
+    ]
+  },
+  {
+    "id": "universite-des-sciences-islamiques-aioun",
+    "name": "Université des Sciences Islamiques d'Aïoun",
+    "nameAr": "جامعة العلوم الإسلامية بلعيون",
+    "nameEn": "University of Islamic Sciences of Aïoun",
+    "acronym": "USIA",
+    "type": "public",
+    "category": "university",
+    "city": "Aïoun El Atrouss",
+    "wilaya": "Hodh El Gharbi",
+    "founded": 2011,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [
+      "Faculté d'Ousoul Eddine (كلية أصول الدين)",
+      "Faculté de la Charia (كلية الشريعة)",
+      "Faculté de Langue Arabe et des Sciences Humaines (كلية اللغة العربية والعلوم الإنسانية)"
+    ],
+    "fields": [
+      "Islamic Studies",
+      "Law",
+      "Humanities",
+      "Journalism",
+      "Education"
+    ],
+    "degrees": [
+      "Licence",
+      "Master",
+      "Doctorat"
+    ],
+    "languages": [],
+    "website": "https://www.usia.mr",
+    "email": "contact@usia.mr",
+    "phone": "+222 46 44 10 39",
+    "coordinates": [
+      16.6598,
+      -9.6179
+    ],
+    "coordinatesPrecision": "city",
+    "wikidata": "Q6743838",
+    "wikipedia": "https://ar.wikipedia.org/wiki/جامعة_العلوم_الإسلامية_بلعيون",
+    "summary": "The University of Islamic Sciences of Aïoun is a public university in Aïoun El Atrouss, capital of the Hodh El Gharbi region, specialising in Islamic law, theology and Arabic language. It was created by decree no. 112/2011 and is supervised by the ministry in charge of Islamic affairs and traditional education. It is organised in three faculties and runs a doctoral school.",
+    "highlights": [
+      "Created by decree no. 112/2011, approved by the Council of Ministers on 28 April 2011.",
+      "Under the supervision of the Minister of Islamic Affairs and Traditional Education rather than the higher-education ministry.",
+      "Three faculties: Ousoul Eddine, Charia, and Arabic Language & Human Sciences, plus a doctoral school.",
+      "Its programmes cover Islamic jurisprudence, Islamic economics, law, Arabic literature, media and communication, history, and education/psychology (per Arabic Wikipedia).",
+      "Operates external units in Saudi Arabia and the United Arab Emirates (per its admission page)."
+    ],
+    "admission": "Applicants submit a file including the national Baccalauréat (or a Licence for graduate study), ID and civil-status documents, and a health certificate; the registration form is downloaded from the university website.",
+    "sources": [
+      {
+        "title": "USIA – official website (home)",
+        "url": "https://www.usia.mr/ar"
+      },
+      {
+        "title": "USIA – إنشاء الجامعة (creation)",
+        "url": "https://www.usia.mr/ar/creation"
+      },
+      {
+        "title": "USIA – شروط التسجيل (admission)",
+        "url": "https://www.usia.mr/ar/inscription"
+      },
+      {
+        "title": "USIA – اتصل بنا (contact)",
+        "url": "https://www.usia.mr/ar/contact"
+      },
+      {
+        "title": "Wikipedia (ar) – جامعة العلوم الإسلامية بلعيون",
+        "url": "https://ar.wikipedia.org/wiki/%D8%AC%D8%A7%D9%85%D8%B9%D8%A9_%D8%A7%D9%84%D8%B9%D9%84%D9%88%D9%85_%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85%D9%8A%D8%A9_%D8%A8%D9%84%D8%B9%D9%8A%D9%88%D9%86"
+      },
+      {
+        "title": "Wikidata – Q6743838",
+        "url": "https://www.wikidata.org/wiki/Q6743838"
+      },
+      {
+        "title": "OpenStreetMap Nominatim – Aïoun El Atrouss (city centre)",
+        "url": "https://nominatim.openstreetmap.org/search?q=Aioun&format=json"
+      },
+      {
+        "title": "MESRS – Universités publiques (archived 17 Mar 2026)",
+        "url": "https://web.archive.org/web/20260317154002/https://www.mesrs.gov.mr/fr/universites-publiques-0"
+      }
+    ]
+  },
+  {
+    "id": "ecole-superieure-polytechnique",
+    "name": "École Supérieure Polytechnique",
+    "nameAr": null,
+    "nameEn": "Higher Polytechnic School",
+    "acronym": "ESP",
+    "type": "public",
+    "category": "engineering-school",
+    "city": "Nouakchott",
+    "wilaya": "Nouakchott-Ouest",
+    "founded": 2011,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [
+      "Département Génie Civil, Hydraulique et Environnement (GC-HE)",
+      "Département Génie Électrique (GE)",
+      "Département Génie Mécanique (GM)",
+      "Département Informatique, Réseaux et Télécommunications (IRT)",
+      "Département Mines, Pétrole et Gaz (MPG)",
+      "Département Statistique et Ingénierie de Données (SID)"
+    ],
+    "fields": [
+      "Engineering",
+      "Computer Science",
+      "Mining",
+      "Energy",
+      "Statistics"
+    ],
+    "degrees": [
+      "Diplôme d'ingénieur"
+    ],
+    "languages": [],
+    "website": "https://www.esp.mr",
+    "email": "contact@esp.mr",
+    "phone": null,
+    "coordinates": [
+      18.0792,
+      -15.978
+    ],
+    "coordinatesPrecision": "city",
+    "wikidata": null,
+    "wikipedia": null,
+    "summary": "The École Supérieure Polytechnique is Mauritania's national engineering school, based in the Sebkha district of Nouakchott. It belongs to the Groupe Polytechnique, which is jointly supervised by the Ministry of National Defence and the Ministry of Higher Education. It trains engineers in six departments, from civil and electrical engineering to mining and data science.",
+    "highlights": [
+      "Originally set up by a joint ministerial order of 1 August 2011 as the École militaire polytechnique.",
+      "From the 2016-2017 academic year, Mauritania's three existing engineering schools were merged into the ESP.",
+      "Its attached preparatory institute IPGEI (MPSI/MP classes, started 2015, about 210 students) prepares Bac C holders for engineering entrance exams in Mauritania, France, Morocco and Tunisia; it reported a 100% success rate at the French Mines-Ponts common exam in 2020.",
+      "Six engineering departments: GC-HE, GE, GM, IRT, MPG and SID."
+    ],
+    "admission": "Entry to the engineering cycle is through the Concours National d'Ingénieurs de Mauritanie (CNIM): track 1 for students from the IPGEI or foreign preparatory classes, track 2 (file review plus interview) for students in or holding a Licence/Master. IPGEI itself admits Bac C holders under 21 who are oriented there by the higher-education ministry.",
+    "sources": [
+      {
+        "title": "ESP – official website (about/departments content)",
+        "url": "https://www.esp.mr/"
+      },
+      {
+        "title": "Cridem/AMI – L'École Supérieure Polytechnique et son rôle… (10 Aug 2016)",
+        "url": "https://cridem.org/imprimable.php?article=687468"
+      },
+      {
+        "title": "Cridem – IPGEI de Nouakchott : point de départ d'une rénovation majeure… (28 Jul 2020)",
+        "url": "https://cridem.org/imprimable.php?article=738541"
+      },
+      {
+        "title": "IPGEI – Présentation",
+        "url": "http://ipgei.mr/spip.php?article1"
+      },
+      {
+        "title": "IPGEI – home (news: Mines-Ponts 2020 results)",
+        "url": "http://ipgei.mr/"
+      },
+      {
+        "title": "IPGEI – Conditions d'admission",
+        "url": "http://ipgei.mr/spip.php?article5"
+      },
+      {
+        "title": "IPGEI – Concours national (CNIM)",
+        "url": "http://ipgei.mr/spip.php?article6"
+      },
+      {
+        "title": "MESRS – Écoles publiques (archived 25 Feb 2026)",
+        "url": "https://web.archive.org/web/20260225185443/https://www.mesrs.gov.mr/fr/ecoles-publiques-0"
+      }
+    ]
+  },
+  {
+    "id": "institut-superieur-du-numerique",
+    "name": "Institut Supérieur du Numérique",
+    "nameAr": null,
+    "nameEn": "Higher Institute of Digital Technology",
+    "acronym": "SupNum",
+    "type": "public",
+    "category": "institute",
+    "city": "Nouakchott",
+    "wilaya": null,
+    "founded": 2021,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [],
+    "fields": [
+      "Computer Science",
+      "Statistics"
+    ],
+    "degrees": [
+      "Licence professionnelle",
+      "Master"
+    ],
+    "languages": [],
+    "website": "https://supnum.mr",
+    "email": "contact@supnum.mr",
+    "phone": "+222 45 24 45 44",
+    "coordinates": [
+      18.0792,
+      -15.978
+    ],
+    "coordinatesPrecision": "city",
+    "wikidata": null,
+    "wikipedia": null,
+    "summary": "SupNum is a public institute in Nouakchott created in 2021 to train mid- and senior-level professionals for the digital sector. It is supervised by the Ministry of Higher Education and Scientific Research and offers professional Licence programmes in software development, networks and security, data and statistics, intelligent systems and digital communication, plus Master programmes in cybersecurity and artificial intelligence.",
+    "highlights": [
+      "Created by presidential decree no. 2021-208 in September 2021.",
+      "Professional Licence modelled on the Bachelor of Engineering, with lectures limited to about a quarter of teaching hours and 28 weeks of internships over three years.",
+      "Since 2024 runs a Master of Excellence in Artificial Intelligence and Data Engineering in partnership with the Ministry of Digital Transformation.",
+      "Accredited PIX certification centre; reports that 70% of its first graduates were hired on graduation."
+    ],
+    "admission": "Selective admission, mainly for holders of a scientific Baccalauréat.",
+    "sources": [
+      {
+        "title": "SupNum – official website (home)",
+        "url": "https://supnum.mr/"
+      },
+      {
+        "title": "SupNum – À propos de SupNum",
+        "url": "https://supnum.mr/a-propos-de-supnum/"
+      },
+      {
+        "title": "Journal Officiel – Décret n°2021-208 portant création de l'Institut Supérieur du Numérique (via mtnima.gov.mr)",
+        "url": "https://mtnima.gov.mr/sites/default/files/2024-02/D%C3%A9cret%20n%C2%B02021-208%20Portant%20cr%C3%A9ation,%20organisation%20et%20fonctionnement%20de%20l'Institut%20Sup%C3%A9rieur%20du%20Num%C3%A9rique_[J.O%20n%C2%B01504].pdf"
+      },
+      {
+        "title": "MESRS – Instituts publics (archived 16 Jan 2026)",
+        "url": "https://web.archive.org/web/20260116092101/https://mesrs.gov.mr/fr/instituts-publics"
+      },
+      {
+        "title": "AMI – Le ministre de l'Enseignement supérieur présente le bilan du département (4 Oct 2026)",
+        "url": "https://ami.mr/fr/archives/303635"
+      }
+    ]
+  },
+  {
+    "id": "iscae",
+    "name": "Institut Supérieur de Comptabilité et d'Administration des Entreprises",
+    "nameAr": null,
+    "nameEn": "Higher Institute of Accounting and Business Administration",
+    "acronym": "ISCAE",
+    "type": "public",
+    "category": "institute",
+    "city": "Nouakchott",
+    "wilaya": "Nouakchott-Ouest",
+    "founded": 2009,
+    "studentCount": 1700,
+    "studentCountYear": 2022,
+    "faculties": [
+      "Département Management, Économie et Droit (MED)",
+      "Département Méthodes Quantitatives et Informatiques (MQI)"
+    ],
+    "fields": [
+      "Business",
+      "Economics",
+      "Computer Science"
+    ],
+    "degrees": [
+      "Licence",
+      "Master",
+      "Doctorat"
+    ],
+    "languages": [],
+    "website": "https://iscae.mr",
+    "email": "contact@iscae.mr",
+    "phone": "+222 45 24 19 66",
+    "coordinates": [
+      18.0975,
+      -15.9822
+    ],
+    "coordinatesPrecision": "campus",
+    "wikidata": null,
+    "wikipedia": null,
+    "summary": "ISCAE is a public higher-education and research institute in Nouakchott specialising in accounting, finance, management and business computing. It was created by decree in 2009 and is supervised by the ministry in charge of higher education. It reported about 1,700 students in 2021-2022.",
+    "highlights": [
+      "Created by decree no. 2009-161 of 29 April 2009.",
+      "Two departments: Management, Economics & Law (MED) and Quantitative Methods & Computing (MQI).",
+      "Offers initial and continuing education in finance and accounting, modern management techniques and computing.",
+      "Runs two research units (UR-PRIMA and UR-CASE)."
+    ],
+    "admission": "Licence: scientific Baccalauréat (national or recognised foreign equivalent) and meeting the national orientation criteria, within the institute's capacity. Master: a Licence or equivalent in the relevant field plus selection.",
+    "sources": [
+      {
+        "title": "ISCAE – Présentation",
+        "url": "https://iscae.mr/node/21"
+      },
+      {
+        "title": "ISCAE – Statistiques",
+        "url": "https://iscae.mr/node/30"
+      },
+      {
+        "title": "ISCAE – Conditions d'admission",
+        "url": "https://iscae.mr/node/27"
+      },
+      {
+        "title": "ISCAE – Départements",
+        "url": "https://iscae.mr/departements"
+      },
+      {
+        "title": "ISCAE – official website (home, contact)",
+        "url": "https://iscae.mr/"
+      },
+      {
+        "title": "OpenStreetMap – ISCAE (way 334177802)",
+        "url": "https://www.openstreetmap.org/way/334177802"
+      },
+      {
+        "title": "MESRS – Instituts publics (archived 16 Jan 2026)",
+        "url": "https://web.archive.org/web/20260116092101/https://mesrs.gov.mr/fr/instituts-publics"
+      }
+    ]
+  },
+  {
+    "id": "ecole-normale-superieure-nouakchott",
+    "name": "École Normale Supérieure de Nouakchott",
+    "nameAr": "المدرسة العليا للتعليم",
+    "nameEn": "Higher Teacher Training School of Nouakchott",
+    "acronym": "ENS",
+    "type": "public",
+    "category": "professional-school",
+    "city": "Nouakchott",
+    "wilaya": "Nouakchott-Ouest",
+    "founded": 1970,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [
+      "Département des Langues étrangères",
+      "Département de Langue Arabe et Instruction Religieuse",
+      "Département des Sciences Exactes",
+      "Département des Sciences Humaines",
+      "Département des Sciences de l'Éducation"
+    ],
+    "fields": [
+      "Education"
+    ],
+    "degrees": [],
+    "languages": [],
+    "website": "https://ens.mr",
+    "email": null,
+    "phone": null,
+    "coordinates": [
+      18.0999,
+      -15.9605
+    ],
+    "coordinatesPrecision": "campus",
+    "wikidata": "Q3578286",
+    "wikipedia": "https://fr.wikipedia.org/wiki/École_normale_supérieure_de_Nouakchott",
+    "summary": "The École Normale Supérieure of Nouakchott is a professional higher-education school that trains secondary-school teachers, inspectors, trainers for primary-teacher colleges and laboratory technicians. Founded in 1970, it admits students through competitive examinations whose openings follow the staffing needs of the national education system.",
+    "highlights": [
+      "Founded on 20 September 1970.",
+      "Trains first- and second-cycle secondary teachers, secondary-school inspectors, ENI trainers and laboratory technicians.",
+      "Member of the Agence universitaire de la Francophonie and the Association of African Universities (per French Wikipedia).",
+      "Signed partnership agreements with Moroccan teacher-training and education-science institutions in 2025."
+    ],
+    "admission": "Access is by annual external or internal competitive examination (concours); the sections opened each year depend on the Ministry of Education's needs and the civil-service posts available.",
+    "sources": [
+      {
+        "title": "ENS – Présentation",
+        "url": "https://ens.mr/?page_id=357"
+      },
+      {
+        "title": "ENS – Formation",
+        "url": "https://ens.mr/?page_id=367"
+      },
+      {
+        "title": "ENS – official website (home, departments menu)",
+        "url": "https://ens.mr/"
+      },
+      {
+        "title": "ENS – Arabic website",
+        "url": "https://ens.mr/ar"
+      },
+      {
+        "title": "Wikipédia (fr) – École normale supérieure de Nouakchott",
+        "url": "https://fr.wikipedia.org/wiki/%C3%89cole_normale_sup%C3%A9rieure_de_Nouakchott"
+      },
+      {
+        "title": "Wikidata – Q3578286",
+        "url": "https://www.wikidata.org/wiki/Q3578286"
+      },
+      {
+        "title": "OpenStreetMap – École Normale Supérieure de Nouakchott (way 228858570)",
+        "url": "https://www.openstreetmap.org/way/228858570"
+      },
+      {
+        "title": "MESRS – Écoles publiques (archived 25 Feb 2026)",
+        "url": "https://web.archive.org/web/20260225185443/https://www.mesrs.gov.mr/fr/ecoles-publiques-0"
+      }
+    ]
+  },
+  {
+    "id": "enajm",
+    "name": "École Nationale d'Administration, de Journalisme et de Magistrature",
+    "nameAr": "المدرسة الوطنية للإدارة والصحافة والقضاء",
+    "nameEn": "National School of Administration, Journalism and Magistracy",
+    "acronym": "ENAJM",
+    "type": "public",
+    "category": "professional-school",
+    "city": "Nouakchott",
+    "wilaya": "Nouakchott-Ouest",
+    "founded": 1966,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [],
+    "fields": [
+      "Public Administration",
+      "Journalism",
+      "Law"
+    ],
+    "degrees": [],
+    "languages": [],
+    "website": "https://enajm.mr",
+    "email": null,
+    "phone": null,
+    "coordinates": [
+      18.0976,
+      -15.983
+    ],
+    "coordinatesPrecision": "campus",
+    "wikidata": "Q102111209",
+    "wikipedia": null,
+    "summary": "ENAJM is Mauritania's oldest professional higher-education institution, training civil servants, judges, journalists and communication professionals. It began in 1966 as the École Nationale d'Administration and took its current name and mandate in 2010, when it was placed under the supervision of the Prime Minister. It also runs continuing-education programmes for state employees.",
+    "highlights": [
+      "Founded as the École Nationale d'Administration by law no. 66-142 of 21 July 1966.",
+      "Reorganised by decrees in 1974 and 1980; renamed and refounded as ENAJM by decree no. 2010-236 of 8 November 2010.",
+      "Reports more than 4,000 graduates across 58 specialisations and more than 6,000 civil servants trained through continuing education.",
+      "Publishes a governance journal (مجلة الحكامة) and runs a language-teaching centre."
+    ],
+    "admission": "Admission is exclusively by competitive examination: an external concours for non-civil-servants and a professional concours for civil servants (at least one third of places). Candidates may sit for the same cycle at most three times.",
+    "sources": [
+      {
+        "title": "ENAJM – تاريخ المدرسة (history)",
+        "url": "https://enajm.mr/ar/node/2497"
+      },
+      {
+        "title": "ENAJM – أرقام (key figures)",
+        "url": "https://enajm.mr/ar/node/2501"
+      },
+      {
+        "title": "ENAJM – شروط الولوج (admission)",
+        "url": "https://enajm.mr/ar/node/2506"
+      },
+      {
+        "title": "ENAJM – official website (home)",
+        "url": "https://enajm.mr/"
+      },
+      {
+        "title": "Wikidata – Q102111209",
+        "url": "https://www.wikidata.org/wiki/Q102111209"
+      }
+    ]
+  },
+  {
+    "id": "iseri",
+    "name": "Institut Supérieur d'Études et de Recherches Islamiques",
+    "nameAr": "المعهد العالي للدراسات والبحوث الإسلامية",
+    "nameEn": "Higher Institute of Islamic Studies and Research",
+    "acronym": "ISERI",
+    "type": "public",
+    "category": "religious-studies",
+    "city": "Nouakchott",
+    "wilaya": "Nouakchott-Ouest",
+    "founded": 1979,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [
+      "Ousoul Eddine (أصول الدين)",
+      "Fiqh et Ousoul (الفقه وأصوله)",
+      "Langue et littérature arabes (اللغة العربية وآدابها)",
+      "Civilisation et Information (الحضارة والإعلام)",
+      "Économie islamique (الاقتصاد الإسلامي)",
+      "Imamat et Prédication (الإمامة والخطابة)"
+    ],
+    "fields": [
+      "Islamic Studies",
+      "Humanities",
+      "Journalism",
+      "Economics"
+    ],
+    "degrees": [
+      "Licence",
+      "Master",
+      "Doctorat"
+    ],
+    "languages": [],
+    "website": "https://www.iseri.mr",
+    "email": "iseri.mr@gmail.com",
+    "phone": null,
+    "coordinates": [
+      18.0789,
+      -15.9728
+    ],
+    "coordinatesPrecision": "campus",
+    "wikidata": "Q12193484",
+    "wikipedia": "https://ar.wikipedia.org/wiki/المعهد_العالي_للدراسات_والبحوث_الإسلامية",
+    "summary": "ISERI is a public institute in Nouakchott devoted to Islamic sciences and the Arabic language, established at the end of the 1970s. It admits Baccalauréat holders and graduates of traditional mahadra schools through an entrance competition, and now follows the Licence–Master–Doctorat system with a doctoral school.",
+    "highlights": [
+      "One of the oldest public Islamic higher-education institutions in Mauritania (founded 1979 according to Wikidata and English Wikipedia).",
+      "Six specialisations: Ousoul Eddine, jurisprudence, Arabic language and literature, civilisation and media, Islamic economics, and imamate/preaching.",
+      "Moved from a four-year maîtrise to the LMD system; runs a doctoral school and Master programmes (e.g. contemporary Islamic transactions).",
+      "Located next to the Lycée Arabe in Nouakchott."
+    ],
+    "admission": "Entry to the first year is by an annual entrance competition (concours) open to Baccalauréat holders and graduates of traditional mahadra schools; registration is done on the institute's online platform.",
+    "sources": [
+      {
+        "title": "ISERI – official website (home, news)",
+        "url": "https://www.iseri.mr/ar"
+      },
+      {
+        "title": "ISERI – الأقسام والشعب (departments)",
+        "url": "https://www.iseri.mr/ar/node/1087"
+      },
+      {
+        "title": "ISERI – اتصل بنا (contact)",
+        "url": "https://www.iseri.mr/ar/node/12"
+      },
+      {
+        "title": "Wikipedia (ar) – المعهد العالي للدراسات والبحوث الإسلامية",
+        "url": "https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D9%85%D8%B9%D9%87%D8%AF_%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%8A_%D9%84%D9%84%D8%AF%D8%B1%D8%A7%D8%B3%D8%A7%D8%AA_%D9%88%D8%A7%D9%84%D8%A8%D8%AD%D9%88%D8%AB_%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85%D9%8A%D8%A9"
+      },
+      {
+        "title": "Wikipedia (en) – Institut Superieur des Etudes et Recherches Islamique",
+        "url": "https://en.wikipedia.org/wiki/Institut_Superieur_des_Etudes_et_Recherches_Islamique"
+      },
+      {
+        "title": "Wikipedia (en) – List of universities and colleges in Mauritania",
+        "url": "https://en.wikipedia.org/wiki/List_of_universities_and_colleges_in_Mauritania"
+      },
+      {
+        "title": "Wikidata – Q12193484",
+        "url": "https://www.wikidata.org/wiki/Q12193484"
+      },
+      {
+        "title": "MESRS – Instituts publics (archived 16 Jan 2026)",
+        "url": "https://web.archive.org/web/20260116092101/https://mesrs.gov.mr/fr/instituts-publics"
+      }
+    ]
+  },
+  {
+    "id": "higher-institute-of-english",
+    "name": "Institut Supérieur d'Anglais",
+    "nameAr": "المعهد العالي للغة الإنجليزية",
+    "nameEn": "Higher Institute of English",
+    "acronym": "HIE",
+    "type": "public",
+    "category": "institute",
+    "city": "Nouakchott",
+    "wilaya": "Nouakchott-Ouest",
+    "founded": 2016,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [],
+    "fields": [
+      "Humanities"
+    ],
+    "degrees": [
+      "Degree in International Communication Studies"
+    ],
+    "languages": [
+      "English",
+      "Arabic",
+      "French"
+    ],
+    "website": "https://www.hie.mr",
+    "email": null,
+    "phone": null,
+    "coordinates": [
+      18.1699,
+      -15.9999
+    ],
+    "coordinatesPrecision": "campus",
+    "wikidata": null,
+    "wikipedia": null,
+    "summary": "The Higher Institute of English is a public institution in Nouakchott, created in 2016 under the joint authority of the Ministry of Defence and the Ministry of Higher Education. It offers a degree in International Communication Studies taught mostly in English, with small classes, and also provides in-service English training for government and private-sector employees.",
+    "highlights": [
+      "Established by decree no. 2016-30 of 18 February 2016.",
+      "Jointly supervised by the Ministry of Defence and the Ministry of Higher Education.",
+      "Degree programme worth 60 ECTS credits per year, taught mainly in English with Arabic and French also in the curriculum.",
+      "Class sizes of at most 14 students; teaching staff recruited from Mauritania, Britain and other English-speaking countries.",
+      "Explored an academic partnership with Al Akhawayn University (Morocco) in 2026."
+    ],
+    "admission": "Candidates must have passed the Baccalauréat série A (languages) with at least 10/20 in English, rank HIE high on the post-Bac orientation form, be under 23 at admission and normally be Mauritanian citizens; admitted students take an internal English placement test.",
+    "sources": [
+      {
+        "title": "HIE – About Us",
+        "url": "https://www.hie.mr/index.php/about-us/"
+      },
+      {
+        "title": "HIE – Admission",
+        "url": "https://www.hie.mr/index.php/admission/"
+      },
+      {
+        "title": "HIE – Degree Programme",
+        "url": "https://www.hie.mr/index.php/degree-program/"
+      },
+      {
+        "title": "HIE – Arabic homepage",
+        "url": "https://www.hie.mr/index.php/ar/"
+      },
+      {
+        "title": "HIE – home (news)",
+        "url": "https://www.hie.mr/"
+      },
+      {
+        "title": "OpenStreetMap Nominatim – Institut Supérieur d'Anglais",
+        "url": "https://nominatim.openstreetmap.org/search?q=Institut+Sup%C3%A9rieur+d%27Anglais&format=json"
+      },
+      {
+        "title": "MESRS – Instituts publics (archived 16 Jan 2026)",
+        "url": "https://web.archive.org/web/20260116092101/https://mesrs.gov.mr/fr/instituts-publics"
+      }
+    ]
+  },
+  {
+    "id": "esav-rosso",
+    "name": "École Supérieure Agronomique et Vétérinaire",
+    "nameAr": "المدرسة العليا للزراعة والبيطرة",
+    "nameEn": "Higher School of Agronomy and Veterinary Science",
+    "acronym": "ESAV",
+    "type": "public",
+    "category": "professional-school",
+    "city": "Rosso",
+    "wilaya": "Trarza",
+    "founded": null,
+    "studentCount": 438,
+    "studentCountYear": 2026,
+    "faculties": [
+      "Département de Production et Protection Végétales",
+      "Département de Production et Santé Animales",
+      "Département de Sciences et Technologies des Aliments",
+      "Département de Génie de l'Agriculture et des Biosystèmes",
+      "Département Génie Électromécanique"
+    ],
+    "fields": [
+      "Agriculture",
+      "Engineering",
+      "Sciences"
+    ],
+    "degrees": [
+      "Licence",
+      "Master",
+      "Diplôme d'ingénieur",
+      "Doctorat"
+    ],
+    "languages": [],
+    "website": "https://esav.mr",
+    "email": "contact@esav.mr",
+    "phone": null,
+    "coordinates": [
+      16.5271,
+      -15.7757
+    ],
+    "coordinatesPrecision": "campus",
+    "wikidata": null,
+    "wikipedia": null,
+    "summary": "The École Supérieure Agronomique et Vétérinaire in Rosso is the former Institut Supérieur d'Enseignement Technologique (ISET) de Rosso, converted into a higher school of agronomy and veterinary science under a draft decree adopted by the Council of Ministers in May 2026. It trains specialists in crop and animal production, animal health, food science and agricultural engineering, and runs an experimental farm of about 12 hectares.",
+    "highlights": [
+      "The Council of Ministers adopted the decree transforming ISET Rosso into ESAV on 6 May 2026, as part of the government's food-sovereignty agenda.",
+      "The transformation adds engineering, Master and Doctorat cycles to the existing Licence, with intake planned to rise from about 100 to 300 new students a year.",
+      "The institution reports 1,124 graduates since its creation.",
+      "Planned branches: an agriculture school in Kaédi and a livestock-focused school in Néma.",
+      "Experimental farm of about 12 ha (rice, vegetables, mango, greenhouse and soil-less trials)."
+    ],
+    "admission": null,
+    "sources": [
+      {
+        "title": "ESAV – official website",
+        "url": "https://esav.mr/"
+      },
+      {
+        "title": "ESAV – site settings API (name, contact, key figures)",
+        "url": "https://api.esav.mr/api/v1/settings"
+      },
+      {
+        "title": "ESAV – pages API (presentation, departments, farm)",
+        "url": "https://api.esav.mr/api/v1/pages"
+      },
+      {
+        "title": "ESAV – French interface strings (department names)",
+        "url": "https://esav.mr/assets/i18n/fr.json"
+      },
+      {
+        "title": "AMI – Souveraineté alimentaire : le ministre présente les grandes lignes du lifting de l'ISET de Rosso (6 May 2026)",
+        "url": "https://ami.mr/fr/archives/294695"
+      },
+      {
+        "title": "Cridem – Le Conseil des ministres adopte un projet de décret transformant l'ISET de Rosso en une école supérieure",
+        "url": "http://www.cridem.org/C_Info.php?article=793194"
+      },
+      {
+        "title": "OpenStreetMap – Institut Supérieur d'Enseignement Technologique de Rosso (way 359608300)",
+        "url": "https://www.openstreetmap.org/way/359608300"
+      },
+      {
+        "title": "MESRS – Instituts publics (archived 16 Jan 2026)",
+        "url": "https://web.archive.org/web/20260116092101/https://mesrs.gov.mr/fr/instituts-publics"
+      }
+    ]
+  },
+  {
+    "id": "isplti-nouadhibou",
+    "name": "Institut Supérieur Professionnel des Langues, de Traduction et d'Interprétariat",
+    "nameAr": "المعهد العالي المهني للغات وللترجمة والترجمة الفورية",
+    "nameEn": "Higher Professional Institute of Languages, Translation and Interpreting",
+    "acronym": "ISPLTI",
+    "type": "public",
+    "category": "institute",
+    "city": "Nouadhibou",
+    "wilaya": "Dakhlet Nouadhibou",
+    "founded": null,
+    "studentCount": 395,
+    "studentCountYear": 2025,
+    "faculties": [],
+    "fields": [
+      "Humanities"
+    ],
+    "degrees": [
+      "Licence professionnelle",
+      "Master"
+    ],
+    "languages": [],
+    "website": "https://www.isplti.mr",
+    "email": "istisplti17@gmail.com",
+    "phone": null,
+    "coordinates": [
+      20.9127,
+      -17.0503
+    ],
+    "coordinatesPrecision": "city",
+    "wikidata": null,
+    "wikipedia": null,
+    "summary": "ISPLTI is a public higher-education institute in Nouadhibou, supervised by the Ministry of Higher Education, that trains students in languages, translation and interpreting. It awards professional Licence degrees and has offered Master programmes since 2020, giving students from the region a local alternative to studying in Nouakchott.",
+    "highlights": [
+      "Reports 1,222 students enrolled between 2015 and 2024 and 395 students in 2024-2025.",
+      "185 graduates had earned a double professional Licence in languages and communication (per the institute's figures).",
+      "Facilities include language labs with 60 computers and four simultaneous-interpreting booths.",
+      "Master programmes launched in 2020."
+    ],
+    "admission": "Students oriented to the institute by the national orientation process register online; Master applications are submitted through the institute's online candidature space.",
+    "sources": [
+      {
+        "title": "ISPLTI – official website (home)",
+        "url": "https://www.isplti.mr/"
+      },
+      {
+        "title": "ISPLTI – À propos (institute figures)",
+        "url": "https://www.isplti.mr/pages/about"
+      },
+      {
+        "title": "OpenStreetMap Nominatim – Nouadhibou (city)",
+        "url": "https://nominatim.openstreetmap.org/search?q=Nouadhibou&format=json"
+      }
+    ]
+  },
+  {
+    "id": "universite-de-nouadhibou",
+    "name": "Université de Nouadhibou",
+    "nameAr": "جامعة نواذيبو",
+    "nameEn": "University of Nouadhibou",
+    "acronym": "UNDB",
+    "type": "public",
+    "category": "university",
+    "city": "Nouadhibou",
+    "wilaya": "Dakhlet Nouadhibou",
+    "founded": 2025,
+    "studentCount": 857,
+    "studentCountYear": 2026,
+    "faculties": [
+      "Faculté des Sciences et Technologies",
+      "Faculté de Droit, Économie et Gestion",
+      "Faculté des Sciences Humaines et Sociales",
+      "Institut Supérieur de Biotechnologie"
+    ],
+    "fields": [
+      "Sciences",
+      "Engineering",
+      "Law",
+      "Economics",
+      "Business",
+      "Humanities",
+      "Maritime"
+    ],
+    "degrees": [],
+    "languages": [],
+    "website": "https://univ-ndb.mr",
+    "email": "contact@univ-ndb.mr",
+    "phone": "+222 44 44 12 57",
+    "coordinates": [
+      20.9127,
+      -17.0503
+    ],
+    "coordinatesPrecision": "city",
+    "wikidata": null,
+    "wikipedia": null,
+    "summary": "The University of Nouadhibou is Mauritania's newest public university, created in May 2025 in the country's second city and main fishing and mining-export port. It opened for the 2025-2026 academic year in temporary premises (the former IMROP building) with three faculties and a biotechnology institute, and a 50-hectare campus for 5,000 students is planned.",
+    "highlights": [
+      "Created by decree no. 066-2025 of 23 May 2025 (draft approved by the Council of Ministers on 7 May 2025).",
+      "Programmes are oriented towards local needs such as energy, mining, hydrocarbons, maritime law, fisheries and migration.",
+      "Temporarily housed in the former headquarters of the Mauritanian Institute of Oceanographic Research and Fisheries (IMROP).",
+      "Announced new campus: about 50 ha with capacity for 5,000 students."
+    ],
+    "admission": null,
+    "sources": [
+      {
+        "title": "Université de Nouadhibou – Présentation",
+        "url": "https://univ-ndb.mr/fr/l-undb/presentation"
+      },
+      {
+        "title": "Université de Nouadhibou – home (faculties)",
+        "url": "https://univ-ndb.mr/fr"
+      },
+      {
+        "title": "Université de Nouadhibou – Contact",
+        "url": "https://univ-ndb.mr/fr/contact"
+      },
+      {
+        "title": "AMI – Le conseil des ministres approuve le projet de décret portant création de l'Université de Nouadhibou (7 May 2025)",
+        "url": "https://ami.mr/fr/archives/270469"
+      },
+      {
+        "title": "Essahraa – L'Université de Nouadhibou sera opérationnelle dès le mois de septembre prochain (8 May 2025)",
+        "url": "https://www.essahraa.net/fr/node/12387"
+      },
+      {
+        "title": "AMI – Le ministre de l'Enseignement supérieur présente le bilan du département (4 Oct 2026)",
+        "url": "https://ami.mr/fr/archives/303635"
+      }
+    ]
+  },
+  {
+    "id": "academie-navale",
+    "name": "Académie Navale",
+    "nameAr": null,
+    "nameEn": "Naval Academy",
+    "acronym": null,
+    "type": "public",
+    "category": "professional-school",
+    "city": "Nouadhibou",
+    "wilaya": "Dakhlet Nouadhibou",
+    "founded": 2014,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [],
+    "fields": [
+      "Maritime",
+      "Engineering"
+    ],
+    "degrees": [
+      "Licence professionnelle"
+    ],
+    "languages": [],
+    "website": null,
+    "email": null,
+    "phone": null,
+    "coordinates": [
+      20.9127,
+      -17.0503
+    ],
+    "coordinatesPrecision": "city",
+    "wikidata": null,
+    "wikipedia": null,
+    "summary": "The Naval Academy in Nouadhibou trains officers, petty officers and personnel for the Mauritanian Navy and Coast Guard as well as for the fishing and port sectors. Attached to the national armed forces general staff, it absorbed the former École Nationale d'Enseignement Maritime et des Pêches (ENEMP), which became its higher school for officers.",
+    "highlights": [
+      "Reported as created in 2014 and attached to the armed forces general staff.",
+      "Transformed the ENEMP into an École Supérieure des Officiers and the Centre d'Instruction Navale into a naval training centre.",
+      "Has trained 13,851 people for the Defence and Fisheries ministries over a little more than a decade.",
+      "Its 2025-2026 graduates included navigation officers and holders of a professional Licence in marine and fisheries sciences; first stone of a new headquarters laid in July 2026."
+    ],
+    "admission": "For its engineering-officer track, entry is through track 1 of the Concours National d'Ingénieurs de Mauritanie (CNIM), open to preparatory-class students.",
+    "sources": [
+      {
+        "title": "AMI – Le ministre de la Défense préside la clôture de l'année académique 2025-2026 à l'Académie navale (24 Jul 2026)",
+        "url": "https://ami.mr/fr/archives/299660"
+      },
+      {
+        "title": "Nord Info – Cérémonie de sortie d'une nouvelle promotion de l'Académie Navale (1 Jul 2017)",
+        "url": "http://nordinfo.info/node/1732"
+      },
+      {
+        "title": "IPGEI – Concours national (CNIM)",
+        "url": "http://ipgei.mr/spip.php?article6"
+      },
+      {
+        "title": "OpenStreetMap Nominatim – Nouadhibou (city)",
+        "url": "https://nominatim.openstreetmap.org/search?q=Nouadhibou&format=json"
+      }
+    ]
+  },
+  {
+    "id": "grande-mahdara-chinguitiya",
+    "name": "La Grande Mahdara Chinguitiya",
+    "nameAr": "المحظرة الشنقيطية الكبرى",
+    "nameEn": "Great Chinguetti Mahdara",
+    "acronym": null,
+    "type": "public",
+    "category": "religious-studies",
+    "city": "Akjoujt",
+    "wilaya": "Inchiri",
+    "founded": 2019,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [
+      "Coran, Sunna et leurs sciences (القرآن والسنة وعلومهما)",
+      "Langue arabe et ses sciences (اللغة العربية وعلومها)",
+      "Fiqh et Ousoul (الفقه والأصول)"
+    ],
+    "fields": [
+      "Islamic Studies",
+      "Humanities"
+    ],
+    "degrees": [
+      "Licence",
+      "Master",
+      "Doctorat"
+    ],
+    "languages": [],
+    "website": "https://www.mahdarachingitiya.mr",
+    "email": null,
+    "phone": null,
+    "coordinates": [
+      19.7436,
+      -14.3855
+    ],
+    "coordinatesPrecision": "city",
+    "wikidata": null,
+    "wikipedia": null,
+    "summary": "The Grande Mahdara Chinguitiya is a public higher-education institution in Akjoujt dedicated to traditional Islamic sciences, modelled on Mauritania's mahdara tradition while also teaching computing and modern languages. It was established by decree in 2019, started classes in 2020-2021 and follows the LMD system.",
+    "highlights": [
+      "Draft decree approved by the Council of Ministers in February 2019; established by decree no. 099/2019 of 22 May 2019.",
+      "Classes began at the start of the 2020-2021 academic year; the United Arab Emirates is described by AMI as its main sponsor.",
+      "Three departments: Qur'an and Sunna sciences, Arabic language sciences, and jurisprudence and its principles; the curriculum also includes computing, French and English.",
+      "Study stages planned at creation: Licence (ijaza), Master and Doctorat.",
+      "Listed by the higher-education ministry among public schools; publishes an academic journal."
+    ],
+    "admission": "Admission requires the Baccalauréat and success in an entrance competition (concours).",
+    "sources": [
+      {
+        "title": "Grande Mahdara Chinguitiya – official website",
+        "url": "https://www.mahdarachingitiya.mr/"
+      },
+      {
+        "title": "AMI – المحظرة الشنقيطية الكبرى بأكجوجت: رؤية لتحصين المجتمع بالنهج الإسلامي المعتدل",
+        "url": "https://www.ami.mr/Depeche-66237.html"
+      },
+      {
+        "title": "Al-Shorouk – المحظرة الشنقيطية الكبرى.. مؤسسة دينية حكومية في موريتانيا (15 Feb 2019)",
+        "url": "https://www.shorouknews.com/news/view.aspx?cdate=15022019&id=cddc3322-a03c-4fe9-a3da-7eb927998fda"
+      },
+      {
+        "title": "OpenStreetMap Nominatim – Akjoujt (city)",
+        "url": "https://nominatim.openstreetmap.org/search?q=Akjoujt&format=json"
+      },
+      {
+        "title": "MESRS – Écoles publiques (archived 25 Feb 2026)",
+        "url": "https://web.archive.org/web/20260225185443/https://www.mesrs.gov.mr/fr/ecoles-publiques-0"
+      }
+    ]
+  },
+  {
+    "id": "institut-superieur-de-genie-industriel",
+    "name": "Institut Supérieur de Génie Industriel",
+    "nameAr": null,
+    "nameEn": "Higher Institute of Industrial Engineering",
+    "acronym": "ISGI",
+    "type": "public",
+    "category": "institute",
+    "city": "Nouakchott",
+    "wilaya": null,
+    "founded": 2024,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [
+      "Département Sciences de l'Ingénieur",
+      "Département Sciences Fondamentales"
+    ],
+    "fields": [
+      "Engineering"
+    ],
+    "degrees": [
+      "Licence professionnelle"
+    ],
+    "languages": [],
+    "website": "https://isgi.mr",
+    "email": "contact@isgi.mr",
+    "phone": null,
+    "coordinates": [
+      18.0792,
+      -15.978
+    ],
+    "coordinatesPrecision": "city",
+    "wikidata": "Q140876165",
+    "wikipedia": null,
+    "summary": "ISGI is a recently created public higher-education institute in central Nouakchott that trains technicians and managers for industry, logistics and technology. It offers a professional Licence in Industrial Engineering covering production, quality, logistics and automation, with practical work making up most of the teaching.",
+    "highlights": [
+      "Created by decree no. 2025-090 dated 25 December 2024.",
+      "Single programme: Licence professionnelle in Génie Industriel (production, QHSE, supply chain, automation, Industry 4.0).",
+      "Practical classes (TD/TP) represent about 70% of teaching.",
+      "Located in central Nouakchott, about 10 minutes' walk from the Carrefour Madrid."
+    ],
+    "admission": "Registration and re-registration for 2026-2027 are done through the national Khadamati online platform.",
+    "sources": [
+      {
+        "title": "ISGI – Présentation",
+        "url": "https://isgi.mr/fr/presentation"
+      },
+      {
+        "title": "ISGI – home (news, contact)",
+        "url": "https://isgi.mr/fr"
+      },
+      {
+        "title": "ISGI – Filières",
+        "url": "https://isgi.mr/filieres"
+      },
+      {
+        "title": "Wikidata – Q140876165",
+        "url": "https://www.wikidata.org/wiki/Q140876165"
+      },
+      {
+        "title": "AMI – Le ministre de l'Enseignement supérieur présente le bilan du département (4 Oct 2026)",
+        "url": "https://ami.mr/fr/archives/303635"
+      }
+    ]
+  },
+  {
+    "id": "nouakchott-business-school",
+    "name": "Nouakchott Business School",
+    "nameAr": null,
+    "nameEn": "Nouakchott Business School",
+    "acronym": "NBS",
+    "type": "public",
+    "category": "professional-school",
+    "city": "Nouakchott",
+    "wilaya": null,
+    "founded": null,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [],
+    "fields": [
+      "Business"
+    ],
+    "degrees": [],
+    "languages": [
+      "English"
+    ],
+    "website": null,
+    "email": null,
+    "phone": null,
+    "coordinates": [
+      18.0792,
+      -15.978
+    ],
+    "coordinatesPrecision": "city",
+    "wikidata": null,
+    "wikipedia": null,
+    "summary": "Nouakchott Business School is a public business school launched in Nouakchott in October 2024, presented as the first public institution in Mauritania to teach business in English. English is its language of teaching, learning and research.",
+    "highlights": [
+      "Officially launched on 17 October 2024.",
+      "English is the language of instruction and research.",
+      "The higher-education minister counted a Nouakchott business school among the new specialised establishments created in 2024."
+    ],
+    "admission": null,
+    "sources": [
+      {
+        "title": "Cridem – Nouakchott Business School (NBS) : lancement officiel… (18 Oct 2024)",
+        "url": "https://cridem.org/C_Info.php?article=778158"
+      },
+      {
+        "title": "AMI – Le ministre de l'Enseignement supérieur présente le bilan du département (4 Oct 2026)",
+        "url": "https://ami.mr/fr/archives/303635"
+      }
+    ]
+  },
+  {
+    "id": "isms-statistique",
+    "name": "Institut Supérieur des Métiers de la Statistique",
+    "nameAr": null,
+    "nameEn": "Higher Institute of Statistics Professions",
+    "acronym": "ISMS",
+    "type": "public",
+    "category": "institute",
+    "city": "Nouakchott",
+    "wilaya": null,
+    "founded": 2019,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [],
+    "fields": [
+      "Statistics"
+    ],
+    "degrees": [],
+    "languages": [],
+    "website": null,
+    "email": null,
+    "phone": null,
+    "coordinates": [
+      18.0792,
+      -15.978
+    ],
+    "coordinatesPrecision": "city",
+    "wikidata": null,
+    "wikipedia": null,
+    "summary": "ISMS is a statistics institute belonging to the Groupe Polytechnique in Nouakchott, alongside the École Supérieure Polytechnique. It was opened in September 2019 as one of the group's Instituts Supérieurs des Métiers.",
+    "highlights": [
+      "Opened in September 2019 as part of the Groupe Polytechnique's network of Instituts Supérieurs des Métiers.",
+      "The higher-education minister lists a higher institute of statistics (2019) among the specialised establishments created since 2019.",
+      "The Groupe Polytechnique is jointly supervised by the Ministry of Defence and the Ministry of Higher Education."
+    ],
+    "admission": null,
+    "sources": [
+      {
+        "title": "Cridem – IPGEI de Nouakchott : point de départ d'une rénovation majeure… (28 Jul 2020)",
+        "url": "https://cridem.org/imprimable.php?article=738541"
+      },
+      {
+        "title": "Afrobarometer – profile mentioning ISMS du Groupe Polytechnique de Nouakchott",
+        "url": "https://www.afrobarometer.org/person/dahoud-el-atigh/"
+      },
+      {
+        "title": "AMI – Le ministre de l'Enseignement supérieur présente le bilan du département (4 Oct 2026)",
+        "url": "https://ami.mr/fr/archives/303635"
+      }
+    ]
+  },
+  {
+    "id": "is2m-zouerate",
+    "name": "Institut Supérieur des Métiers de la Mine",
+    "nameAr": null,
+    "nameEn": "Higher Institute of Mining Professions",
+    "acronym": "IS2M",
+    "type": "public",
+    "category": "institute",
+    "city": "Zouérate",
+    "wilaya": "Tiris Zemmour",
+    "founded": 2018,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [],
+    "fields": [
+      "Mining",
+      "Engineering"
+    ],
+    "degrees": [],
+    "languages": [],
+    "website": null,
+    "email": null,
+    "phone": null,
+    "coordinates": [
+      22.7402,
+      -12.4665
+    ],
+    "coordinatesPrecision": "city",
+    "wikidata": null,
+    "wikipedia": null,
+    "summary": "IS2M is a mining-trades institute of the Groupe Polytechnique located in Zouérate, the iron-mining centre of northern Mauritania. It was opened in September 2018 as part of the reform of engineering and technical training led by the École Supérieure Polytechnique.",
+    "highlights": [
+      "Opened in September 2018 in Zouérate (Tiris Zemmour).",
+      "Part of the Groupe Polytechnique, jointly supervised by the Ministry of Defence and the Ministry of Higher Education."
+    ],
+    "admission": null,
+    "sources": [
+      {
+        "title": "Cridem – IPGEI de Nouakchott : point de départ d'une rénovation majeure… (28 Jul 2020)",
+        "url": "https://cridem.org/imprimable.php?article=738541"
+      },
+      {
+        "title": "OpenStreetMap Nominatim – Zouérate (city)",
+        "url": "https://nominatim.openstreetmap.org/search?q=Zou%C3%A9rat&format=json"
+      }
+    ]
+  },
+  {
+    "id": "ism-btpu-aleg",
+    "name": "Institut Supérieur des Métiers du Bâtiment, des Travaux Publics et de l'Urbanisme",
+    "nameAr": null,
+    "nameEn": "Higher Institute of Building, Public Works and Urban Planning Professions",
+    "acronym": "ISM-BTPU",
+    "type": "public",
+    "category": "institute",
+    "city": "Aleg",
+    "wilaya": "Brakna",
+    "founded": 2016,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [],
+    "fields": [
+      "Engineering"
+    ],
+    "degrees": [],
+    "languages": [],
+    "website": null,
+    "email": null,
+    "phone": null,
+    "coordinates": [
+      17.0527,
+      -13.9153
+    ],
+    "coordinatesPrecision": "city",
+    "wikidata": null,
+    "wikipedia": null,
+    "summary": "ISM-BTPU is a Groupe Polytechnique institute in Aleg that trains professionals for construction, public works and urban planning. It opened in September 2016, the first of the group's Instituts Supérieurs des Métiers.",
+    "highlights": [
+      "Opened in September 2016 in Aleg (Brakna).",
+      "Listed by the École Supérieure Polytechnique as one of the Groupe Polytechnique's institutes.",
+      "Covers building, public works and urban planning trades."
+    ],
+    "admission": null,
+    "sources": [
+      {
+        "title": "Cridem – IPGEI de Nouakchott : point de départ d'une rénovation majeure… (28 Jul 2020)",
+        "url": "https://cridem.org/imprimable.php?article=738541"
+      },
+      {
+        "title": "ESP – official website (Groupe Polytechnique institutes list)",
+        "url": "https://www.esp.mr/"
+      },
+      {
+        "title": "OpenStreetMap Nominatim – Aleg",
+        "url": "https://nominatim.openstreetmap.org/search?q=Aleg&format=json"
+      }
+    ]
+  },
+  {
+    "id": "cset-nouakchott",
+    "name": "Centre Supérieur d'Enseignement Technique de Nouakchott",
+    "nameAr": null,
+    "nameEn": "Higher Centre for Technical Education, Nouakchott",
+    "acronym": "CSET",
+    "type": "public",
+    "category": "institute",
+    "city": "Nouakchott",
+    "wilaya": null,
+    "founded": null,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [],
+    "fields": [
+      "Engineering"
+    ],
+    "degrees": [],
+    "languages": [],
+    "website": null,
+    "email": null,
+    "phone": null,
+    "coordinates": [
+      18.0792,
+      -15.978
+    ],
+    "coordinatesPrecision": "city",
+    "wikidata": null,
+    "wikipedia": null,
+    "summary": "The CSET is a long-established public technical higher-education centre in Nouakchott. In June 2026 the Council of Ministers adopted a draft decree transforming it into a national higher institute of technical education (INSET) intended to train highly qualified technical staff.",
+    "highlights": [
+      "Draft decree transforming the CSET into an Institut National Supérieur de l'Enseignement Technique (INSET) adopted by the Council of Ministers on 18 June 2026.",
+      "A KfW-financed rehabilitation and extension of the CSET campus was tendered in 2026."
+    ],
+    "admission": null,
+    "sources": [
+      {
+        "title": "Points Chauds – Communiqué du Conseil des Ministres du 18 juin 2026",
+        "url": "https://pointschauds.info/mauritanie-communique-du-conseil-des-ministres-du-18-juin-2026/"
+      },
+      {
+        "title": "GTAI – Tender notice: rehabilitation of CSET Nouakchott",
+        "url": "https://www.gtai.de/en/trade/mauritania/tenders/construction-building-and-structural-rehabilitation-vocational-training--1988260"
+      }
+    ]
+  },
+  {
+    "id": "liu-mauritanie",
+    "name": "Université Libanaise Internationale en Mauritanie",
+    "nameAr": "الجامعة اللبنانية الدولية",
+    "nameEn": "Lebanese International University of Mauritania",
+    "acronym": "LIU",
+    "type": "private",
+    "category": "university",
+    "city": "Nouakchott",
+    "wilaya": "Nouakchott-Ouest",
+    "founded": 2008,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [
+      "Faculté des Arts et Sciences",
+      "Faculté de Gestion d'Affaires et de Droit",
+      "Faculté d'Éducation et Sciences Humaines"
+    ],
+    "fields": [
+      "Business",
+      "Computer Science",
+      "Law",
+      "Education",
+      "Languages"
+    ],
+    "degrees": [
+      "Licence",
+      "Master",
+      "MBA"
+    ],
+    "languages": [
+      "Arabic",
+      "French",
+      "English"
+    ],
+    "website": "https://liu.edu.mr",
+    "email": "info@liu.mr",
+    "phone": "+222 45 24 15 64",
+    "coordinates": [
+      18.09105,
+      -15.96665
+    ],
+    "coordinatesPrecision": "campus",
+    "wikidata": "Q1443352",
+    "wikipedia": "https://fr.wikipedia.org/wiki/Universit%C3%A9_libanaise_internationale_en_Mauritanie",
+    "summary": "The Lebanese International University of Mauritania is a private university in Nouakchott. It opened in 2008 as an overseas campus of the Lebanon-based Lebanese International University. It offers bachelor's and master's programmes in business, computing, education, applied languages and translation.",
+    "highlights": [
+      "First academic year began in October 2008",
+      "Campus abroad of the Lebanese International University (Lebanon, founded 2001)",
+      "Listed by the Ministry of Higher Education (MESRS) as a private university",
+      "Teaches in Arabic, French and English; also offers an MBA"
+    ],
+    "admission": "Baccalauréat plus an entrance test (per IAU WHED).",
+    "sources": [
+      {
+        "title": "IAU World Higher Education Database – Lebanese International University of Mauritania",
+        "url": "https://www.whed.net/institutions/IAU-010888-010887"
+      },
+      {
+        "title": "Wikipédia – Université libanaise internationale en Mauritanie",
+        "url": "https://fr.wikipedia.org/wiki/Universit%C3%A9_libanaise_internationale_en_Mauritanie"
+      },
+      {
+        "title": "MESRS – Universités privées (archived March 2026)",
+        "url": "https://web.archive.org/web/20260317152429/https://www.mesrs.gov.mr/fr/universites-privees-0"
+      },
+      {
+        "title": "LIU Mauritania – legacy official site (contacts, address)",
+        "url": "https://mr.liu.edu.lb/LIUMRFR/"
+      },
+      {
+        "title": "uniRank – Université Libanaise Internationale en Mauritanie",
+        "url": "https://www.unirank.org/mr/uni/universite-libanaise-internationale-en-mauritanie/"
+      },
+      {
+        "title": "OpenStreetMap – Université Libanaise Internationale (way 390393455)",
+        "url": "https://www.openstreetmap.org/way/390393455"
+      }
+    ]
+  },
+  {
+    "id": "sup-management-mauritanie",
+    "name": "Université Sup'Management Mauritanie",
+    "nameAr": null,
+    "nameEn": "Sup'Management University Mauritania",
+    "acronym": null,
+    "type": "private",
+    "category": "university",
+    "city": "Nouakchott",
+    "wilaya": "Nouakchott-Ouest",
+    "founded": 2003,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [
+      "Pôle Académique",
+      "Pôle Technique"
+    ],
+    "fields": [
+      "Business",
+      "Computer Science",
+      "Engineering"
+    ],
+    "degrees": [
+      "Licence",
+      "Master"
+    ],
+    "languages": [
+      "French"
+    ],
+    "website": "https://supmanagement-mauritanie.com",
+    "email": "supmgtmauritanie@yahoo.fr",
+    "phone": "+222 43 43 48 49",
+    "coordinates": [
+      18.0858,
+      -15.9785
+    ],
+    "coordinatesPrecision": "city",
+    "wikidata": null,
+    "wikipedia": null,
+    "summary": "Sup'Management Mauritanie is a private university in Nouakchott, founded in 2003 and linked to the Moroccan Sup'Management group and the Université Intercontinentale Libre (UICL) network. It offers state-accredited licence and master's programmes in finance, management, human resources and computer systems and networks, along with certificate courses in digital fields.",
+    "highlights": [
+      "Founded in 2003; national news agency AMI described it in 2023 as the first private higher-education institution to award state-recognised diplomas",
+      "Belongs to the Sup'Management / UICL international network",
+      "IAU WHED lists a second campus in Nouadhibou",
+      "Licence and master's programmes accredited by the MESRS"
+    ],
+    "admission": "Baccalauréat required for undergraduate entry (per IAU WHED); applications online via the university website.",
+    "sources": [
+      {
+        "title": "Official website – Université Sup'Management Mauritanie",
+        "url": "https://supmanagement-mauritanie.com"
+      },
+      {
+        "title": "IAU World Higher Education Database – Sup' Management Mauritania",
+        "url": "https://whed.net/institutions/IAU-015967"
+      },
+      {
+        "title": "AMI – Sup Management fête le 20e anniversaire de sa création (26 July 2023)",
+        "url": "https://ami.mr/fr/archives/226730"
+      },
+      {
+        "title": "AMI – Sup Management University graduation ceremony (30 July 2024)",
+        "url": "https://ami.mr/fr/archives/250972"
+      },
+      {
+        "title": "MESRS – Universités privées (archived March 2026)",
+        "url": "https://web.archive.org/web/20260317152429/https://www.mesrs.gov.mr/fr/universites-privees-0"
+      }
+    ]
+  },
+  {
+    "id": "universite-moderne-chinguitti",
+    "name": "Université Moderne de Chinguitti",
+    "nameAr": "جامعة شنقيط العصرية",
+    "nameEn": "Modern University of Chinguitt",
+    "acronym": "UMC",
+    "type": "private",
+    "category": "university",
+    "city": "Nouakchott",
+    "wilaya": null,
+    "founded": 2006,
+    "studentCount": 198,
+    "studentCountYear": 2025,
+    "faculties": [
+      "Études islamiques",
+      "Langue arabe et sa littérature",
+      "Charia, droit et économie islamique",
+      "Langues et traduction"
+    ],
+    "fields": [
+      "Islamic Studies",
+      "Law",
+      "Languages",
+      "Humanities",
+      "Business",
+      "Computer Science"
+    ],
+    "degrees": [
+      "Licence",
+      "Master"
+    ],
+    "languages": [
+      "Arabic",
+      "French"
+    ],
+    "website": "https://umchinguitt.mr",
+    "email": null,
+    "phone": "+222 36 33 56 77",
+    "coordinates": [
+      18.0858,
+      -15.9785
+    ],
+    "coordinatesPrecision": "city",
+    "wikidata": "Q1074359",
+    "wikipedia": "https://de.wikipedia.org/wiki/Universit%C3%A9_moderne_Chinguitt",
+    "summary": "The Modern University of Chinguitt is a private non-profit university in Nouakchott specialising in Islamic and Arabic studies. It opened to master's students in December 2006 and describes itself as Mauritania's first university dedicated to Islamic and social sciences. It has since added licence programmes, including applied computing for management and finance-accounting.",
+    "highlights": [
+      "Opened to master's students in December 2006 as a non-profit private university",
+      "Founding president: Dr Mohamed El Mokhtar Ould Bah",
+      "Member of the Federation of the Universities of the Islamic World, according to the university",
+      "198 students in 2024–2025 (IAU WHED)"
+    ],
+    "admission": "Licence: certified copy of the baccalauréat, ID and signed student commitment form. Master: also requires a licence or maîtrise. Registration for 2026/2027 opened on 7 September 2026.",
+    "sources": [
+      {
+        "title": "Official website – جامعة شنقيط العصرية",
+        "url": "https://umchinguitt.mr"
+      },
+      {
+        "title": "IAU World Higher Education Database – Chinguetti Modern University",
+        "url": "https://www.whed.net/institutions/IAU-031377"
+      },
+      {
+        "title": "MESRS – Universités privées (archived March 2026)",
+        "url": "https://web.archive.org/web/20260317152429/https://www.mesrs.gov.mr/fr/universites-privees-0"
+      },
+      {
+        "title": "Wikipedia (de) – Université moderne Chinguitt",
+        "url": "https://de.wikipedia.org/wiki/Universit%C3%A9_moderne_Chinguitt"
+      },
+      {
+        "title": "Wikidata – Q1074359",
+        "url": "https://www.wikidata.org/wiki/Q1074359"
+      }
+    ]
+  },
+  {
+    "id": "umlc",
+    "name": "Université Cheikh Mohamed Lemine Chinguitti",
+    "nameAr": "جامعة الشيخ محمد الأمين الشنقيطي",
+    "nameEn": "Sheikh Mohamed Lemine Chinguitti University",
+    "acronym": "UMLC",
+    "type": "private",
+    "category": "university",
+    "city": "Nouakchott",
+    "wilaya": "Nouakchott-Ouest",
+    "founded": null,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [],
+    "fields": [
+      "Islamic Studies",
+      "Law",
+      "Economics",
+      "Journalism",
+      "Humanities"
+    ],
+    "degrees": [
+      "Licence",
+      "Master"
+    ],
+    "languages": [],
+    "website": null,
+    "email": null,
+    "phone": null,
+    "coordinates": [
+      18.07795,
+      -15.96815
+    ],
+    "coordinatesPrecision": "campus",
+    "wikidata": null,
+    "wikipedia": null,
+    "summary": "Sheikh Mohamed Lemine Chinguitti University is a private university headquartered in Nouakchott. It focuses on Islamic, legal and human sciences and is named after the Mauritanian Quran commentator Mohamed Lemine Chinguitti. It offers a licence in Sharia and master's programmes in fatwa and judiciary, law, and civilisation and media.",
+    "highlights": [
+      "Listed by the Ministry of Higher Education (MESRS) as a private university",
+      "In 2021 it announced registration at its Nouakchott headquarters and branches in Nouadhibou and Kiffa",
+      "Licence tracks include fiqh and its principles, civilisation and media, and Islamic economics"
+    ],
+    "admission": null,
+    "sources": [
+      {
+        "title": "MESRS – Universités privées (archived March 2026)",
+        "url": "https://web.archive.org/web/20260317152429/https://www.mesrs.gov.mr/fr/universites-privees-0"
+      },
+      {
+        "title": "MESRS – الجامعات الخصوصية (archived 2022)",
+        "url": "https://web.archive.org/web/2022/https://mesrs.gov.mr/ar/aljamat-alkhswsyt"
+      },
+      {
+        "title": "Tabrenkout – جامعة محمد الأمين الشنقيطي تعلن عن بدء التسجيل (5 Nov 2021)",
+        "url": "http://www.tabrenkout.com/?p=40408"
+      },
+      {
+        "title": "Mauribac – UMLC programme listing",
+        "url": "https://www.mauribac.com/fr/higher-education/institutions/private/umlc/"
+      },
+      {
+        "title": "OpenStreetMap – Université Cheikh Mohamed Lemine Chinguitti (way 595283114)",
+        "url": "https://www.openstreetmap.org/way/595283114"
+      }
+    ]
+  },
+  {
+    "id": "geu-academie",
+    "name": "GEU l'Académie",
+    "nameAr": null,
+    "nameEn": "GEU l'Académie",
+    "acronym": "GEU",
+    "type": "private",
+    "category": "business-school",
+    "city": "Nouakchott",
+    "wilaya": "Nouakchott-Ouest",
+    "founded": 2005,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [],
+    "fields": [
+      "Business",
+      "Computer Science",
+      "Languages"
+    ],
+    "degrees": [
+      "BTS",
+      "Licence professionnelle",
+      "Master professionnel"
+    ],
+    "languages": [],
+    "website": "https://geuacademie.com",
+    "email": null,
+    "phone": "+222 46 50 75 38",
+    "coordinates": [
+      18.09341,
+      -15.97787
+    ],
+    "coordinatesPrecision": "campus",
+    "wikidata": null,
+    "wikipedia": null,
+    "summary": "GEU l'Académie is a private higher-education institute in Nouakchott, founded in 2005. It offers BTS, professional licence and professional master's programmes, mainly in management, banking and finance, human resources, logistics, digital marketing and IT. It also runs French-language courses and TEF/DELF test preparation.",
+    "highlights": [
+      "One of the five private institutions recognised after the 2006 higher-education reform (French Embassy 2009 country fact sheet)",
+      "Listed among private establishments in the current MESRS directory",
+      "Programmes run from BTS to professional master's",
+      "Has internship partnerships with local employers such as Société Générale Mauritanie"
+    ],
+    "admission": null,
+    "sources": [
+      {
+        "title": "Official website – GEU L'Académie",
+        "url": "https://geuacademie.com"
+      },
+      {
+        "title": "Ambassade de France en Mauritanie – Fiche Mauritanie (2009, via Université Lyon 3)",
+        "url": "https://www.univ-lyon3.fr/fiche-renseignement-mauritanie"
+      },
+      {
+        "title": "MESRS – Établissements privés",
+        "url": "https://www.mesrs.gov.mr/fr/etablissements?type=private"
+      },
+      {
+        "title": "Mauribac – GEU l'Académie programme listing",
+        "url": "https://www.mauribac.com/fr/higher-education/institutions/private/geu-academie/"
+      },
+      {
+        "title": "OpenStreetMap – Ge U L'academie (way 797385638)",
+        "url": "https://www.openstreetmap.org/way/797385638"
+      }
+    ]
+  },
+  {
+    "id": "edge-mauritanie",
+    "name": "EDGE Mauritanie – Grande École de Management et d'Ingénierie",
+    "nameAr": null,
+    "nameEn": "EDGE Mauritania – School of Management and Engineering",
+    "acronym": "EDGE",
+    "type": "private",
+    "category": "business-school",
+    "city": "Nouakchott",
+    "wilaya": null,
+    "founded": 2023,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [
+      "Classes Préparatoires Intégrées",
+      "Cycle Licence (Management)",
+      "Cycle Master",
+      "Cycle Ingénieur"
+    ],
+    "fields": [
+      "Business",
+      "Engineering",
+      "Computer Science"
+    ],
+    "degrees": [
+      "Licence",
+      "Master",
+      "Diplôme d'Ingénieur d'État"
+    ],
+    "languages": [],
+    "website": "https://edge.mr",
+    "email": null,
+    "phone": "+222 33 44 00 82",
+    "coordinates": [
+      18.0858,
+      -15.9785
+    ],
+    "coordinatesPrecision": "city",
+    "wikidata": null,
+    "wikipedia": null,
+    "summary": "EDGE Mauritanie is a private school of management and engineering in Nouakchott. It operates as the Mauritanian franchise of EDGE Private Business School in Casablanca. After two years of shared preparatory classes, students take either management licence and master's programmes or a software engineering track that is open only by competitive exam.",
+    "highlights": [
+      "Programmes accredited under Arrêté N°1058/MESRS/2025; operating authorisation N°000202 of 15 April 2026",
+      "Five programmes accredited by AMAQ-ES, the national quality-assurance agency",
+      "Double-degree agreements with Université Polytechnique Hauts-de-France (licence) and UHA Business School (master)",
+      "Engineering track offers final-year specialisations in artificial intelligence or cybersecurity"
+    ],
+    "admission": "Online application. The engineering cycle is open only by competitive exam. Students with a Bac+2, Bac+3 or Bac+4 can join directly at licence, Master 1 or Master 2 level.",
+    "sources": [
+      {
+        "title": "Official website – EDGE Mauritanie",
+        "url": "https://edge.mr"
+      },
+      {
+        "title": "Le Matin – EDGE Business School s'installe en Mauritanie",
+        "url": "https://lematin.ma/enseignement/edge-business-school-sinstalle-en-mauritanie/240488"
+      },
+      {
+        "title": "Mauribac – EDGE Mauritanie programme listing",
+        "url": "https://www.mauribac.com/fr/higher-education/institutions/private/edge-mauritanie/"
+      }
+    ]
+  },
+  {
+    "id": "emsi-mauritanie",
+    "name": "École Marocaine des Sciences de l'Ingénieur – Mauritanie",
+    "nameAr": "المدرسة المغربية لعلوم المهندس",
+    "nameEn": "Moroccan School of Engineering Sciences – Mauritania",
+    "acronym": "EMSI",
+    "type": "private",
+    "category": "engineering-school",
+    "city": "Nouakchott",
+    "wilaya": null,
+    "founded": 2026,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [
+      "Génie Civil, Bâtiments et Travaux Publics (BTP)",
+      "Ingénierie Informatique et Réseaux"
+    ],
+    "fields": [
+      "Engineering",
+      "Computer Science"
+    ],
+    "degrees": [
+      "Diplôme d'Ingénieur d'État"
+    ],
+    "languages": [],
+    "website": "https://emsi.mr",
+    "email": null,
+    "phone": null,
+    "coordinates": [
+      18.0858,
+      -15.9785
+    ],
+    "coordinatesPrecision": "city",
+    "wikidata": null,
+    "wikipedia": null,
+    "summary": "EMSI Mauritanie is the Nouakchott branch of the Moroccan private engineering school EMSI, part of the Honoris United Universities network. It was set up under a partnership agreement signed with the Ministry of Higher Education on 29 September 2025 and opened officially in October 2026. It offers engineering programmes in civil engineering and construction and in computer and network engineering.",
+    "highlights": [
+      "Partnership agreement with the MESRS signed on 29 September 2025",
+      "Official opening supervised by the Minister of Higher Education on 8 October 2026",
+      "First intake in 2026–2027",
+      "Computer engineering options include digital development, cybersecurity and networks, and AI and data science"
+    ],
+    "admission": "Applications for the 2026–2027 intake are open to new baccalauréat holders and students changing course, via emsi.mr.",
+    "sources": [
+      {
+        "title": "Official website – EMSI Mauritanie",
+        "url": "https://emsi.mr"
+      },
+      {
+        "title": "Le360 Afrique – L'EMSI s'implante à Nouakchott (30 Sep 2025)",
+        "url": "https://afrique.le360.ma/culture/mauritanie-maroc-enseignement-superieur-lemsi-simplante-a-nouakchott_VBHL5A7KPZBONNFBYHYQDNMBKI/"
+      },
+      {
+        "title": "Etudiant.ma – L'EMSI ouvre un campus à Nouakchott (2 Jul 2026)",
+        "url": "https://etudiant.ma/articles/lemsi-ouvre-un-campus-nouakchott-une-nouvelle-tape-pour-le-rayonnement-de-lenseignement-suprieur-marocain-en-afrique"
+      },
+      {
+        "title": "AMI – وزير التعليم العالي يشرف على افتتاح فرع المدرسة المغربية لعلوم المهندس في نواكشوط (8 Oct 2026)",
+        "url": "https://www.ami.mr/archives/270154"
+      }
+    ]
+  },
+  {
+    "id": "espri",
+    "name": "École Supérieure Professionnelle et Interdisciplinaire",
+    "nameAr": "المدرسة العليا المهنية ومتعددة التخصصات",
+    "nameEn": "Higher Professional and Interdisciplinary School",
+    "acronym": "ESPRI",
+    "type": "private",
+    "category": "professional-school",
+    "city": "Nouakchott",
+    "wilaya": "Nouakchott-Ouest",
+    "founded": null,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [
+      "Economic and Social Administration",
+      "Finance and Accounting",
+      "Financial Engineering and Banking",
+      "Information Technology",
+      "International Security (Graduate)",
+      "Logistics and Supply Chain Management"
+    ],
+    "fields": [
+      "Business",
+      "Economics",
+      "Computer Science",
+      "Public Administration"
+    ],
+    "degrees": [
+      "Licence",
+      "Master"
+    ],
+    "languages": [
+      "French"
+    ],
+    "website": null,
+    "email": null,
+    "phone": null,
+    "coordinates": [
+      18.0858,
+      -15.9785
+    ],
+    "coordinatesPrecision": "city",
+    "wikidata": null,
+    "wikipedia": null,
+    "summary": "ESPRI is a private professional higher-education school on the Route de Nouadhibou in the Tevragh Zeina district of Nouakchott. It offers licence programmes in administration, finance and accounting, banking, IT and logistics, and a graduate programme in international security. It also provides capacity-building courses for professionals.",
+    "highlights": [
+      "Listed in the MESRS private schools directory (archived 2022 and February 2026)",
+      "Licence programmes in finance, banking, IT and logistics",
+      "In February 2021 it ran a UNIDO COMFAR III financial-analysis workshop for the Caisse des Dépôts et de Développement"
+    ],
+    "admission": null,
+    "sources": [
+      {
+        "title": "IAU World Higher Education Database – Ecole supérieure professionnelle et interdisciplinaire",
+        "url": "https://www.whed.net/institutions/IAU-031382"
+      },
+      {
+        "title": "MESRS – Écoles privées (archived March 2026)",
+        "url": "https://web.archive.org/web/20260317053334/https://mesrs.gov.mr/fr/uuecoles-privees"
+      },
+      {
+        "title": "MESRS – مدارس خصوصية (archived February 2026)",
+        "url": "https://web.archive.org/web/20260210234943/https://www.mesrs.gov.mr/ar/uumdars-khswsyt"
+      },
+      {
+        "title": "CDD – Atelier de formation COMFAR III (ESPRI)",
+        "url": "http://www.cdd.gov.mr/fr/AtelierComfart"
+      }
+    ]
+  },
+  {
+    "id": "isb-mauritanie",
+    "name": "International School of Business",
+    "nameAr": "المدرسة الدولية للأعمال",
+    "nameEn": "International School of Business",
+    "acronym": "ISB",
+    "type": "private",
+    "category": "business-school",
+    "city": "Nouakchott",
+    "wilaya": null,
+    "founded": null,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [],
+    "fields": [
+      "Business",
+      "Computer Science",
+      "Languages"
+    ],
+    "degrees": [
+      "Licence",
+      "Master"
+    ],
+    "languages": [],
+    "website": null,
+    "email": null,
+    "phone": null,
+    "coordinates": [
+      18.0858,
+      -15.9785
+    ],
+    "coordinatesPrecision": "city",
+    "wikidata": null,
+    "wikipedia": null,
+    "summary": "The International School of Business (ISB) is a private business school listed by Mauritania's Ministry of Higher Education. It offers licence and master's programmes in business administration, computer science for business, and business English. Business administration tracks include accounting and audit, banking and finance, and international trade.",
+    "highlights": [
+      "Listed in the MESRS private schools directory (archived February and March 2026)",
+      "Business administration tracks: accounting, control and audit; banking, finance and insurance; international trade",
+      "Computing tracks: information-systems design and security, and artificial intelligence"
+    ],
+    "admission": null,
+    "sources": [
+      {
+        "title": "MESRS – Écoles privées (archived March 2026)",
+        "url": "https://web.archive.org/web/20260317053334/https://mesrs.gov.mr/fr/uuecoles-privees"
+      },
+      {
+        "title": "MESRS – مدارس خصوصية (archived February 2026)",
+        "url": "https://web.archive.org/web/20260210234943/https://www.mesrs.gov.mr/ar/uumdars-khswsyt"
+      },
+      {
+        "title": "Mauribac – ISB programme listing",
+        "url": "https://www.mauribac.com/fr/higher-education/institutions/private/isb/"
+      }
+    ]
+  },
+  {
+    "id": "same-paris-nouakchott",
+    "name": "Paris School of Advanced Management and Entrepreneurship",
+    "nameAr": null,
+    "nameEn": "Paris School of Advanced Management and Entrepreneurship",
+    "acronym": "SAME-Paris",
+    "type": "private",
+    "category": "business-school",
+    "city": "Nouakchott",
+    "wilaya": "Nouakchott-Ouest",
+    "founded": null,
+    "studentCount": null,
+    "studentCountYear": null,
+    "faculties": [
+      "Classes Préparatoires",
+      "Cycle Bachelor",
+      "Cycle Masters",
+      "Formations continues"
+    ],
+    "fields": [
+      "Business",
+      "Economics",
+      "Sciences"
+    ],
+    "degrees": [
+      "Classes préparatoires",
+      "Bachelor",
+      "MSc"
+    ],
+    "languages": [],
+    "website": "https://www.same-paris.fr",
+    "email": "contact@same-paris.fr",
+    "phone": "+222 49 11 83 19",
+    "coordinates": [
+      18.0858,
+      -15.9785
+    ],
+    "coordinatesPrecision": "city",
+    "wikidata": null,
+    "wikipedia": null,
+    "summary": "SAME-Paris is a private management school in Nouakchott, located next to the Lycée Français Théodore Monod near the French Embassy. It offers preparatory classes for French grandes écoles entrance exams, a three-year Bachelor in management, and two-year MSc programmes in finance, digital marketing, entrepreneurship and project management.",
+    "highlights": [
+      "Preparatory classes in economics (ECG), science (MPSI) and technology (ECT) tracks",
+      "Three-year Bachelor in management",
+      "Four two-year MSc programmes, plus certified continuing education"
+    ],
+    "admission": "Online application through the school's website.",
+    "sources": [
+      {
+        "title": "Official website – SAME-Paris",
+        "url": "https://www.same-paris.fr"
+      },
+      {
+        "title": "Mauribac – SAME-Paris programme listing",
+        "url": "https://www.mauribac.com/fr/higher-education/institutions/private/same-paris/"
+      }
+    ]
+  }
+]

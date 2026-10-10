@@ -1,0 +1,364 @@
+---
+import { getEntry } from 'astro:content'
+import { useTranslations, type Locale } from '@/i18n'
+
+interface Props {
+  lang: Locale
+}
+
+const { lang } = Astro.props
+const { t, num } = useTranslations(lang)
+
+// Tertiary gross enrollment ratio by sex, World Bank Open Data (fetched at build time).
+const female = await getEntry('indicators', 'SE.TER.ENRR.FE')
+const male = await getEntry('indicators', 'SE.TER.ENRR.MA')
+const enrolled = await getEntry('indicators', 'SE.TER.ENRL')
+const live = Boolean(female?.data.live && male?.data.live)
+
+const START = 2000
+const series = [
+  { key: 'women', label: t('chart.women'), points: female?.data.series ?? [] },
+  { key: 'men', label: t('chart.men'), points: male?.data.series ?? [] },
+].map((s) => ({ ...s, points: s.points.filter((p) => p.year >= START) }))
+
+const years = [...new Set(series.flatMap((s) => s.points.map((p) => p.year)))].sort((a, b) => a - b)
+const minYear = years[0] ?? START
+const maxYear = years.at(-1) ?? START
+const maxValue = Math.max(...series.flatMap((s) => s.points.map((p) => p.value)), 1)
+const yMax = Math.ceil(maxValue / 2) * 2
+
+const W = 640
+const H = 260
+const pad = { top: 16, right: 64, bottom: 28, left: 34 }
+const x = (year: number) =>
+  pad.left + ((year - minYear) / Math.max(maxYear - minYear, 1)) * (W - pad.left - pad.right)
+const y = (value: number) => pad.top + (1 - value / yMax) * (H - pad.top - pad.bottom)
+const yTicks = Array.from({ length: yMax / 2 + 1 }, (_, i) => i * 2)
+const xTicks = years.filter((yr) => yr % 5 === 0)
+
+const path = (points: { year: number; value: number }[]) =>
+  points.map((p, i) => `${i ? 'L' : 'M'}${x(p.year).toFixed(1)},${y(p.value).toFixed(1)}`).join('')
+
+const latestEnrolled = enrolled?.data.series.at(-1)
+const fmt = (v: number) => (lang === 'fr' ? v.toFixed(1).replace('.', ',') : v.toFixed(1))
+const rows = years.map((year) => ({
+  year,
+  values: series.map((s) => s.points.find((p) => p.year === year)?.value),
+}))
+---
+
+<figure
+  class="chart"
+  data-chart
+  data-rows={JSON.stringify(rows)}
+  data-labels={JSON.stringify(series.map((s) => s.label))}
+  data-no-data={t('chart.noData')}
+  data-decimal={lang === 'fr' ? ',' : '.'}
+>
+  <figcaption>
+    <h3 class="headline text-xl">{t('chart.title')}</h3>
+    <p class="text-muted mt-1 text-sm">
+      {t('chart.desc', { from: minYear, to: maxYear })}
+      {latestEnrolled && ` ${t('chart.enrolled', { count: num(latestEnrolled.value), year: latestEnrolled.year })}`}
+    </p>
+  </figcaption>
+
+  <ul class="legend" aria-hidden="true">
+    {series.map((s) => <li><span class:list={['key', s.key]} />{s.label}</li>)}
+  </ul>
+
+  <div class="plot" dir="ltr">
+    <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${t('chart.title')}, ${maxYear}: ${series.map((s) => `${s.label} ${fmt(s.points.at(-1)?.value ?? 0)}%`).join(', ')}`}>
+      <g class="grid">
+        {yTicks.map((t) => (
+          <g>
+            <line x1={pad.left} x2={W - pad.right} y1={y(t)} y2={y(t)} />
+            <text x={pad.left - 8} y={y(t)} dy="0.32em" text-anchor="end">{t}</text>
+          </g>
+        ))}
+        {xTicks.map((t) => (
+          <text x={x(t)} y={H - 6} text-anchor="middle">{t}</text>
+        ))}
+      </g>
+
+      {series.map((s) => {
+        const last = s.points.at(-1)
+        return (
+          <g class:list={['series', s.key]}>
+            <path d={path(s.points)} />
+            {last && (
+              <>
+                <circle cx={x(last.year)} cy={y(last.value)} r="4" />
+                <text x={x(last.year) + 9} y={y(last.value)} dy="0.32em" class="direct-label">
+                  {s.label} {fmt(last.value)}%
+                </text>
+              </>
+            )}
+          </g>
+        )
+      })}
+
+      <line class="crosshair" data-crosshair y1={pad.top} y2={H - pad.bottom} visibility="hidden" />
+      <rect
+        class="hit"
+        data-hit
+        x={pad.left}
+        y={pad.top}
+        width={W - pad.left - pad.right}
+        height={H - pad.top - pad.bottom}
+        data-min={minYear}
+        data-max={maxYear}
+        data-w={W}
+        tabindex="0"
+        aria-label={t('chart.explore')}
+      />
+    </svg>
+    <div class="tooltip" data-tooltip role="status" hidden></div>
+  </div>
+
+  <details class="mt-3 text-sm">
+    <summary class="cursor-pointer text-muted">{t('chart.table')}</summary>
+    <table class="data-table">
+      <thead><tr><th scope="col">{t('chart.year')}</th>{series.map((s) => <th scope="col">{s.label} (%)</th>)}</tr></thead>
+      <tbody>
+        {rows.map((r) => (
+          <tr><th scope="row">{r.year}</th>{r.values.map((v) => <td>{v === undefined ? t('chart.noData') : fmt(v)}</td>)}</tr>
+        ))}
+      </tbody>
+    </table>
+  </details>
+
+  <p class="source">
+    {t('chart.source')}{' '}
+    <a class="link" href="https://data.worldbank.org/indicator/SE.TER.ENRR?locations=MR">World Bank Open Data</a>
+    (UNESCO). {live ? t('chart.live') : t('chart.snapshot')}
+  </p>
+</figure>
+
+<style>
+  .chart {
+    --women: #c27a12;
+    --men: #2e8059;
+    margin: 0;
+  }
+
+  .legend {
+    display: flex;
+    gap: 1.25rem;
+    margin: 0.9rem 0 0.4rem;
+    padding: 0;
+    list-style: none;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .key {
+    display: inline-block;
+    width: 14px;
+    height: 2px;
+    margin-inline-end: 0.4rem;
+    vertical-align: 0.25em;
+  }
+
+  .key.women { background: var(--women); }
+  .key.men { background: var(--men); }
+
+  .plot {
+    position: relative;
+  }
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .grid line {
+    stroke: var(--line);
+    stroke-width: 1;
+  }
+
+  .grid text {
+    fill: var(--muted);
+    font-size: 11px;
+  }
+
+  .series path {
+    fill: none;
+    stroke-width: 2;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+
+  .series circle {
+    stroke: var(--paper);
+    stroke-width: 2;
+  }
+
+  .series.women path { stroke: var(--women); }
+  .series.women circle { fill: var(--women); }
+  .series.men path { stroke: var(--men); }
+  .series.men circle { fill: var(--men); }
+
+  .direct-label {
+    fill: var(--text);
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .crosshair {
+    stroke: var(--muted);
+    stroke-width: 1;
+    stroke-dasharray: 3 3;
+  }
+
+  .hit {
+    fill: transparent;
+    cursor: crosshair;
+  }
+
+  .hit:focus-visible {
+    outline: 2px solid var(--focus);
+  }
+
+  .tooltip {
+    position: absolute;
+    top: 0;
+    pointer-events: none;
+    min-width: 8.5rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--paper-raised);
+    padding: 0.5rem 0.65rem;
+    font-size: 0.82rem;
+    box-shadow: 0 8px 20px -10px rgb(0 0 0 / 30%);
+  }
+
+  .tooltip :global(.tt-year) {
+    color: var(--muted);
+    font-size: 0.75rem;
+  }
+
+  .tooltip :global(.tt-row) {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .tooltip :global(.tt-row strong) {
+    color: var(--text);
+  }
+
+  .tooltip :global(.tt-key) {
+    width: 10px;
+    height: 2px;
+  }
+
+  .data-table {
+    margin-top: 0.6rem;
+    width: 100%;
+    max-width: 24rem;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .data-table th,
+  .data-table td {
+    border-bottom: 1px solid var(--line);
+    padding: 0.25rem 0.5rem;
+    text-align: end;
+  }
+
+  .data-table th:first-child {
+    text-align: start;
+  }
+
+  .source {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+</style>
+
+<script>
+  type Row = { year: number; values: (number | undefined)[] }
+  const COLORS = ['var(--women)', 'var(--men)']
+
+  document.querySelectorAll<HTMLElement>('[data-chart]').forEach((chart) => {
+    const rows: Row[] = JSON.parse(chart.dataset.rows!)
+    const labels: string[] = JSON.parse(chart.dataset.labels!)
+    const noData = chart.dataset.noData!
+    const decimal = chart.dataset.decimal!
+    const svg = chart.querySelector('svg')!
+    const hit = chart.querySelector<SVGRectElement>('[data-hit]')!
+    const crosshair = chart.querySelector<SVGLineElement>('[data-crosshair]')!
+    const tooltip = chart.querySelector<HTMLElement>('[data-tooltip]')!
+    const min = Number(hit.dataset.min)
+    const max = Number(hit.dataset.max)
+    const x0 = hit.x.baseVal.value
+    const width = hit.width.baseVal.value
+    const viewW = Number(hit.dataset.w)
+    let index = rows.length - 1
+
+    const xFor = (year: number) => x0 + ((year - min) / Math.max(max - min, 1)) * width
+
+    function show(i: number) {
+      index = Math.max(0, Math.min(rows.length - 1, i))
+      const row = rows[index]
+      const sx = xFor(row.year)
+      crosshair.setAttribute('x1', String(sx))
+      crosshair.setAttribute('x2', String(sx))
+      crosshair.setAttribute('visibility', 'visible')
+
+      tooltip.replaceChildren()
+      const year = document.createElement('div')
+      year.className = 'tt-year'
+      year.textContent = String(row.year)
+      tooltip.append(year)
+      row.values.forEach((v, k) => {
+        const line = document.createElement('div')
+        line.className = 'tt-row'
+        const key = document.createElement('span')
+        key.className = 'tt-key'
+        key.style.background = COLORS[k]
+        const value = document.createElement('strong')
+        value.textContent = v === undefined || v === null ? noData : `${v.toFixed(1).replace('.', decimal)}%`
+        const label = document.createElement('span')
+        label.textContent = labels[k]
+        line.append(key, value, label)
+        tooltip.append(line)
+      })
+
+      const scale = svg.getBoundingClientRect().width / viewW
+      const left = sx * scale
+      tooltip.hidden = false
+      const flip = left + tooltip.offsetWidth + 12 > svg.getBoundingClientRect().width
+      tooltip.style.left = `${flip ? left - tooltip.offsetWidth - 12 : left + 12}px`
+    }
+
+    function hide() {
+      crosshair.setAttribute('visibility', 'hidden')
+      tooltip.hidden = true
+    }
+
+    hit.addEventListener('pointermove', (e) => {
+      const box = hit.getBoundingClientRect()
+      const year = min + ((e.clientX - box.left) / box.width) * (max - min)
+      let nearest = 0
+      rows.forEach((r, i) => {
+        if (Math.abs(r.year - year) < Math.abs(rows[nearest].year - year)) nearest = i
+      })
+      show(nearest)
+    })
+    hit.addEventListener('pointerleave', hide)
+    hit.addEventListener('focus', () => show(index))
+    hit.addEventListener('blur', hide)
+    hit.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') show(index - 1)
+      else if (e.key === 'ArrowRight') show(index + 1)
+      else return
+      e.preventDefault()
+    })
+  })
+</script>

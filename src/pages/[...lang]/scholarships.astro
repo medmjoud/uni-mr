@@ -1,0 +1,136 @@
+---
+import { ExternalLink, Landmark, Plane } from '@lucide/astro'
+import Layout from '@/layouts/Layout.astro'
+import { getContext } from '@/lib/context'
+import { langParams, toLocale, useTranslations } from '@/i18n'
+
+export function getStaticPaths() {
+  return langParams().map((params) => ({ params }))
+}
+
+const lang = toLocale(Astro.params.lang)
+const { t } = useTranslations(lang)
+const { scholarships } = getContext(lang)
+
+const groups = [
+  { id: 'national', icon: Landmark, title: t('sch.national'), intro: t('sch.nationalIntro') },
+  { id: 'international', icon: Plane, title: t('sch.international'), intro: t('sch.internationalIntro') },
+].map((g) => ({ ...g, items: scholarships.filter((s) => s.scope === g.id) }))
+---
+
+<Layout lang={lang} title={t('sch.title')} description={t('sch.meta')}>
+  <header class="page-band">
+    <div class="wrap py-14 md:py-20">
+      <h1 class="display page-title">{t('sch.title')}</h1>
+      <p class="page-band-lede mt-5 text-lg measure">{t('sch.intro')}</p>
+    </div>
+  </header>
+
+  <div class="wrap grid gap-16 py-14">
+    {
+      groups.map((group) => (
+        <section aria-labelledby={group.id}>
+          <div class="flex items-start gap-4">
+            <span class="group-icon" aria-hidden="true"><group.icon class="icon" /></span>
+            <div>
+              <h2 id={group.id} class="headline text-2xl md:text-3xl">{group.title}</h2>
+              <p class="mt-2 text-muted measure">{group.intro}</p>
+            </div>
+          </div>
+          <ul class="list">
+            {group.items.map((s) => (
+              <li class="card item">
+                <div class="item-head">
+                  <h3 class="item-name">{s.name}</h3>
+                  <p class="text-muted text-sm">{s.provider}</p>
+                </div>
+                <p class="text-[0.95rem]">{s.description}</p>
+                <div class="item-foot">
+                  <span class="tag tag-gold">{s.level}</span>
+                  <a class="link text-sm inline-flex items-center gap-1" href={s.url} rel="noopener">
+                    {t('common.officialPage')}
+                    <ExternalLink class="icon" aria-hidden="true" />
+                  </a>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+</Layout>
+
+<style>
+  .page-title {
+    font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+  }
+
+  .group-icon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 12px;
+    background: var(--emerald-50);
+    color: var(--emerald-700);
+  }
+
+  .list {
+    margin-top: 1.75rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1180px) {
+    .list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.35rem;
+    transition: box-shadow 200ms ease, border-color 200ms ease;
+  }
+
+  .item:hover {
+    border-color: color-mix(in oklab, var(--emerald-600) 35%, var(--line));
+    box-shadow: var(--shadow-lift);
+  }
+
+  .item-name {
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 1.08rem;
+    line-height: 1.3;
+    color: var(--ink);
+  }
+
+  .item-head p {
+    margin-top: 0.25rem;
+  }
+
+  .item-foot {
+    margin-top: auto;
+    padding-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+  }
+
+  .item-foot .tag {
+    white-space: normal;
+  }
+</style>

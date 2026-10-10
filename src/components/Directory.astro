@@ -1,0 +1,674 @@
+---
+import { MapPin, CalendarDays, Plus, Check, SlidersHorizontal, Search } from '@lucide/astro'
+import { countBy, monogram, searchText, type Institution } from '@/lib/institutions'
+import { localePath, useTranslations, type Locale } from '@/i18n'
+
+interface Props {
+  institutions: Institution[]
+  lang: Locale
+}
+
+const { institutions, lang } = Astro.props
+const { t, term, city: cityName } = useTranslations(lang)
+const cities = countBy(institutions, (e) => e.data.city)
+const fields = countBy(institutions, (e) => e.data.fields)
+  .map(([f]) => f)
+  .sort((a, b) => term(a).localeCompare(term(b), lang))
+---
+
+<section
+  id="directory"
+  class="wrap pb-8 pt-16 md:pt-24"
+  aria-labelledby="directory-title"
+  data-directory
+  data-lang={lang}
+  data-t-showing={t('dir.showing')}
+  data-t-selected={t('dir.compareSelected')}
+  data-compare-base={localePath(lang, '/compare/')}
+>
+  <div class="flex flex-wrap items-end justify-between gap-4">
+    <div>
+      <h2 id="directory-title" class="headline text-3xl md:text-[2.5rem]">{t('dir.title')}</h2>
+      <p class="mt-3 text-muted measure">{t('dir.intro')}</p>
+    </div>
+    <p class="count" aria-live="polite" data-count>
+      {t('dir.showing', { shown: institutions.length, total: institutions.length })}
+    </p>
+  </div>
+
+  <form class="filters" role="search" data-filters>
+    <label class="filter filter-search">
+      <span class="filter-label">{t('dir.search')}</span>
+      <span class="search-box">
+        <Search class="icon" aria-hidden="true" />
+        <input class="field" type="search" name="q" placeholder={t('dir.searchPlaceholder')} autocomplete="off" />
+      </span>
+    </label>
+
+    <button type="button" class="btn btn-quiet filters-toggle" aria-expanded="false" data-filters-toggle>
+      <SlidersHorizontal class="icon" aria-hidden="true" />
+      {t('dir.filters')}
+    </button>
+
+    <fieldset class="filter filter-extra">
+      <legend class="filter-label">{t('dir.type')}</legend>
+      <div class="segmented">
+        <label><input type="radio" name="type" value="" checked /><span>{t('dir.all')}</span></label>
+        <label><input type="radio" name="type" value="public" /><span>{t('type.public')}</span></label>
+        <label><input type="radio" name="type" value="private" /><span>{t('type.private')}</span></label>
+      </div>
+    </fieldset>
+
+    <label class="filter filter-extra">
+      <span class="filter-label">{t('dir.city')}</span>
+      <select class="field" name="city">
+        <option value="">{t('dir.allCities')}</option>
+        {cities.map(([c, n]) => <option value={c}>{cityName(c)} ({n})</option>)}
+      </select>
+    </label>
+
+    <label class="filter filter-extra">
+      <span class="filter-label">{t('dir.field')}</span>
+      <select class="field" name="field">
+        <option value="">{t('dir.allFields')}</option>
+        {fields.map((f) => <option value={f}>{term(f)}</option>)}
+      </select>
+    </label>
+
+    <label class="filter filter-extra">
+      <span class="filter-label">{t('dir.sort')}</span>
+      <select class="field" name="sort">
+        <option value="name">{t('dir.sortName')}</option>
+        <option value="oldest">{t('dir.sortOldest')}</option>
+        <option value="newest">{t('dir.sortNewest')}</option>
+      </select>
+    </label>
+  </form>
+
+  <ul class="grid-cards" data-rows>
+    {
+      institutions.map((entry) => {
+        const d = entry.data
+        // In Arabic, lead with the Arabic name when the institution has one.
+        const primary = lang === 'ar' && d.nameAr ? d.nameAr : d.name
+        const secondary = lang === 'ar' ? (d.nameAr ? d.name : null) : d.nameAr
+        return (
+          <li
+            class="inst"
+            data-type={d.type}
+            data-city={d.city}
+            data-fields={d.fields.join('|')}
+            data-founded={d.founded ?? ''}
+            data-name={primary}
+            data-search={searchText(entry)}
+          >
+            <a href={localePath(lang, `/universities/${entry.id}/`)} class="inst-link">
+              <div class="inst-top">
+                <span class:list={['mono', d.type]} aria-hidden="true">{monogram(entry)}</span>
+                <span class:list={['badge', d.type]}>{t(`type.${d.type}`)}</span>
+              </div>
+              <h3 class="inst-name">{primary}</h3>
+              {secondary && (
+                <p class="inst-alt alt-script" lang={lang === 'ar' ? 'fr' : 'ar'} dir={lang === 'ar' ? 'ltr' : 'rtl'}>
+                  {secondary}
+                </p>
+              )}
+              <p class="inst-cat">{t(`cat.${d.category}`)}</p>
+              <ul class="inst-tags" aria-label={t('dir.fields')}>
+                {d.fields.slice(0, 3).map((f) => (
+                  <li class="tag">{term(f)}</li>
+                ))}
+                {d.fields.length > 3 && <li class="tag tag-more">+{d.fields.length - 3}</li>}
+              </ul>
+              <div class="inst-foot">
+                <span>
+                  <MapPin class="icon" aria-hidden="true" />
+                  {cityName(d.city)}
+                </span>
+                {d.founded && (
+                  <span>
+                    <CalendarDays class="icon" aria-hidden="true" />
+                    {d.founded}
+                  </span>
+                )}
+              </div>
+            </a>
+            <button
+              type="button"
+              class="compare-toggle"
+              data-compare={entry.id}
+              aria-pressed="false"
+              aria-label={t('dir.compareAria', { name: d.acronym ?? primary })}
+            >
+              <Plus class="icon icon-off" aria-hidden="true" />
+              <Check class="icon icon-on" aria-hidden="true" />
+              {t('dir.compare')}
+            </button>
+          </li>
+        )
+      })
+    }
+  </ul>
+
+  <div class="empty card" data-empty hidden>
+    <p class="headline text-xl">{t('dir.emptyTitle')}</p>
+    <p class="mt-1 text-muted">{t('dir.emptyText')}</p>
+    <button type="button" class="btn btn-primary mt-5" data-clear>{t('dir.clear')}</button>
+  </div>
+
+  <div class="compare-bar" data-compare-bar hidden>
+    <p data-compare-count></p>
+    <div class="flex gap-2">
+      <button type="button" class="btn btn-quiet" data-compare-reset>{t('dir.compareClear')}</button>
+      <a class="btn btn-primary" href={localePath(lang, '/compare/')} data-compare-go>{t('dir.compareGo')}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .count {
+    border-radius: 999px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 0.35rem 0.9rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+
+  .filters {
+    position: sticky;
+    top: 4.75rem;
+    z-index: 20;
+    margin-top: 2rem;
+    display: grid;
+    gap: 0.9rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: color-mix(in oklab, var(--surface) 94%, transparent);
+    backdrop-filter: blur(12px);
+    padding: 1rem;
+    box-shadow: var(--shadow-card);
+  }
+
+  @media (min-width: 640px) {
+    .filters {
+      grid-template-columns: 1fr 1fr;
+    }
+    .filter-search {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (min-width: 1150px) {
+    .filters {
+      grid-template-columns: 1.6fr auto 1fr 1fr 0.8fr;
+      align-items: end;
+    }
+    .filter-search {
+      grid-column: auto;
+    }
+  }
+
+  .filters-toggle {
+    display: none;
+  }
+
+  /* On phones, keep search visible and tuck the other filters behind a toggle. */
+  @media (max-width: 639px) {
+    .filters {
+      position: static;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+    }
+    .filters-toggle {
+      display: inline-flex;
+      padding-block: 0.7rem;
+    }
+    .filter-search {
+      grid-column: 1;
+    }
+    .filter-extra {
+      grid-column: 1 / -1;
+    }
+    .filters:not(.is-open) .filter-extra {
+      display: none;
+    }
+  }
+
+  .filter {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 0.35rem;
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .filter-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--muted);
+    padding: 0;
+  }
+
+  .search-box {
+    position: relative;
+    display: block;
+  }
+
+  .search-box :global(.icon) {
+    position: absolute;
+    inset-inline-start: 0.85rem;
+    top: 50%;
+    translate: 0 -50%;
+    color: var(--muted);
+    pointer-events: none;
+  }
+
+  .search-box .field {
+    padding-inline-start: 2.5rem;
+  }
+
+  .segmented {
+    display: inline-flex;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-sm);
+    padding: 3px;
+    background: var(--surface-2);
+  }
+
+  .segmented label {
+    flex: 1;
+  }
+
+  .segmented input {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .segmented span {
+    display: block;
+    cursor: pointer;
+    border-radius: 7px;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+    color: var(--muted);
+  }
+
+  .segmented input:checked + span {
+    background: var(--emerald-800);
+    color: #fff;
+
+  }
+
+  .segmented input:focus-visible + span {
+    outline: 2px solid var(--focus);
+    outline-offset: 1px;
+  }
+
+  .grid-cards {
+    margin-top: 1.5rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+  }
+
+  .inst {
+    position: relative;
+    display: flex;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    transition:
+      transform 200ms ease,
+      box-shadow 200ms ease,
+      border-color 200ms ease;
+  }
+
+  .inst:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in oklab, var(--emerald-600) 40%, var(--line));
+    box-shadow: var(--shadow-lift);
+  }
+
+  .inst-link {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 1.25rem 1.25rem 1.1rem;
+    text-decoration: none;
+  }
+
+  .inst-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .mono {
+    display: inline-grid;
+    place-items: center;
+    min-width: 3rem;
+    height: 3rem;
+    border-radius: 12px;
+    padding-inline: 0.55rem;
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: -0.01em;
+    direction: ltr;
+  }
+
+  .mono.public {
+    background: var(--emerald-50);
+    color: var(--emerald-700);
+  }
+
+  .mono.private {
+    background: var(--gold-50);
+    color: var(--gold-700);
+  }
+
+  .badge {
+    border-radius: 999px;
+    padding: 0.2rem 0.65rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .badge.public {
+    background: var(--emerald-50);
+    color: var(--emerald-700);
+  }
+
+  .badge.private {
+    background: var(--gold-50);
+    color: var(--gold-700);
+  }
+
+  .inst-name {
+    margin-top: 1rem;
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 1.08rem;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+
+  .inst-alt {
+    margin-top: 0.25rem;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+
+  .inst-cat {
+    margin-top: 0.35rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .inst-tags {
+    margin-top: 0.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .tag-more {
+    background: transparent;
+    color: var(--muted);
+    border: 1px dashed var(--line-strong);
+  }
+
+  .inst-foot {
+    margin-top: auto;
+    padding-top: 1.1rem;
+    padding-inline-end: 6.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .inst-foot span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .inst-foot :global(.icon) {
+    width: 0.95rem;
+    height: 0.95rem;
+    color: var(--emerald-600);
+  }
+
+  .compare-toggle {
+    position: absolute;
+    inset-inline-end: 1rem;
+    bottom: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--muted);
+    padding: 0.3rem 0.75rem;
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+      background-color 150ms ease,
+      color 150ms ease,
+      border-color 150ms ease;
+  }
+
+  .compare-toggle :global(.icon) {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+
+  .compare-toggle:hover:not(:disabled) {
+    border-color: var(--emerald-700);
+    color: var(--emerald-800);
+  }
+
+  .compare-toggle:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  .compare-toggle :global(.icon-on),
+  .compare-toggle[aria-pressed='true'] :global(.icon-off) {
+    display: none;
+  }
+
+  .compare-toggle[aria-pressed='true'] :global(.icon-on) {
+    display: block;
+  }
+
+  .compare-toggle[aria-pressed='true'] {
+    border-color: var(--emerald-800);
+    background: var(--emerald-800);
+    color: #fff;
+  }
+
+  .compare-bar {
+    position: fixed;
+    left: 50%;
+    bottom: 1rem;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    width: max-content;
+    max-width: calc(100vw - 2rem);
+    translate: -50% 0;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-md);
+    background: #fff;
+    color: var(--ink);
+    padding: 0.5rem;
+    padding-inline-start: 1.25rem;
+    box-shadow: 0 16px 40px -12px rgb(23 58 40 / 30%);
+    font-size: 0.95rem;
+  }
+
+  .compare-bar[hidden] {
+    display: none;
+  }
+
+  .empty {
+    margin-top: 1.5rem;
+    padding: 3rem 1.5rem;
+    text-align: center;
+  }
+</style>
+
+<script>
+  import { normalizeSearch } from '@/lib/search'
+
+  const root = document.querySelector<HTMLElement>('[data-directory]')!
+  const form = root.querySelector<HTMLFormElement>('[data-filters]')!
+  const list = root.querySelector<HTMLUListElement>('[data-rows]')!
+  const rows = [...list.querySelectorAll<HTMLLIElement>('.inst')]
+  const count = root.querySelector<HTMLElement>('[data-count]')!
+  const empty = root.querySelector<HTMLElement>('[data-empty]')!
+  const markers = document.querySelectorAll<SVGAElement>('.marker')
+  const lang = root.dataset.lang!
+  const KEYS = ['q', 'type', 'city', 'field', 'sort'] as const
+
+  const fill = (template: string, vars: Record<string, string | number>) =>
+    Object.entries(vars).reduce((s, [k, v]) => s.replaceAll(`{${k}}`, String(v)), template)
+
+  function readForm() {
+    const data = new FormData(form)
+    return Object.fromEntries(KEYS.map((k) => [k, String(data.get(k) ?? '')])) as Record<
+      (typeof KEYS)[number],
+      string
+    >
+  }
+
+  function apply() {
+    const f = readForm()
+    const terms = normalizeSearch(f.q).split(/\s+/).filter(Boolean)
+    let shown = 0
+
+    for (const row of rows) {
+      const d = row.dataset
+      const match =
+        (!f.type || d.type === f.type) &&
+        (!f.city || d.city === f.city) &&
+        (!f.field || d.fields!.split('|').includes(f.field)) &&
+        terms.every((t) => d.search!.includes(t))
+      row.hidden = !match
+      if (match) shown++
+    }
+
+    const founded = (r: HTMLLIElement) => Number(r.dataset.founded) || null
+    const sorted = [...rows].sort((a, b) => {
+      if (f.sort === 'name') return a.dataset.name!.localeCompare(b.dataset.name!, lang)
+      const fa = founded(a)
+      const fb = founded(b)
+      if (fa === null) return 1
+      if (fb === null) return -1
+      return f.sort === 'oldest' ? fa - fb : fb - fa
+    })
+    list.append(...sorted)
+
+    count.textContent = fill(root.dataset.tShowing!, { shown, total: rows.length })
+    empty.hidden = shown > 0
+    markers.forEach((m) => m.setAttribute('aria-current', String(m.dataset.city === f.city)))
+
+    const params = new URLSearchParams()
+    for (const k of KEYS) if (f[k] && !(k === 'sort' && f[k] === 'name')) params.set(k, f[k])
+    const query = params.toString()
+    history.replaceState(null, '', query ? `?${query}#directory` : location.pathname + location.hash)
+  }
+
+  function setField(name: string, value: string) {
+    const el = form.elements.namedItem(name)
+    if (el instanceof RadioNodeList) el.value = value
+    else if (el instanceof HTMLInputElement || el instanceof HTMLSelectElement) el.value = value
+  }
+
+  // Restore filters from a shared URL.
+  const initial = new URLSearchParams(location.search)
+  for (const k of KEYS) if (initial.has(k)) setField(k, initial.get(k)!)
+
+  const toggle = root.querySelector<HTMLButtonElement>('[data-filters-toggle]')!
+  toggle.addEventListener('click', () => {
+    const open = form.classList.toggle('is-open')
+    toggle.setAttribute('aria-expanded', String(open))
+  })
+
+  form.addEventListener('input', apply)
+  form.addEventListener('submit', (e) => e.preventDefault())
+
+  root.querySelector('[data-clear]')!.addEventListener('click', () => {
+    form.reset()
+    apply()
+  })
+
+  markers.forEach((marker) =>
+    marker.addEventListener('click', () => {
+      const city = marker.dataset.city!
+      setField('city', readForm().city === city ? '' : city)
+      apply()
+    }),
+  )
+
+  // The hero search hands its query to the directory.
+  window.addEventListener('directory:search', (e) => {
+    setField('q', (e as CustomEvent<string>).detail)
+    apply()
+  })
+
+  if (initial.size) apply()
+
+  // Compare selection: up to three institutions, remembered for this tab.
+  const MAX_COMPARE = 3
+  const bar = root.querySelector<HTMLElement>('[data-compare-bar]')!
+  const toggles = [...root.querySelectorAll<HTMLButtonElement>('[data-compare]')]
+  let picked: string[] = []
+  try {
+    picked = JSON.parse(sessionStorage.getItem('compare') ?? '[]')
+  } catch {}
+
+  function syncCompare() {
+    picked = picked.filter((id) => toggles.some((t) => t.dataset.compare === id)).slice(0, MAX_COMPARE)
+    for (const t of toggles) {
+      const on = picked.includes(t.dataset.compare!)
+      t.setAttribute('aria-pressed', String(on))
+      t.disabled = !on && picked.length >= MAX_COMPARE
+    }
+    bar.hidden = picked.length === 0
+    bar.querySelector('[data-compare-count]')!.textContent = fill(root.dataset.tSelected!, { count: picked.length })
+    bar.querySelector<HTMLAnchorElement>('[data-compare-go]')!.href = `${root.dataset.compareBase}?ids=${picked.join(',')}`
+    try {
+      sessionStorage.setItem('compare', JSON.stringify(picked))
+    } catch {}
+  }
+
+  toggles.forEach((t) =>
+    t.addEventListener('click', () => {
+      const id = t.dataset.compare!
+      picked = picked.includes(id) ? picked.filter((p) => p !== id) : [...picked, id]
+      syncCompare()
+    }),
+  )
+  bar.querySelector('[data-compare-reset]')!.addEventListener('click', () => {
+    picked = []
+    syncCompare()
+  })
+  syncCompare()
+</script>

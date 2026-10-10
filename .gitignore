@@ -1,13 +1,19 @@
-node_modules
-.DS_Store
-dist
-dist-ssr
-*.local
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+pnpm-debug.log*
+
+# environment
 .env
-.nitro
-.tanstack
+.env.production
+.DS_Store
 .wrangler
-.output
-.vinxi
-__unconfig*
-todos.json
+
+# local browser screenshots
+.playwright-mcp/

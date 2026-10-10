@@ -1,0 +1,25 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { useTranslations } from '@/i18n'
+
+// One 404 for every locale: French first (the default), with Arabic and English below.
+const { t } = useTranslations('fr')
+const ar = useTranslations('ar').t
+const en = useTranslations('en').t
+---
+
+<Layout lang="fr" title={t('notFound.title')} description={t('notFound.text')}>
+  <section class="page-band">
+    <div class="wrap py-24 md:py-32">
+      <h1 class="display text-[clamp(2.4rem,6vw,4.5rem)]">{t('notFound.title')}</h1>
+      <p class="page-band-lede mt-5 text-lg measure">{t('notFound.text')}</p>
+      <p class="page-band-lede mt-3 measure" lang="ar" dir="rtl">{ar('notFound.title')} {ar('notFound.text')}</p>
+      <p class="page-band-lede mt-3 measure" lang="en">{en('notFound.title')} {en('notFound.text')}</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a class="btn btn-primary" href="/#directory">{t('notFound.browse')}</a>
+        <a class="btn btn-quiet" href="/ar/#directory" lang="ar">{ar('notFound.browse')}</a>
+        <a class="btn btn-quiet" href="/en/#directory" lang="en">{en('notFound.browse')}</a>
+      </div>
+    </div>
+  </section>
+</Layout>

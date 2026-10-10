@@ -1,0 +1,79 @@
+---
+import { Font } from 'astro:assets'
+import '@/styles/global.css'
+import SiteHeader from '@/components/SiteHeader.astro'
+import SiteFooter from '@/components/SiteFooter.astro'
+import { SITE_NAME } from '@/lib/site'
+import { LOCALES, LOCALE_META, localePath, stripLocale, useTranslations, type Locale } from '@/i18n'
+
+interface Props {
+  lang: Locale
+  title?: string
+  description: string
+  /** Schema.org JSON-LD object(s) for this page */
+  jsonLd?: object | object[]
+}
+
+const { lang, title, description, jsonLd } = Astro.props
+const { t } = useTranslations(lang)
+const meta = LOCALE_META[lang]
+const path = stripLocale(Astro.url.pathname)
+const pageTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} | ${t('site.tagline')}`
+const canonical = new URL(localePath(lang, path), Astro.site)
+const ogImage = new URL('/og.png', Astro.site)
+---
+
+<!doctype html>
+<html lang={meta.htmlLang} dir={meta.dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {LOCALES.map((l) => <link rel="alternate" hreflang={LOCALE_META[l].htmlLang} href={new URL(localePath(l, path), Astro.site)} />)}
+    <link rel="alternate" hreflang="x-default" href={new URL(localePath('fr', path), Astro.site)} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content={meta.intl.replace('-', '_')} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <Font cssVariable="--font-readex" preload />
+
+    {jsonLd && <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  </head>
+  <body>
+    <a href="#main" class="skip-link">{t('nav.skip')}</a>
+    <SiteHeader lang={lang} path={path} />
+    <main id="main">
+      <slot />
+    </main>
+    <SiteFooter lang={lang} />
+  </body>
+</html>
+
+<style>
+  .skip-link {
+    position: absolute;
+    inset-inline-start: 1rem;
+    top: -4rem;
+    z-index: 100;
+    border-radius: 999px;
+    background: var(--ink);
+    color: #fff;
+    padding: 0.6rem 1rem;
+    text-decoration: none;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+</style>

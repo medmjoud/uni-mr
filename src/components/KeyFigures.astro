@@ -1,0 +1,111 @@
+---
+interface Figure {
+  label: string
+  value: string
+  year: number | string | null
+  note?: string | null
+  source: { title: string; url: string }
+}
+
+interface Props {
+  figures: Figure[]
+}
+
+const { figures } = Astro.props
+---
+
+<dl class="figures">
+  {
+    figures.map((f, i) => (
+      <div class:list={['card figure', { featured: i === 0 }]}>
+        <dt>
+          {f.label}
+          {f.year && <span class="year">{f.year}</span>}
+        </dt>
+        <dd>
+          <span class="value">{f.value}</span>
+          {f.note && <span class="note">{f.note}</span>}
+          <a class="source" href={f.source.url}>{f.source.title}</a>
+        </dd>
+      </div>
+    ))
+  }
+</dl>
+
+<style>
+  .figures {
+    display: grid;
+    gap: 1rem;
+    align-content: start;
+  }
+
+  @media (min-width: 560px) and (max-width: 1023px) {
+    .figures {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .figure {
+    display: grid;
+    gap: 0.35rem;
+    padding: 1.1rem 1.25rem;
+  }
+
+  .featured {
+    border-color: transparent;
+    background: var(--mint);
+  }
+
+  dt {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+
+  .year {
+    border-radius: 999px;
+    background: var(--emerald-50);
+    color: var(--emerald-700);
+    padding: 0.05rem 0.55rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  dd {
+    margin: 0;
+  }
+
+  .value {
+    display: block;
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 1.75rem;
+    line-height: 1.2;
+    color: var(--emerald-700);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .featured .value {
+    font-size: 2.4rem;
+  }
+
+  .note {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text);
+  }
+
+  .source {
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-underline-offset: 3px;
+  }
+
+</style>
