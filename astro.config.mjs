@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   // Set SITE_URL in the deploy environment once the production domain is known.
-  site: process.env.SITE_URL ?? 'https://uni-mr.pages.dev',
+  site: process.env.SITE_URL ?? 'https://uni-mr.fiche.workers.dev',
   integrations: [
     sitemap({
       i18n: {

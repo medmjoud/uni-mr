@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "uni-mr",
+  "account_id": "0490ce4a381279f585ef445dc9618726",
+  "compatibility_date": "2026-10-01",
+  // Fully static Astro build: Cloudflare serves dist/ directly, no Worker script needed.
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}
