@@ -1,0 +1,277 @@
+---
+import { ExternalLink } from '@lucide/astro'
+import type { CalendarEvent } from '@/lib/calendar'
+import { localePath, useTranslations, type Locale } from '@/i18n'
+
+interface Props {
+  events: CalendarEvent[]
+  lang: Locale
+  /** "upcoming" lists drop dates as they pass; "past" lists receive them on the calendar page. */
+  list: 'upcoming' | 'past'
+  /** "compact" links each date to the calendar page instead of showing its note and source. */
+  variant?: 'full' | 'compact'
+  /** Show at most this many dates. */
+  limit?: number
+}
+
+const { events, lang, list, variant = 'full', limit } = Astro.props
+const { t } = useTranslations(lang)
+const calendar = localePath(lang, '/calendar/')
+---
+
+<div class:list={['kd-wrap', `kd-${variant}`]}>
+  <ol class="kd-list" data-kd-list={list} data-limit={limit}>
+    {
+      events.map((e, i) => (
+        <li
+          id={variant === 'full' ? e.id : undefined}
+          class="card kd"
+          data-key-date
+          data-start={e.start}
+          data-end={e.end}
+          data-timing={e.timing}
+          data-status={e.status}
+          hidden={limit !== undefined && i >= limit}
+        >
+          <p class="kd-when">
+            <time datetime={e.start}>{e.when}</time>
+          </p>
+          <div class="kd-body">
+            <p class="kd-tags">
+              {variant === 'full' && <span class="tag">{t(`cal.cat.${e.category}`)}</span>}
+              {e.status === 'expected' && (
+                <span class="tag tag-gold" title={t('cal.expectedHelp')}>
+                  {t('cal.expected')}
+                </span>
+              )}
+              {e.status === 'confirmed' && <span class="kd-badge kd-badge-open">{t('cal.open')}</span>}
+              {e.status === 'confirmed' && <span class="kd-badge kd-badge-today">{t('cal.today')}</span>}
+              <span class="kd-badge kd-badge-past">{t('cal.passed')}</span>
+            </p>
+            {variant === 'compact' ? (
+              <a class="kd-title kd-title-link" href={`${calendar}#${e.id}`}>
+                {e.title}
+              </a>
+            ) : (
+              <h3 class="kd-title">{e.title}</h3>
+            )}
+            {variant === 'full' && e.note && <p class="kd-note">{e.note}</p>}
+            {variant === 'full' && (
+              <p class="kd-meta">
+                {e.url && (
+                  <a class="link inline-flex items-center gap-1" href={e.url} rel="noopener">
+                    {t('common.officialPage')}
+                    <ExternalLink class="icon" aria-hidden="true" />
+                  </a>
+                )}
+                <span>
+                  <a class="kd-source" href={e.source.url} rel="noopener" title={e.source.title}>
+                    {t('cal.source')}
+                  </a>
+                  {' · '}
+                  {t('cal.verified', { date: e.verifiedOn })}
+                </span>
+              </p>
+            )}
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+  {list === 'upcoming' && <p class="kd-empty text-muted" data-kd-empty hidden={events.length > 0}>{t('cal.none')}</p>}
+</div>
+
+<script>
+  // Pages are built ahead of time, so dates that passed since the last build are moved or
+  // hidden here, and "open now" badges follow the reader's own date.
+  const today = new Date().toLocaleDateString('en-CA')
+  const timing = (start: string, end: string) =>
+    end < today ? 'past' : start > today ? 'upcoming' : start === end ? 'today' : 'open'
+
+  for (const item of document.querySelectorAll<HTMLElement>('[data-key-date]')) {
+    item.dataset.timing = timing(item.dataset.start!, item.dataset.end!)
+  }
+
+  const pastList = document.querySelector<HTMLElement>('[data-kd-list="past"]')
+  for (const list of document.querySelectorAll<HTMLElement>('[data-kd-list="upcoming"]')) {
+    for (const item of [...list.children] as HTMLElement[]) {
+      if (item.dataset.timing !== 'past') continue
+      if (pastList) pastList.prepend(item)
+      else item.remove()
+    }
+    const items = [...list.children] as HTMLElement[]
+    const limit = Number(list.dataset.limit) || Infinity
+    items.forEach((item, i) => (item.hidden = i >= limit))
+    const empty = list.parentElement?.querySelector<HTMLElement>('[data-kd-empty]')
+    if (empty) empty.hidden = items.length > 0
+  }
+
+  if (pastList) {
+    const items = [...pastList.children] as HTMLElement[]
+    items.sort((a, b) => b.dataset.end!.localeCompare(a.dataset.end!)).forEach((item) => pastList.append(item))
+    const section = pastList.closest('section')
+    if (section) section.hidden = items.length === 0
+  }
+</script>
+
+<style>
+  .kd-list {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .kd {
+    display: grid;
+    gap: 0.35rem 1.5rem;
+    padding: 1.15rem 1.25rem;
+  }
+
+  .kd[hidden] {
+    display: none;
+  }
+
+  .kd-full .kd {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  @media (min-width: 768px) {
+    .kd-full .kd {
+      grid-template-columns: 13rem minmax(0, 1fr);
+      padding: 1.35rem 1.5rem;
+    }
+  }
+
+  .kd-when {
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 1.02rem;
+    line-height: 1.35;
+    color: var(--emerald-700);
+  }
+
+  .kd-compact .kd-when {
+    font-size: 0.92rem;
+  }
+
+  .kd-body {
+    display: grid;
+    gap: 0.45rem;
+    align-content: start;
+  }
+
+  .kd-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  /* In short lists the title comes first; the tags row collapses when nothing in it shows. */
+  .kd-compact .kd-tags {
+    order: 1;
+  }
+
+  .kd-compact .kd:not([data-status='confirmed']:is([data-timing='open'], [data-timing='today'])) .kd-tags:not(:has(.tag)) {
+    display: none;
+  }
+
+  .kd-title {
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 1.08rem;
+    line-height: 1.35;
+    color: var(--ink);
+  }
+
+  .kd-compact .kd-title {
+    font-size: 1rem;
+  }
+
+  .kd-title-link {
+    text-decoration: none;
+  }
+
+  .kd-title-link:hover {
+    color: var(--emerald-700);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .kd-note {
+    font-size: 0.97rem;
+    max-width: 68ch;
+  }
+
+  .kd-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 1.25rem;
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .kd-source {
+    color: var(--muted);
+    text-decoration: underline;
+    text-decoration-color: var(--line-strong);
+    text-underline-offset: 3px;
+  }
+
+  .kd-source:hover {
+    color: var(--emerald-700);
+  }
+
+  /* Status badges: rendered for every date, shown by data-timing. */
+  .kd-badge {
+    display: none;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.2rem 0.65rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .kd-badge-open,
+  .kd-badge-today {
+    background: var(--emerald-700);
+    color: #fff;
+  }
+
+  .kd-badge-past {
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    color: var(--muted);
+  }
+
+  [data-timing='open'] .kd-badge-open,
+  [data-timing='today'] .kd-badge-today,
+  [data-timing='past'] .kd-badge-past {
+    display: inline-flex;
+  }
+
+  /* Only confirmed dates are highlighted as open: an expected window may not have opened. */
+  [data-status='confirmed']:is([data-timing='open'], [data-timing='today']) {
+    border-color: color-mix(in oklab, var(--emerald-600) 45%, var(--line));
+    box-shadow: inset 3px 0 0 var(--emerald-600);
+  }
+
+  :root[dir='rtl'] [data-status='confirmed']:is([data-timing='open'], [data-timing='today']) {
+    box-shadow: inset -3px 0 0 var(--emerald-600);
+  }
+
+  [data-timing='past'] {
+    background: var(--surface-2);
+  }
+
+  [data-timing='past'] .kd-when,
+  [data-timing='past'] .kd-title {
+    color: var(--muted);
+  }
+
+  .kd:target {
+    outline: 2px solid var(--emerald-600);
+    outline-offset: 2px;
+  }
+</style>

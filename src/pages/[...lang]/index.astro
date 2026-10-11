@@ -7,6 +7,8 @@ import EnrollmentChart from '@/components/EnrollmentChart.astro'
 import KeyFigures from '@/components/KeyFigures.astro'
 import PathFinder from '@/components/PathFinder.astro'
 import HistoryTimeline from '@/components/HistoryTimeline.astro'
+import KeyDateList from '@/components/KeyDateList.astro'
+import { getCalendar } from '@/lib/calendar'
 import { getInstitutions } from '@/lib/institutions'
 import { getContext } from '@/lib/context'
 import { SITE_NAME } from '@/lib/site'
@@ -23,6 +25,7 @@ const institutions = await getInstitutions()
 const cities = new Set(institutions.map((e) => e.data.city)).size
 const publicCount = institutions.filter((e) => e.data.type === 'public').length
 const steps = context.admissions.steps.slice(0, 4)
+const { upcoming } = getCalendar(lang)
 
 const description = t('home.meta', { count: institutions.length })
 const jsonLd = {
@@ -89,6 +92,16 @@ const platform = context.admissions.platform
     </div>
   </section>
 
+  <section class="wrap pt-16 md:pt-20" aria-labelledby="dates-title">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <h2 id="dates-title" class="headline text-3xl md:text-[2.5rem]">{t('cal.title')}</h2>
+      <a class="link" href={localePath(lang, '/calendar/')}>{t('cal.all')}</a>
+    </div>
+    <div class="home-dates mt-8">
+      <KeyDateList events={upcoming} lang={lang} list="upcoming" variant="compact" limit={3} />
+    </div>
+  </section>
+
   <Directory institutions={institutions} lang={lang} />
 
   <PathFinder institutions={institutions} lang={lang} />
@@ -124,6 +137,12 @@ const platform = context.admissions.platform
 </Layout>
 
 <style>
+  @media (min-width: 768px) {
+    .home-dates :global(.kd-list) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
   .hero {
     border-bottom: 1px solid var(--line);
     background: var(--mint);

@@ -1,0 +1,72 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import KeyDateList from '@/components/KeyDateList.astro'
+import ShareWhatsApp from '@/components/ShareWhatsApp.astro'
+import { getCalendar } from '@/lib/calendar'
+import { CORRECTIONS_URL } from '@/lib/site'
+import { langParams, toLocale, useTranslations } from '@/i18n'
+
+export function getStaticPaths() {
+  return langParams().map((params) => ({ params }))
+}
+
+const lang = toLocale(Astro.params.lang)
+const { t } = useTranslations(lang)
+const { upcoming, past } = getCalendar(lang)
+---
+
+<Layout lang={lang} title={t('cal.title')} description={t('cal.meta')}>
+  <header class="page-band">
+    <div class="wrap py-14 md:py-20">
+      <h1 class="display page-title">{t('cal.title')}</h1>
+      <p class="page-band-lede mt-5 text-lg measure">{t('cal.intro')}</p>
+      <div class="mt-6"><ShareWhatsApp lang={lang} text={t('share.calendar')} /></div>
+    </div>
+  </header>
+
+  <div class="wrap grid grid-cols-[minmax(0,1fr)] gap-14 py-14">
+    <section aria-labelledby="upcoming">
+      <div class="section-head">
+        <h2 id="upcoming" class="headline text-2xl md:text-3xl">{t('cal.upcoming')}</h2>
+        <p class="legend text-muted">
+          <span class="tag tag-gold">{t('cal.expected')}</span>
+          {t('cal.expectedHelp')}
+        </p>
+      </div>
+      <KeyDateList events={upcoming} lang={lang} list="upcoming" />
+    </section>
+
+    <section aria-labelledby="past" hidden={past.length === 0}>
+      <div class="section-head">
+        <h2 id="past" class="headline text-2xl md:text-3xl">{t('cal.past')}</h2>
+        <p class="text-muted measure">{t('cal.pastIntro')}</p>
+      </div>
+      <KeyDateList events={past} lang={lang} list="past" />
+    </section>
+
+    <p class="text-sm text-muted">
+      {t('cal.missing')}{' '}
+      <a class="link" href={`${CORRECTIONS_URL}?title=${encodeURIComponent('Calendar: ')}`}>{t('footer.report')}</a>
+    </p>
+  </div>
+</Layout>
+
+<style>
+  .page-title {
+    font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+  }
+
+  .section-head {
+    display: grid;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.92rem;
+  }
+</style>

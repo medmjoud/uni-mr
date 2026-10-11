@@ -1,0 +1,450 @@
+{
+  "events": [
+    {
+      "id": "bac-2026-exams",
+      "category": "bac",
+      "status": "confirmed",
+      "precision": "day",
+      "start": "2026-06-29",
+      "end": "2026-07-02",
+      "title": {
+        "en": "Bac 2026: written exams, first session",
+        "fr": "Bac 2026 : épreuves écrites de la première session",
+        "ar": "باكالوريا 2026: الامتحانات الكتابية للدورة الأولى"
+      },
+      "note": {
+        "en": "Dates set by the Ministry of Education in its calendar of national exams.",
+        "fr": "Dates fixées par le ministère de l'Éducation dans son calendrier des examens nationaux.",
+        "ar": "تواريخ حددتها وزارة التربية في جدول الامتحانات الوطنية."
+      },
+      "institutions": "public",
+      "url": null,
+      "source": {
+        "title": "Madar – Le ministère de l'Éducation annonce les dates des examens et concours nationaux pour l'année 2026 (1 Dec 2025)",
+        "url": "https://fr.madar.mr/actualites/le-ministere-de-leducation-annonce-les-dates-des-examens-et-concours-nationaux-pour-lannee-2026/"
+      },
+      "verified": "2026-10-11"
+    },
+    {
+      "id": "bac-2026-results",
+      "category": "bac",
+      "status": "confirmed",
+      "precision": "day",
+      "start": "2026-07-22",
+      "end": "2026-07-22",
+      "title": {
+        "en": "Bac 2026: first-session results",
+        "fr": "Bac 2026 : résultats de la première session",
+        "ar": "باكالوريا 2026: نتائج الدورة الأولى"
+      },
+      "note": {
+        "en": "Published online from 18:00 on the Ministry of Education website.",
+        "fr": "Publiés en ligne à partir de 18 h sur le site du ministère de l'Éducation.",
+        "ar": "نُشرت على موقع وزارة التربية ابتداءً من الساعة السادسة مساءً."
+      },
+      "institutions": "public",
+      "url": null,
+      "source": {
+        "title": "Cridem – Mauritanie : les résultats du baccalauréat 2026 attendus ce mercredi à 18H (22 Jul 2026)",
+        "url": "http://www.cridem.org/C_Info.php?article=795133"
+      },
+      "verified": "2026-10-11"
+    },
+    {
+      "id": "bac-2026-complementary",
+      "category": "bac",
+      "status": "confirmed",
+      "precision": "day",
+      "start": "2026-08-03",
+      "end": "2026-08-03",
+      "title": {
+        "en": "Bac 2026: complementary session begins",
+        "fr": "Bac 2026 : début de la session complémentaire",
+        "ar": "باكالوريا 2026: انطلاق الدورة التكميلية"
+      },
+      "note": {
+        "en": "Second chance for candidates who did not pass the first session.",
+        "fr": "Deuxième chance pour les candidats qui n'ont pas réussi la première session.",
+        "ar": "فرصة ثانية للمترشحين الذين لم ينجحوا في الدورة الأولى."
+      },
+      "institutions": "public",
+      "url": null,
+      "source": {
+        "title": "Madar – Le ministère de l'Éducation annonce les dates des examens et concours nationaux pour l'année 2026 (1 Dec 2025)",
+        "url": "https://fr.madar.mr/actualites/le-ministere-de-leducation-annonce-les-dates-des-examens-et-concours-nationaux-pour-lannee-2026/"
+      },
+      "verified": "2026-10-11"
+    },
+    {
+      "id": "bac-2026-complementary-results",
+      "category": "bac",
+      "status": "confirmed",
+      "precision": "day",
+      "start": "2026-08-12",
+      "end": "2026-08-12",
+      "title": {
+        "en": "Bac 2026: complementary session results",
+        "fr": "Bac 2026 : résultats de la session complémentaire",
+        "ar": "باكالوريا 2026: نتائج الدورة التكميلية"
+      },
+      "note": null,
+      "institutions": "public",
+      "url": null,
+      "source": {
+        "title": "Madar – وزارة التربية تعلن نتائج الدورة التكميلية لباكالوريا 2026 (12 Aug 2026)",
+        "url": "https://madar.mr/mauritanie/%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9-%D8%AA%D8%B9%D9%84%D9%86-%D9%86%D8%AA%D8%A7%D8%A6%D8%AC-%D8%A7%D9%84%D8%AF%D9%88%D8%B1%D8%A9-%D8%A7%D9%84%D8%AA%D9%83%D9%85/"
+      },
+      "verified": "2026-10-11"
+    },
+    {
+      "id": "orientation-2026-first",
+      "category": "orientation",
+      "status": "confirmed",
+      "precision": "day",
+      "start": "2026-08-07",
+      "end": "2026-08-16",
+      "title": {
+        "en": "Orientation 2026: rank your choices",
+        "fr": "Orientation 2026 : classez vos choix",
+        "ar": "توجيه 2026: رتّب اختياراتك"
+      },
+      "note": {
+        "en": "First-session Bac graduates and licence graduates ranked programmes on the ministry platform, from the evening of 7 August to the evening of 16 August.",
+        "fr": "Les bacheliers de la première session et les diplômés de licence ont classé les formations sur la plateforme du ministère, du 7 août au soir au 16 août au soir.",
+        "ar": "رتّب الناجحون في الدورة الأولى وحملة الليسانس عروض التكوين على منصة الوزارة، من مساء 7 أغسطس إلى مساء 16 أغسطس."
+      },
+      "institutions": "public",
+      "url": "https://etudiants-mesrs.app",
+      "source": {
+        "title": "Madar – فتح منصة توجيه الناجحين في البكالوريا والليسانس (7 Aug 2026)",
+        "url": "https://madar.mr/mauritanie/%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%AA%D8%B9%D9%84%D9%8A%D9%85-%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%8A-%D8%AA%D9%81%D8%AA%D8%AD-%D9%85%D9%86%D8%B5%D8%A9-%D8%AA%D9%88%D8%AC%D9%8A%D9%87-%D8%A7/"
+      },
+      "verified": "2026-10-11"
+    },
+    {
+      "id": "orientation-2026-results",
+      "category": "orientation",
+      "status": "confirmed",
+      "precision": "day",
+      "start": "2026-08-19",
+      "end": "2026-08-19",
+      "title": {
+        "en": "Orientation 2026: first-session placements",
+        "fr": "Orientation 2026 : affectations de la première session",
+        "ar": "توجيه 2026: نتائج توجيه الدورة الأولى"
+      },
+      "note": {
+        "en": "160 programmes were on offer, 29 of them abroad. The platform shows the first and last rank placed in each one.",
+        "fr": "160 formations étaient proposées, dont 29 à l'étranger. La plateforme affiche le premier et le dernier rang retenus dans chacune.",
+        "ar": "عُرض 160 تكوينًا، منها 29 في الخارج. وتعرض المنصة رتبة أول وآخر طالب وُجّه إلى كل تكوين."
+      },
+      "institutions": "public",
+      "url": "https://etudiants-mesrs.app",
+      "source": {
+        "title": "Madar – وزارة التعليم العالي تعلن نتائج توجيه الناجحين في الدورة الأولى من باكالوريا 2026 (19 Aug 2026)",
+        "url": "https://madar.mr/mauritanie/%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%AA%D8%B9%D9%84%D9%8A%D9%85-%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%8A-%D8%AA%D8%B9%D9%84%D9%86-%D9%86%D8%AA%D8%A7%D8%A6%D8%AC-%D8%AA%D9%88%D8%AC%D9%8A%D9%87/"
+      },
+      "verified": "2026-10-11"
+    },
+    {
+      "id": "orientation-2026-second",
+      "category": "orientation",
+      "status": "confirmed",
+      "precision": "day",
+      "start": "2026-08-23",
+      "end": "2026-08-23",
+      "title": {
+        "en": "Orientation 2026: platform reopens",
+        "fr": "Orientation 2026 : réouverture de la plateforme",
+        "ar": "توجيه 2026: إعادة فتح المنصة"
+      },
+      "note": {
+        "en": "For complementary-session graduates, earlier graduates who want to change course, and anyone who missed the first round.",
+        "fr": "Pour les admis de la session complémentaire, les bacheliers des années précédentes qui veulent se réorienter et ceux qui ont manqué le premier tour.",
+        "ar": "لناجحي الدورة التكميلية، وناجحي السنوات الماضية الراغبين في إعادة التوجيه، ومن فاتهم التوجيه الأول."
+      },
+      "institutions": "public",
+      "url": "https://etudiants-mesrs.app",
+      "source": {
+        "title": "Madar – وزارة التعليم العالي تعلن نتائج توجيه الناجحين في الدورة الأولى من باكالوريا 2026 (19 Aug 2026)",
+        "url": "https://madar.mr/mauritanie/%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%AA%D8%B9%D9%84%D9%8A%D9%85-%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%8A-%D8%AA%D8%B9%D9%84%D9%86-%D9%86%D8%AA%D8%A7%D8%A6%D8%AC-%D8%AA%D9%88%D8%AC%D9%8A%D9%87/"
+      },
+      "verified": "2026-10-11"
+    },
+    {
+      "id": "registration-2026-chinguitti",
+      "category": "registration",
+      "status": "confirmed",
+      "precision": "day",
+      "start": "2026-09-07",
+      "end": "2026-09-07",
+      "title": {
+        "en": "Université Moderne Chinguitti: 2026-2027 registration opens",
+        "fr": "Université Moderne Chinguitti : ouverture des inscriptions 2026-2027",
+        "ar": "جامعة شنقيط العصرية: فتح التسجيل للسنة ⁦2026-2027⁩"
+      },
+      "note": null,
+      "institutions": [
+        "universite-moderne-chinguitti"
+      ],
+      "url": "https://umchinguitt.mr",
+      "source": {
+        "title": "Official website – جامعة شنقيط العصرية",
+        "url": "https://umchinguitt.mr"
+      },
+      "verified": "2026-10-09"
+    },
+    {
+      "id": "registration-2026-una",
+      "category": "registration",
+      "status": "expected",
+      "precision": "month",
+      "start": "2026-10-01",
+      "end": "2026-11-30",
+      "title": {
+        "en": "Université de Nouakchott: registration on Khidmaty",
+        "fr": "Université de Nouakchott : inscriptions sur Khidmaty",
+        "ar": "جامعة نواكشوط: التسجيل عبر خدماتي"
+      },
+      "note": {
+        "en": "Not announced yet for 2026-2027. Last year, new Bac holders placed at the university registered from 8 October to 9 November 2025 on the Khidmaty portal.",
+        "fr": "Pas encore annoncées pour 2026-2027. L'an dernier, les nouveaux bacheliers orientés vers l'université se sont inscrits du 8 octobre au 9 novembre 2025 sur le portail Khidmaty.",
+        "ar": "لم يُعلن عنه بعد للسنة ⁦2026-2027⁩. في العام الماضي سجّل حملة البكالوريا الجدد الموجهون إلى الجامعة من 8 أكتوبر إلى 9 نوفمبر 2025 عبر بوابة خدماتي."
+      },
+      "institutions": [
+        "universite-de-nouakchott"
+      ],
+      "url": null,
+      "source": {
+        "title": "Madar – Université de Nouakchott : l'inscription des étudiants se fera via une plateforme électronique (6 Oct 2025)",
+        "url": "https://fr.madar.mr/actualites/universite-de-nouakchott-linscription-des-etudiants-dans-les-etablissements-denseignement-superieur-se-fera-via-une-plateforme-electronique/"
+      },
+      "verified": "2026-10-11"
+    },
+    {
+      "id": "bac-2027-exams",
+      "category": "bac",
+      "status": "expected",
+      "precision": "month",
+      "start": "2027-06-01",
+      "end": "2027-07-31",
+      "title": {
+        "en": "Bac 2027: first session",
+        "fr": "Bac 2027 : première session",
+        "ar": "باكالوريا 2027: الدورة الأولى"
+      },
+      "note": {
+        "en": "The 2026 written exams ran from 29 June to 2 July. The Ministry of Education announced the 2026 exam calendar in December 2025.",
+        "fr": "En 2026, les épreuves écrites ont eu lieu du 29 juin au 2 juillet. Le ministère de l'Éducation avait publié le calendrier 2026 en décembre 2025.",
+        "ar": "في 2026 جرت الامتحانات الكتابية من 29 يونيو إلى 2 يوليو. وكانت وزارة التربية قد نشرت جدول امتحانات 2026 في ديسمبر 2025."
+      },
+      "institutions": "public",
+      "url": null,
+      "source": {
+        "title": "Madar – Le ministère de l'Éducation annonce les dates des examens et concours nationaux pour l'année 2026 (1 Dec 2025)",
+        "url": "https://fr.madar.mr/actualites/le-ministere-de-leducation-annonce-les-dates-des-examens-et-concours-nationaux-pour-lannee-2026/"
+      },
+      "verified": "2026-10-11"
+    },
+    {
+      "id": "bac-2027-results",
+      "category": "bac",
+      "status": "expected",
+      "precision": "month",
+      "start": "2027-07-01",
+      "end": "2027-07-31",
+      "title": {
+        "en": "Bac 2027: first-session results",
+        "fr": "Bac 2027 : résultats de la première session",
+        "ar": "باكالوريا 2027: نتائج الدورة الأولى"
+      },
+      "note": {
+        "en": "The 2026 results came out on 22 July.",
+        "fr": "Les résultats 2026 sont tombés le 22 juillet.",
+        "ar": "صدرت نتائج 2026 يوم 22 يوليو."
+      },
+      "institutions": "public",
+      "url": null,
+      "source": {
+        "title": "Cridem – Mauritanie : les résultats du baccalauréat 2026 attendus ce mercredi à 18H (22 Jul 2026)",
+        "url": "http://www.cridem.org/C_Info.php?article=795133"
+      },
+      "verified": "2026-10-11"
+    },
+    {
+      "id": "orientation-2027",
+      "category": "orientation",
+      "status": "expected",
+      "precision": "month",
+      "start": "2027-08-01",
+      "end": "2027-08-31",
+      "title": {
+        "en": "Orientation 2027 on etudiants-mesrs.app",
+        "fr": "Orientation 2027 sur etudiants-mesrs.app",
+        "ar": "توجيه 2027 على etudiants-mesrs.app"
+      },
+      "note": {
+        "en": "In 2026 the platform opened on 7 August and placements were published on 19 August.",
+        "fr": "En 2026, la plateforme a ouvert le 7 août et les affectations ont été publiées le 19 août.",
+        "ar": "في 2026 فُتحت المنصة يوم 7 أغسطس ونُشرت نتائج التوجيه يوم 19 أغسطس."
+      },
+      "institutions": "public",
+      "url": "https://etudiants-mesrs.app",
+      "source": {
+        "title": "Madar – فتح منصة توجيه الناجحين في البكالوريا والليسانس (7 Aug 2026)",
+        "url": "https://madar.mr/mauritanie/%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%AA%D8%B9%D9%84%D9%8A%D9%85-%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%8A-%D8%AA%D9%81%D8%AA%D8%AD-%D9%85%D9%86%D8%B5%D8%A9-%D8%AA%D9%88%D8%AC%D9%8A%D9%87-%D8%A7/"
+      },
+      "verified": "2026-10-11"
+    },
+    {
+      "id": "rhodes-2027",
+      "category": "scholarship",
+      "status": "confirmed",
+      "precision": "day",
+      "start": "2026-06-01",
+      "end": "2026-08-27",
+      "title": {
+        "en": "Rhodes Scholarship for West Africa: applications",
+        "fr": "Bourse Rhodes pour l'Afrique de l'Ouest : candidatures",
+        "ar": "منحة رودس لغرب أفريقيا: الترشح"
+      },
+      "note": {
+        "en": "Postgraduate study at the University of Oxford. Mauritania is one of the eligible countries. Closed at 23:59 GMT.",
+        "fr": "Études de troisième cycle à l'université d'Oxford. La Mauritanie fait partie des pays éligibles. Clôture à 23 h 59 GMT.",
+        "ar": "للدراسات العليا في جامعة أكسفورد، وموريتانيا من الدول المؤهلة. أُغلق الترشح عند 23:59 بتوقيت غرينتش."
+      },
+      "institutions": null,
+      "url": "https://www.rhodeshouse.ox.ac.uk/scholarships/applications/west-africa/",
+      "source": {
+        "title": "Rhodes Trust – Rhodes Scholarship for West Africa",
+        "url": "https://www.rhodeshouse.ox.ac.uk/scholarships/applications/west-africa/"
+      },
+      "verified": "2026-10-11"
+    },
+    {
+      "id": "chevening-2027",
+      "category": "scholarship",
+      "status": "confirmed",
+      "precision": "day",
+      "start": "2026-10-06",
+      "end": "2026-10-06",
+      "title": {
+        "en": "Chevening 2027-2028: application deadline",
+        "fr": "Chevening 2027-2028 : date limite de candidature",
+        "ar": "شيفنينغ ⁦2027-2028⁩: آخر أجل للترشح"
+      },
+      "note": {
+        "en": "One-year master's in the UK. Applications opened in August and closed at 11:00 UTC; results are announced from mid-June 2027.",
+        "fr": "Master d'un an au Royaume-Uni. Les candidatures ont ouvert en août et fermé à 11 h UTC ; les résultats sont annoncés à partir de mi-juin 2027.",
+        "ar": "ماستر لمدة سنة في المملكة المتحدة. فُتح الترشح في أغسطس وأُغلق عند الساعة 11:00 بالتوقيت العالمي، وتُعلن النتائج ابتداءً من منتصف يونيو 2027."
+      },
+      "institutions": null,
+      "url": "https://www.chevening.org/scholarships/",
+      "source": {
+        "title": "Gdańsk University of Technology – Thinking about studying in the UK? Apply for a Chevening Scholarship! (Aug 2026)",
+        "url": "https://pg.edu.pl/en/international/2026-08/thinking-about-studying-uk-apply-chevening-scholarship"
+      },
+      "verified": "2026-10-11"
+    },
+    {
+      "id": "eiffel-2027",
+      "category": "scholarship",
+      "status": "expected",
+      "precision": "month",
+      "start": "2027-01-01",
+      "end": "2027-01-31",
+      "title": {
+        "en": "Eiffel scholarship: French schools send nominations",
+        "fr": "Bourse Eiffel : dépôt des candidatures par les établissements",
+        "ar": "منحة إيفل: إرسال الترشيحات من المؤسسات الفرنسية"
+      },
+      "note": {
+        "en": "For a master's or PhD in France. You cannot apply directly: apply to a French programme and ask it to nominate you, usually between October and December. For the 2026 session the deadline was 8 January 2026.",
+        "fr": "Pour un master ou un doctorat en France. On ne postule pas directement : candidatez à une formation française et demandez-lui de vous présenter, en général entre octobre et décembre. Pour la session 2026, la date limite était le 8 janvier 2026.",
+        "ar": "للماستر أو الدكتوراه في فرنسا. لا يمكن الترشح مباشرة: قدّم طلبك لتكوين في فرنسا واطلب منه ترشيحك، عادة بين أكتوبر وديسمبر. كان آخر أجل لدورة 2026 يوم 8 يناير 2026."
+      },
+      "institutions": null,
+      "url": "https://www.campusfrance.org/en/eiffel",
+      "source": {
+        "title": "Campus France – France Excellence Eiffel scholarship program",
+        "url": "https://www.campusfrance.org/en/eiffel"
+      },
+      "verified": "2026-10-11"
+    },
+    {
+      "id": "turkiye-2027",
+      "category": "scholarship",
+      "status": "expected",
+      "precision": "day",
+      "start": "2027-01-10",
+      "end": "2027-02-20",
+      "title": {
+        "en": "Türkiye Scholarships: applications",
+        "fr": "Bourses de Turquie (Türkiye Bursları) : candidatures",
+        "ar": "منح تركيا (Türkiye Bursları): الترشح"
+      },
+      "note": {
+        "en": "Bachelor's, master's and PhD in Türkiye. The official calendar gives these dates every year; YTB confirms them in its yearly announcement. Results come out in early August.",
+        "fr": "Licence, master et doctorat en Turquie. Le calendrier officiel reprend ces dates chaque année ; YTB les confirme dans son annonce annuelle. Résultats début août.",
+        "ar": "للإجازة والماستر والدكتوراه في تركيا. يحدد التقويم الرسمي هذه التواريخ كل عام، وتؤكدها رئاسة YTB في إعلانها السنوي. تصدر النتائج في أوائل أغسطس."
+      },
+      "institutions": null,
+      "url": "https://www.turkiyeburslari.gov.tr/en",
+      "source": {
+        "title": "Türkiye Bursları – Application calendar",
+        "url": "https://www.turkiyeburslari.gov.tr/calendar"
+      },
+      "verified": "2026-10-11"
+    },
+    {
+      "id": "rhodes-2028",
+      "category": "scholarship",
+      "status": "expected",
+      "precision": "month",
+      "start": "2027-06-01",
+      "end": "2027-08-31",
+      "title": {
+        "en": "Rhodes Scholarship for West Africa: next round",
+        "fr": "Bourse Rhodes pour l'Afrique de l'Ouest : prochaine session",
+        "ar": "منحة رودس لغرب أفريقيا: الدورة القادمة"
+      },
+      "note": {
+        "en": "The 2026 round ran from 1 June to 27 August.",
+        "fr": "La session 2026 s'est déroulée du 1er juin au 27 août.",
+        "ar": "امتدت دورة 2026 من 1 يونيو إلى 27 أغسطس."
+      },
+      "institutions": null,
+      "url": "https://www.rhodeshouse.ox.ac.uk/scholarships/applications/west-africa/",
+      "source": {
+        "title": "Rhodes Trust – Rhodes Scholarship for West Africa",
+        "url": "https://www.rhodeshouse.ox.ac.uk/scholarships/applications/west-africa/"
+      },
+      "verified": "2026-10-11"
+    },
+    {
+      "id": "chevening-2028",
+      "category": "scholarship",
+      "status": "expected",
+      "precision": "month",
+      "start": "2027-08-01",
+      "end": "2027-10-31",
+      "title": {
+        "en": "Chevening 2028-2029: applications",
+        "fr": "Chevening 2028-2029 : candidatures",
+        "ar": "شيفنينغ ⁦2028-2029⁩: الترشح"
+      },
+      "note": {
+        "en": "Chevening opens each round in August and closes it in October, at 11:00 UTC.",
+        "fr": "Chevening ouvre chaque session en août et la clôt en octobre, à 11 h UTC.",
+        "ar": "تفتح شيفنينغ كل دورة في أغسطس وتغلقها في أكتوبر عند الساعة 11:00 بالتوقيت العالمي."
+      },
+      "institutions": null,
+      "url": "https://www.chevening.org/scholarships/",
+      "source": {
+        "title": "Chevening – Application timeline",
+        "url": "https://www.chevening.org/scholarships/application-timeline/"
+      },
+      "verified": "2026-10-11"
+    }
+  ]
+}

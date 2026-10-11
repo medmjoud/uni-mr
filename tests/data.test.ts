@@ -4,6 +4,7 @@ import context from '../src/data/context.json'
 import media from '../src/data/media.json'
 import abroad from '../src/data/abroad.json'
 import abroadStats from '../src/data/abroad-stats.json'
+import calendar from '../src/data/calendar.json'
 import { existsSync, readdirSync } from 'node:fs'
 
 // Rough bounding box of Mauritania, with a small margin.
@@ -133,5 +134,49 @@ describe('study abroad', () => {
     const t = (await import(`../src/data/i18n/abroad.${lang}.json`)).default
     expect(shape(t)).toEqual(shape(abroad))
     expect(t.countries.map((c: { code: string }) => c.code)).toEqual(abroad.countries.map((c) => c.code))
+  })
+})
+
+describe('calendar', () => {
+  const ids = new Set(institutions.map((i) => i.id))
+  const iso = /^\d{4}-\d{2}-\d{2}$/
+
+  it('has unique ids and ordered ISO dates', () => {
+    const eventIds = calendar.events.map((e) => e.id)
+    expect(new Set(eventIds).size).toBe(eventIds.length)
+    for (const e of calendar.events) {
+      for (const d of [e.start, e.end, e.verified]) expect(d, e.id).toMatch(iso)
+      expect(e.start <= e.end, `${e.id} ends before it starts`).toBe(true)
+    }
+  })
+
+  it('covers whole months for month-precision dates', () => {
+    for (const e of calendar.events.filter((e) => e.precision === 'month')) {
+      expect(e.start.endsWith('-01'), e.id).toBe(true)
+      const next = new Date(`${e.end}T00:00:00Z`)
+      next.setUTCDate(next.getUTCDate() + 1)
+      expect(next.getUTCDate(), `${e.id} should end on the last day of a month`).toBe(1)
+    }
+  })
+
+  it('cites a source checked no later than today, and translates every text', () => {
+    const today = new Date().toISOString().slice(0, 10)
+    for (const e of calendar.events) {
+      expect(e.source.url, e.id).toMatch(/^https?:\/\//)
+      expect(e.verified <= today, e.id).toBe(true)
+      for (const lang of ['en', 'fr', 'ar'] as const) {
+        expect(e.title[lang], `${e.id} ${lang}`).toBeTruthy()
+        if (e.note) expect(e.note[lang], `${e.id} ${lang}`).toBeTruthy()
+      }
+    }
+  })
+
+  it('links only to known institutions', () => {
+    for (const e of calendar.events)
+      if (Array.isArray(e.institutions)) for (const id of e.institutions) expect(ids.has(id), `${e.id} → ${id}`).toBe(true)
+  })
+
+  it('explains what every expected date is based on', () => {
+    for (const e of calendar.events.filter((e) => e.status === 'expected')) expect(e.note, e.id).not.toBeNull()
   })
 })
