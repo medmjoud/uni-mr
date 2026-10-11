@@ -1,0 +1,1233 @@
+{
+  "source": {
+    "title": "MESRS – Statistiques d’orientation (etudiants-mesrs.app)",
+    "url": "https://etudiants-mesrs.app/affectations-stats"
+  },
+  "fetchedAt": "2026-10-11",
+  "countries": {
+    "DZ": {
+      "fr": "Algérie",
+      "ar": "الجزائر",
+      "en": "Algeria"
+    },
+    "EG": {
+      "fr": "Égypte",
+      "ar": "مصر",
+      "en": "Egypt"
+    },
+    "MA": {
+      "fr": "Maroc",
+      "ar": "المغرب",
+      "en": "Morocco"
+    },
+    "SN": {
+      "fr": "Sénégal",
+      "ar": "السنغال",
+      "en": "Senegal"
+    },
+    "TN": {
+      "fr": "Tunisie",
+      "ar": "تونس",
+      "en": "Tunisia"
+    },
+    "TR": {
+      "fr": "Turquie",
+      "ar": "تركيا",
+      "en": "Türkiye"
+    }
+  },
+  "years": [
+    {
+      "year": "2025-2026",
+      "totals": {
+        "licence": 15278,
+        "master": 1833
+      },
+      "licence": [
+        {
+          "country": "TN",
+          "code": "UNTN-LO",
+          "label": {
+            "fr": "License dans les universités tunisiennes",
+            "ar": "الإجازة في الجامعات التونسية",
+            "en": "Licence at Tunisian universities"
+          },
+          "placed": 33,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 23,
+              "first": 189,
+              "last": 1562
+            },
+            {
+              "code": "M",
+              "label": {
+                "fr": "Mathématiques",
+                "ar": "الرياضيات",
+                "en": "Mathematics"
+              },
+              "placed": 4,
+              "first": 320,
+              "last": 374
+            },
+            {
+              "code": "LM",
+              "label": {
+                "fr": "Lettres modernes",
+                "ar": "الآداب العصرية",
+                "en": "Modern letters"
+              },
+              "placed": 2,
+              "first": 1,
+              "last": 48
+            },
+            {
+              "code": "LO",
+              "label": {
+                "fr": "Lettres originales",
+                "ar": "الآداب الأصلية",
+                "en": "Original letters"
+              },
+              "placed": 2,
+              "first": 1,
+              "last": 50
+            },
+            {
+              "code": "TM",
+              "label": {
+                "fr": "Filière technique",
+                "ar": "الشعبة التقنية",
+                "en": "Mathematical techniques"
+              },
+              "placed": 1,
+              "first": 2,
+              "last": 2
+            },
+            {
+              "code": "TS",
+              "label": {
+                "fr": "Génie électrique",
+                "ar": "الهندسة الكهربائية",
+                "en": "Technical sciences"
+              },
+              "placed": 1,
+              "first": 3,
+              "last": 3
+            }
+          ]
+        },
+        {
+          "country": "MA",
+          "code": "UNMA-IST",
+          "label": {
+            "fr": "Ingénierie et Sciences Technologiques",
+            "ar": "الهندسة وعلوم التكنولوجيا",
+            "en": "Engineering and technology"
+          },
+          "placed": 19,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 11,
+              "first": 57,
+              "last": 506
+            },
+            {
+              "code": "M",
+              "label": {
+                "fr": "Mathématiques",
+                "ar": "الرياضيات",
+                "en": "Mathematics"
+              },
+              "placed": 8,
+              "first": 91,
+              "last": 313
+            }
+          ]
+        },
+        {
+          "country": "MA",
+          "code": "UNMA-CPGE",
+          "label": {
+            "fr": "Classes Préparatoires aux Grandes Ecoles d’Ingénieurs",
+            "ar": "الفصول التحضيرية لكبريات مدارس المهندسين",
+            "en": "Preparatory classes for engineering schools"
+          },
+          "placed": 12,
+          "series": [
+            {
+              "code": "M",
+              "label": {
+                "fr": "Mathématiques",
+                "ar": "الرياضيات",
+                "en": "Mathematics"
+              },
+              "placed": 12,
+              "first": 2,
+              "last": 87
+            }
+          ]
+        },
+        {
+          "country": "SN",
+          "code": "UNSN-MG",
+          "label": {
+            "fr": "Médecine Générale - UCAD",
+            "ar": "الطب العام جامعة الشيخ أنتا ديوب",
+            "en": "General medicine (UCAD)"
+          },
+          "placed": 11,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 11,
+              "first": 43,
+              "last": 342
+            }
+          ]
+        },
+        {
+          "country": "MA",
+          "code": "UNMA-MG",
+          "label": {
+            "fr": "Médecine Générale",
+            "ar": "الطب العام",
+            "en": "General medicine"
+          },
+          "placed": 10,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 10,
+              "first": 4,
+              "last": 88
+            }
+          ]
+        },
+        {
+          "country": "MA",
+          "code": "UNMA-SCG",
+          "label": {
+            "fr": "Sciences Commerciales et de Gestion",
+            "ar": "التجارة والتسيير",
+            "en": "Business and management"
+          },
+          "placed": 8,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 8,
+              "first": 601,
+              "last": 1030
+            }
+          ]
+        },
+        {
+          "country": "TN",
+          "code": "UNTN-MG",
+          "label": {
+            "fr": "Médecine Générale",
+            "ar": "الطب العام",
+            "en": "General medicine"
+          },
+          "placed": 5,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 5,
+              "first": 2,
+              "last": 39
+            }
+          ]
+        },
+        {
+          "country": "MA",
+          "code": "UNMA-ARC",
+          "label": {
+            "fr": "Architecture",
+            "ar": "الهندسة المعمارية",
+            "en": "Architecture"
+          },
+          "placed": 2,
+          "series": [
+            {
+              "code": "M",
+              "label": {
+                "fr": "Mathématiques",
+                "ar": "الرياضيات",
+                "en": "Mathematics"
+              },
+              "placed": 1,
+              "first": 238,
+              "last": 238
+            },
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 1,
+              "first": 3,
+              "last": 3
+            }
+          ]
+        },
+        {
+          "country": "MA",
+          "code": "UNMA-SAV",
+          "label": {
+            "fr": "Sciences Agronomiques et Vétérinaires",
+            "ar": "علوم الزراعة والبيطرة",
+            "en": "Agronomy and veterinary science"
+          },
+          "placed": 2,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 2,
+              "first": 1254,
+              "last": 1317
+            }
+          ]
+        },
+        {
+          "country": "MA",
+          "code": "FCZR-TS",
+          "label": {
+            "fr": "Technologie de la Santé",
+            "ar": "تكنولوجيا الصحة",
+            "en": "Health technology"
+          },
+          "placed": 1,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 1,
+              "first": 187,
+              "last": 187
+            }
+          ]
+        },
+        {
+          "country": "MA",
+          "code": "UNMA-PH",
+          "label": {
+            "fr": "Pharmacie",
+            "ar": "الصيدلة",
+            "en": "Pharmacy"
+          },
+          "placed": 1,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 1,
+              "first": 350,
+              "last": 350
+            }
+          ]
+        },
+        {
+          "country": "SN",
+          "code": "UNSN-MD",
+          "label": {
+            "fr": "Médecine dentaire",
+            "ar": "طب الأسنان",
+            "en": "Dentistry"
+          },
+          "placed": 1,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 1,
+              "first": 349,
+              "last": 349
+            }
+          ]
+        }
+      ],
+      "master": [
+        {
+          "country": "DZ",
+          "placed": 300,
+          "licences": 91,
+          "institutions": [
+            "GMC",
+            "ISA",
+            "ISCAE",
+            "ISE",
+            "ISERI",
+            "ISET",
+            "ISGC",
+            "ISGI",
+            "ISGM",
+            "ISPLTI",
+            "ISS",
+            "ISSM",
+            "SUPNUM",
+            "UNFEG",
+            "UNFLSH",
+            "UNFSJP",
+            "UNFST",
+            "USIAFA",
+            "USIAFC",
+            "USIAFO"
+          ]
+        },
+        {
+          "country": "MA",
+          "placed": 190,
+          "licences": 89,
+          "institutions": [
+            "ENSSS",
+            "GMC",
+            "ISA",
+            "ISCAE",
+            "ISE",
+            "ISERI",
+            "ISET",
+            "ISGC",
+            "ISGI",
+            "ISGM",
+            "ISPLTI",
+            "ISS",
+            "ISSM",
+            "SUPNUM",
+            "UNFEG",
+            "UNFLSH",
+            "UNFSJP",
+            "UNFST",
+            "USIAFA",
+            "USIAFC",
+            "USIAFO"
+          ]
+        },
+        {
+          "country": "TN",
+          "placed": 150,
+          "licences": 83,
+          "institutions": [
+            "ENSSS",
+            "GMC",
+            "ISA",
+            "ISCAE",
+            "ISE",
+            "ISERI",
+            "ISET",
+            "ISGC",
+            "ISGI",
+            "ISGM",
+            "ISPLTI",
+            "ISS",
+            "ISSM",
+            "SUPNUM",
+            "UNFEG",
+            "UNFLSH",
+            "UNFSJP",
+            "UNFST",
+            "USIAFC",
+            "USIAFO"
+          ]
+        }
+      ]
+    },
+    {
+      "year": "2026-2027",
+      "totals": {
+        "licence": 12856,
+        "master": 1790
+      },
+      "licence": [
+        {
+          "country": "MA",
+          "code": "UNMA-IST",
+          "label": {
+            "fr": "Ingénierie et Sciences Technologiques",
+            "ar": "الهندسة وعلوم التكنولوجيا",
+            "en": "Engineering and technology"
+          },
+          "placed": 20,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 20,
+              "first": 60,
+              "last": 654
+            }
+          ]
+        },
+        {
+          "country": "MA",
+          "code": "UNMA-MG",
+          "label": {
+            "fr": "Médecine Générale",
+            "ar": "الطب العام",
+            "en": "General medicine"
+          },
+          "placed": 11,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 9,
+              "first": 2,
+              "last": 62
+            },
+            {
+              "code": "M",
+              "label": {
+                "fr": "Mathématiques",
+                "ar": "الرياضيات",
+                "en": "Mathematics"
+              },
+              "placed": 2,
+              "first": 5,
+              "last": 11
+            }
+          ]
+        },
+        {
+          "country": "MA",
+          "code": "UNMA-SCG",
+          "label": {
+            "fr": "Sciences Commerciales et de Gestion",
+            "ar": "التجارة والتسيير",
+            "en": "Business and management"
+          },
+          "placed": 8,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 7,
+              "first": 161,
+              "last": 768
+            },
+            {
+              "code": "M",
+              "label": {
+                "fr": "Mathématiques",
+                "ar": "الرياضيات",
+                "en": "Mathematics"
+              },
+              "placed": 1,
+              "first": 64,
+              "last": 64
+            }
+          ]
+        },
+        {
+          "country": "MA",
+          "code": "UNMA-PH",
+          "label": {
+            "fr": "Pharmacie",
+            "ar": "الصيدلة",
+            "en": "Pharmacy"
+          },
+          "placed": 4,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 3,
+              "first": 360,
+              "last": 384
+            },
+            {
+              "code": "M",
+              "label": {
+                "fr": "Mathématiques",
+                "ar": "الرياضيات",
+                "en": "Mathematics"
+              },
+              "placed": 1,
+              "first": 125,
+              "last": 125
+            }
+          ]
+        },
+        {
+          "country": "SN",
+          "code": "UNSN-MG",
+          "label": {
+            "fr": "Médecine Générale - UCAD",
+            "ar": "الطب العام جامعة الشيخ أنتا ديوب",
+            "en": "General medicine (UCAD)"
+          },
+          "placed": 4,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 3,
+              "first": 40,
+              "last": 70
+            },
+            {
+              "code": "M",
+              "label": {
+                "fr": "Mathématiques",
+                "ar": "الرياضيات",
+                "en": "Mathematics"
+              },
+              "placed": 1,
+              "first": 44,
+              "last": 44
+            }
+          ]
+        },
+        {
+          "country": "TN",
+          "code": "UNTN-MG",
+          "label": {
+            "fr": "Médecine Générale",
+            "ar": "الطب العام",
+            "en": "General medicine"
+          },
+          "placed": 3,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 3,
+              "first": 4,
+              "last": 19
+            }
+          ]
+        },
+        {
+          "country": "TR",
+          "code": "UNTR-MG",
+          "label": {
+            "fr": "Médecine Générale",
+            "ar": "الطب العام",
+            "en": "General medicine"
+          },
+          "placed": 3,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 2,
+              "first": 118,
+              "last": 123
+            },
+            {
+              "code": "M",
+              "label": {
+                "fr": "Mathématiques",
+                "ar": "الرياضيات",
+                "en": "Mathematics"
+              },
+              "placed": 1,
+              "first": 24,
+              "last": 24
+            }
+          ]
+        },
+        {
+          "country": "TR",
+          "code": "UNTR-IA",
+          "label": {
+            "fr": "Intelligence artificielle",
+            "ar": "الذكاء الاصطناعي",
+            "en": "Artificial intelligence"
+          },
+          "placed": 2,
+          "series": [
+            {
+              "code": "M",
+              "label": {
+                "fr": "Mathématiques",
+                "ar": "الرياضيات",
+                "en": "Mathematics"
+              },
+              "placed": 2,
+              "first": 48,
+              "last": 157
+            }
+          ]
+        },
+        {
+          "country": "TR",
+          "code": "UNTR-INTR",
+          "label": {
+            "fr": "Relations internationales",
+            "ar": "العلاقات الدولية",
+            "en": "International relations"
+          },
+          "placed": 2,
+          "series": [
+            {
+              "code": "LM",
+              "label": {
+                "fr": "Lettres modernes",
+                "ar": "الآداب العصرية",
+                "en": "Modern letters"
+              },
+              "placed": 1,
+              "first": 3,
+              "last": 3
+            },
+            {
+              "code": "LO",
+              "label": {
+                "fr": "Lettres originales",
+                "ar": "الآداب الأصلية",
+                "en": "Original letters"
+              },
+              "placed": 1,
+              "first": 10,
+              "last": 10
+            }
+          ]
+        },
+        {
+          "country": "DZ",
+          "code": "UNDZ-MD",
+          "label": {
+            "fr": "Médecine dentaire",
+            "ar": "طب الأسنان",
+            "en": "Dentistry"
+          },
+          "placed": 1,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 1,
+              "first": 23,
+              "last": 23
+            }
+          ]
+        },
+        {
+          "country": "MA",
+          "code": "UNMA-SAV",
+          "label": {
+            "fr": "Sciences Agronomiques et Vétérinaires",
+            "ar": "علوم الزراعة والبيطرة",
+            "en": "Agronomy and veterinary science"
+          },
+          "placed": 1,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 1,
+              "first": 684,
+              "last": 684
+            }
+          ]
+        },
+        {
+          "country": "TR",
+          "code": "UNTR-BM",
+          "label": {
+            "fr": "Biologie Médicale",
+            "ar": "البيولوجيا الطبية",
+            "en": "Medical biology"
+          },
+          "placed": 1,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 1,
+              "first": 608,
+              "last": 608
+            }
+          ]
+        },
+        {
+          "country": "TR",
+          "code": "UNTR-CYBERSEC",
+          "label": {
+            "fr": "Cybersécurité",
+            "ar": "الأمن السيبراني",
+            "en": "Cybersecurity"
+          },
+          "placed": 1,
+          "series": [
+            {
+              "code": "M",
+              "label": {
+                "fr": "Mathématiques",
+                "ar": "الرياضيات",
+                "en": "Mathematics"
+              },
+              "placed": 1,
+              "first": 92,
+              "last": 92
+            }
+          ]
+        },
+        {
+          "country": "TR",
+          "code": "UNTR-DRONE",
+          "label": {
+            "fr": "Ingénierie des drones",
+            "ar": "هندسة الدرونات",
+            "en": "Drone engineering"
+          },
+          "placed": 1,
+          "series": [
+            {
+              "code": "M",
+              "label": {
+                "fr": "Mathématiques",
+                "ar": "الرياضيات",
+                "en": "Mathematics"
+              },
+              "placed": 1,
+              "first": 221,
+              "last": 221
+            }
+          ]
+        },
+        {
+          "country": "TR",
+          "code": "UNTR-ER",
+          "label": {
+            "fr": "Énergies renouvelables",
+            "ar": "الطاقة المتجددة",
+            "en": "Renewable energy"
+          },
+          "placed": 1,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 1,
+              "first": 316,
+              "last": 316
+            }
+          ]
+        },
+        {
+          "country": "TR",
+          "code": "UNTR-GA",
+          "label": {
+            "fr": "Génie agricole",
+            "ar": "الهندسة الزراعية",
+            "en": "Agricultural engineering"
+          },
+          "placed": 1,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 1,
+              "first": 447,
+              "last": 447
+            }
+          ]
+        },
+        {
+          "country": "TR",
+          "code": "UNTR-IPG",
+          "label": {
+            "fr": "Ingénierie pétrolière et gazière",
+            "ar": "هندسة البترول والغاز",
+            "en": "Petroleum and gas engineering"
+          },
+          "placed": 1,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 1,
+              "first": 1,
+              "last": 1
+            }
+          ]
+        },
+        {
+          "country": "TR",
+          "code": "UNTR-MD",
+          "label": {
+            "fr": "Médecine dentaire",
+            "ar": "طب الأسنان",
+            "en": "Dentistry"
+          },
+          "placed": 1,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 1,
+              "first": 117,
+              "last": 117
+            }
+          ]
+        },
+        {
+          "country": "TR",
+          "code": "UNTR-MECAT",
+          "label": {
+            "fr": "Mécatronique",
+            "ar": "الميكاترونيك",
+            "en": "Mechatronics"
+          },
+          "placed": 1,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 1,
+              "first": 343,
+              "last": 343
+            }
+          ]
+        },
+        {
+          "country": "TR",
+          "code": "UNTR-PH",
+          "label": {
+            "fr": "Pharmacie",
+            "ar": "الصيدلة",
+            "en": "Pharmacy"
+          },
+          "placed": 1,
+          "series": [
+            {
+              "code": "SN",
+              "label": {
+                "fr": "Sciences naturelles",
+                "ar": "العلوم الطبيعية",
+                "en": "Natural sciences"
+              },
+              "placed": 1,
+              "first": 280,
+              "last": 280
+            }
+          ]
+        },
+        {
+          "country": "TR",
+          "code": "UNTR-PSYCO",
+          "label": {
+            "fr": "Psychologie",
+            "ar": "علم النفس",
+            "en": "Psychology"
+          },
+          "placed": 1,
+          "series": [
+            {
+              "code": "LM",
+              "label": {
+                "fr": "Lettres modernes",
+                "ar": "الآداب العصرية",
+                "en": "Modern letters"
+              },
+              "placed": 1,
+              "first": 168,
+              "last": 168
+            }
+          ]
+        },
+        {
+          "country": "TR",
+          "code": "UNTR-SPACE",
+          "label": {
+            "fr": "Ingénierie spatiale",
+            "ar": "الهندسة الفضائية",
+            "en": "Space engineering"
+          },
+          "placed": 1,
+          "series": [
+            {
+              "code": "M",
+              "label": {
+                "fr": "Mathématiques",
+                "ar": "الرياضيات",
+                "en": "Mathematics"
+              },
+              "placed": 1,
+              "first": 305,
+              "last": 305
+            }
+          ]
+        },
+        {
+          "country": "DZ",
+          "code": "UNDZ-MG",
+          "label": {
+            "fr": "Médecine Générale",
+            "ar": "الطب العام",
+            "en": "General medicine"
+          },
+          "placed": 0,
+          "series": []
+        },
+        {
+          "country": "DZ",
+          "code": "UNDZ-PH",
+          "label": {
+            "fr": "Pharmacie",
+            "ar": "الصيدلة",
+            "en": "Pharmacy"
+          },
+          "placed": 0,
+          "series": []
+        },
+        {
+          "country": "MA",
+          "code": "UNMA-ARC",
+          "label": {
+            "fr": "Architecture",
+            "ar": "الهندسة المعمارية",
+            "en": "Architecture"
+          },
+          "placed": 0,
+          "series": []
+        },
+        {
+          "country": "SN",
+          "code": "UNSN-MGUIDT",
+          "label": {
+            "fr": "Médecine Générale à UIDT",
+            "ar": "الطب العام جامعة ثيس",
+            "en": "General medicine (UIDT)"
+          },
+          "placed": 0,
+          "series": []
+        },
+        {
+          "country": "TN",
+          "code": "UNTN-MD",
+          "label": {
+            "fr": "Médecine dentaire",
+            "ar": "طب الأسنان",
+            "en": "Dentistry"
+          },
+          "placed": 0,
+          "series": []
+        },
+        {
+          "country": "TN",
+          "code": "UNTN-PH",
+          "label": {
+            "fr": "Pharmacie",
+            "ar": "الطب العام",
+            "en": "Pharmacy"
+          },
+          "placed": 0,
+          "series": []
+        },
+        {
+          "country": "TR",
+          "code": "UNTR-SOCIO",
+          "label": {
+            "fr": "Sociologie",
+            "ar": "علم الاجتماع",
+            "en": "Sociology"
+          },
+          "placed": 0,
+          "series": []
+        }
+      ],
+      "master": [
+        {
+          "country": "DZ",
+          "placed": 197,
+          "licences": 103,
+          "institutions": [
+            "ENSSS",
+            "GMC",
+            "ISA",
+            "ISCAE",
+            "ISE",
+            "ISERI",
+            "ISET",
+            "ISGC",
+            "ISGI",
+            "ISGM",
+            "ISJS",
+            "ISPLTI",
+            "ISS",
+            "ISSM",
+            "SUPNUM",
+            "UNFEG",
+            "UNFLSH",
+            "UNFSJP",
+            "UNFST",
+            "USIAFA",
+            "USIAFC",
+            "USIAFO"
+          ]
+        },
+        {
+          "country": "TN",
+          "placed": 180,
+          "licences": 98,
+          "institutions": [
+            "ENSSS",
+            "GMC",
+            "ISA",
+            "ISCAE",
+            "ISE",
+            "ISERI",
+            "ISET",
+            "ISGC",
+            "ISGI",
+            "ISGM",
+            "ISPLTI",
+            "ISS",
+            "ISSM",
+            "SUPNUM",
+            "UNFEG",
+            "UNFLSH",
+            "UNFSJP",
+            "UNFST",
+            "USIAFA",
+            "USIAFC",
+            "USIAFO"
+          ]
+        },
+        {
+          "country": "MA",
+          "placed": 176,
+          "licences": 98,
+          "institutions": [
+            "ENSSS",
+            "GMC",
+            "ISA",
+            "ISCAE",
+            "ISE",
+            "ISERI",
+            "ISET",
+            "ISGC",
+            "ISGI",
+            "ISGM",
+            "ISJS",
+            "ISPLTI",
+            "ISS",
+            "ISSM",
+            "SUPNUM",
+            "UNFEG",
+            "UNFLSH",
+            "UNFSJP",
+            "UNFST",
+            "USIAFA",
+            "USIAFC",
+            "USIAFO"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,647 @@
+---
+import { ExternalLink, Landmark, GraduationCap } from '@lucide/astro'
+import Layout from '@/layouts/Layout.astro'
+import ShareWhatsApp from '@/components/ShareWhatsApp.astro'
+import { getAbroad } from '@/lib/abroad'
+import { langParams, toLocale, useTranslations } from '@/i18n'
+
+export function getStaticPaths() {
+  return langParams().map((params) => ({ params }))
+}
+
+const lang = toLocale(Astro.params.lang)
+const { t, num, date } = useTranslations(lang)
+const abroad = getAbroad(lang)
+const { latest } = abroad
+// Keep year ranges such as 2026-2027 in reading order inside Arabic sentences.
+const year = `\u2066${latest.year}\u2069`
+
+const figures = [
+  { value: latest.licence, label: t('abr.figLicence') },
+  { value: latest.master, label: t('abr.figMaster') },
+  { value: latest.programmes, label: t('abr.figProgrammes') },
+  { value: latest.countries, label: t('abr.figCountries') },
+]
+
+const sources = [
+  abroad.statsSource,
+  ...abroad.sources,
+  ...abroad.policy.map((p) => p.source),
+  ...abroad.countries.flatMap((c) => c.sources),
+].filter((s, i, all) => all.findIndex((o) => o.url === s.url) === i)
+
+const platform = abroad.sources[0]
+const slug = (code: string) => `country-${code.toLowerCase()}`
+/** "2025-2026" → "2025-26", so the summary table fits on a phone. */
+const shortYear = (y: string) => y.replace(/^(\d{4})-\d{2}(\d{2})$/, '$1-$2')
+---
+
+<Layout lang={lang} title={t('abr.title')} description={t('abr.meta')}>
+  <header class="page-band">
+    <div class="wrap py-14 md:py-20">
+      <h1 class="display page-title">{t('abr.title')}</h1>
+      <p class="page-band-lede mt-5 text-lg measure">{t('abr.intro')}</p>
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        <a class="btn btn-primary" href={platform.url} rel="noopener">
+          {t('abr.platform')}
+          <ExternalLink class="icon" aria-hidden="true" />
+        </a>
+        <ShareWhatsApp lang={lang} text={t('share.abroad')} />
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap grid grid-cols-[minmax(0,1fr)] gap-16 py-14">
+    <section aria-labelledby="figures">
+      <h2 id="figures" class="eyebrow-title">{t('abr.figYear', { year })}</h2>
+      <dl class="figures">
+        {
+          figures.map((f) => (
+            <div class="card figure">
+              <dt class="figure-label">{f.label}</dt>
+              <dd class="figure-value">{num(f.value)}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </section>
+
+    <div class="grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[minmax(0,1fr)_23rem]">
+      <section aria-labelledby="steps">
+        <h2 id="steps" class="headline text-2xl md:text-3xl">{t('abr.steps')}</h2>
+        <ol class="timeline">
+          {
+            abroad.steps.map((step, i) => (
+              <li>
+                <span class="timeline-n" aria-hidden="true">{i + 1}</span>
+                <div class="card timeline-body">
+                  <p class="timeline-when">{step.when}</p>
+                  <h3 class="timeline-title">{step.title}</h3>
+                  <p class="text-[0.98rem]">{step.description}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <aside class="aside">
+        <section class="card p-5" aria-labelledby="policy">
+          <h2 id="policy" class="aside-title"><Landmark class="icon" aria-hidden="true" />{t('abr.policy')}</h2>
+          <ul class="policy">
+            {
+              abroad.policy.map((p) => (
+                <li>
+                  {p.text}{' '}
+                  <a class="source-ref" href={p.source.url} rel="noopener">
+                    {t('abr.source')}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section class="card p-5" aria-labelledby="master">
+          <h2 id="master" class="aside-title"><GraduationCap class="icon" aria-hidden="true" />{t('abr.masterCol')}</h2>
+          <p class="text-[0.95rem]">{abroad.master}</p>
+        </section>
+      </aside>
+    </div>
+
+    <section aria-labelledby="by-country">
+      <h2 id="by-country" class="headline text-2xl md:text-3xl">{t('abr.byCountry')}</h2>
+      <p class="mt-2 text-muted measure">{t('abr.byCountryIntro')}</p>
+      <div class="card table-card">
+        <table class="summary">
+          <thead>
+            <tr>
+              <th scope="col" rowspan="2">{t('abr.country')}</th>
+              <th scope="colgroup" colspan={abroad.years.length}>{t('abr.licence')}</th>
+              <th scope="colgroup" colspan={abroad.years.length}>{t('abr.masterCol')}</th>
+            </tr>
+            <tr>
+              {abroad.years.map((y) => <th scope="col" class="num" dir="ltr">{shortYear(y)}</th>)}
+              {abroad.years.map((y) => <th scope="col" class="num" dir="ltr">{shortYear(y)}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {
+              abroad.countries.map((c) => (
+                <tr>
+                  <th scope="row">
+                    <a class="link" href={`#${slug(c.code)}`}>{c.name}</a>
+                  </th>
+                  {c.history.map((h) => <td class="num">{h.licence ? num(h.licence) : '–'}</td>)}
+                  {c.history.map((h) => <td class="num">{h.master ? num(h.master) : '–'}</td>)}
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="countries">
+      <h2 id="countries" class="headline text-2xl md:text-3xl">{t('abr.countries')}</h2>
+      <p class="mt-2 text-muted measure text-[0.95rem]">{t('abr.rankHelp')}</p>
+
+      <div class="countries">
+        {
+          abroad.countries.map((c) => (
+            <article class="card country" id={slug(c.code)} aria-labelledby={`${slug(c.code)}-name`}>
+              <header class="country-head">
+                <h3 id={`${slug(c.code)}-name`} class="country-name">{c.name}</h3>
+                {(c.licence > 0 || c.master) && (
+                  <p class="country-tags">
+                    {c.licence > 0 && (
+                      <span class="tag">
+                        {t('abr.licence')} · {num(c.licence)}
+                      </span>
+                    )}
+                    {c.master && (
+                      <span class="tag">
+                        {t('abr.masterCol')} · {num(c.master.placed)}
+                      </span>
+                    )}
+                    <span class="text-muted text-sm" dir="ltr">{latest.year}</span>
+                  </p>
+                )}
+              </header>
+              <p class="country-summary">{c.summary}</p>
+
+              <div class="country-body">
+                <div class="grid min-w-0 gap-4 content-start">
+                  {c.programmes.length > 0 ? (
+                    <div class="programmes-wrap">
+                      <table class="programmes">
+                        <thead>
+                          <tr>
+                            <th scope="col">{t('abr.programme')}</th>
+                            <th scope="col" class="num">{t('abr.placed')}</th>
+                            <th scope="col">{t('abr.lastRank')}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {c.programmes.map((p) => (
+                            <tr>
+                              <th scope="row">{p.name}</th>
+                              <td class="num">{num(p.placed)}</td>
+                              <td>
+                                <ul class="ranks">
+                                  {p.series.map((s) => (
+                                    <li title={s.name}>
+                                      <span class="rank-code" aria-label={t('abr.series', { code: s.code })} dir="ltr">
+                                        {s.code}
+                                      </span>
+                                      <span dir="ltr">{num(s.last)}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  ) : (
+                    <p class="text-muted text-[0.95rem]">{t('abr.noLicence', { year })}</p>
+                  )}
+                  <p class="text-[0.95rem]">
+                    {c.master
+                      ? t('abr.masterLine', {
+                          count: num(c.master.placed),
+                          licences: num(c.master.licences),
+                          institutions: num(c.master.institutions.length),
+                        })
+                      : t('abr.noMaster', { year })}
+                  </p>
+                </div>
+
+                <div class="schemes">
+                  <h4 class="schemes-title">{t('abr.schemes')}</h4>
+                  {c.schemes.map((s) => (
+                    <div class="scheme">
+                      <a class="scheme-name link" href={s.url} rel="noopener">
+                        {s.name}
+                        <ExternalLink class="icon" aria-hidden="true" />
+                      </a>
+                      <p class="text-[0.92rem]">{s.description}</p>
+                    </div>
+                  ))}
+                  <ul class="country-sources">
+                    {c.sources.map((s) => (
+                      <li>
+                        <a href={s.url} rel="noopener">{s.title}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="card p-5" aria-labelledby="sources">
+      <h2 id="sources" class="aside-title">{t('common.sources')}</h2>
+      <p class="mb-4 text-sm text-muted">{t('abr.dataNote', { date: date(abroad.fetchedAt) })}</p>
+      <ul class="source-list">
+        {
+          sources.map((s) => (
+            <li>
+              <a href={s.url} rel="noopener">{s.title}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page-title {
+    font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+  }
+
+  .eyebrow-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--emerald-700);
+  }
+
+  .figures {
+    margin-top: 0.9rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: 900px) {
+    .figures {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  .figure {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.1rem 1.25rem;
+  }
+
+  .figure-value {
+    order: -1;
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-weight: 650;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    line-height: 1.1;
+    color: var(--ink);
+  }
+
+  .figure-label {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.35;
+  }
+
+  .timeline {
+    position: relative;
+    margin-top: 1.75rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: 1.3rem;
+    top: 1rem;
+    bottom: 1rem;
+    width: 2px;
+    background: var(--emerald-100);
+  }
+
+  .timeline li {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2.6rem 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .timeline-n {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 50%;
+    background: var(--emerald-700);
+    color: #fff;
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-weight: 700;
+    box-shadow: 0 0 0 5px var(--bg);
+  }
+
+  .timeline-body {
+    padding: 1.1rem 1.25rem;
+  }
+
+  .timeline-when {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--gold-700);
+  }
+
+  .timeline-title {
+    margin: 0.15rem 0 0.35rem;
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--ink);
+  }
+
+  .aside {
+    display: grid;
+    gap: 1rem;
+    align-content: start;
+  }
+
+  .aside-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.9rem;
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .aside-title :global(.icon) {
+    color: var(--emerald-600);
+  }
+
+  .policy {
+    display: grid;
+    gap: 0.85rem;
+    font-size: 0.95rem;
+  }
+
+  .policy li {
+    position: relative;
+    padding-inline-start: 1rem;
+  }
+
+  .policy li::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0.6em;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: var(--emerald-600);
+  }
+
+  .source-ref {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-decoration: underline;
+    text-decoration-color: var(--line-strong);
+    text-underline-offset: 3px;
+  }
+
+  .source-ref:hover {
+    color: var(--emerald-700);
+  }
+
+  .table-card {
+    margin-top: 1.5rem;
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+
+  th,
+  td {
+    padding: 0.7rem 1rem;
+    text-align: start;
+    vertical-align: top;
+  }
+
+  thead th {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--muted);
+    background: var(--surface-2);
+  }
+
+  tbody tr + tr > * {
+    border-top: 1px solid var(--line);
+  }
+
+  tbody th {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .num {
+    text-align: end;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .summary .num {
+    text-align: center;
+  }
+
+  @media (max-width: 640px) {
+    .summary th,
+    .summary td {
+      padding: 0.6rem 0.45rem;
+    }
+
+    .summary th:first-child {
+      padding-inline-start: 0.9rem;
+    }
+  }
+
+  .summary thead tr:first-child th[scope='colgroup'] {
+    text-align: center;
+    border-inline-start: 1px solid var(--line);
+  }
+
+  .summary td:nth-child(2),
+  .summary td:nth-child(4),
+  .summary thead tr:last-child th:nth-child(1),
+  .summary thead tr:last-child th:nth-child(3) {
+    border-inline-start: 1px solid var(--line);
+  }
+
+  .countries {
+    margin-top: 1.75rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+  .country {
+    padding: 1.4rem;
+    scroll-margin-top: 6rem;
+  }
+
+  @media (min-width: 768px) {
+    .country {
+      padding: 1.75rem;
+    }
+  }
+
+  .country-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .country-name {
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-weight: 650;
+    font-size: 1.45rem;
+    color: var(--ink);
+  }
+
+  .country-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .country-summary {
+    margin-top: 0.75rem;
+    max-width: 70ch;
+  }
+
+  .country-body {
+    margin-top: 1.25rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .country-body {
+      grid-template-columns: minmax(0, 1fr) 20rem;
+    }
+  }
+
+  .programmes-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+  }
+
+  .programmes th,
+  .programmes td {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .programmes tbody th {
+    font-weight: 500;
+  }
+
+  .ranks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .ranks li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .rank-code {
+    display: inline-grid;
+    place-items: center;
+    min-width: 1.9rem;
+    padding: 0.05rem 0.35rem;
+    border-radius: 6px;
+    background: var(--emerald-50);
+    color: var(--emerald-700);
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .schemes {
+    display: grid;
+    gap: 0.9rem;
+    align-content: start;
+    padding: 1.1rem 1.2rem;
+    border-radius: var(--radius-sm);
+    background: var(--surface-2);
+  }
+
+  .schemes-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--muted);
+  }
+
+  .scheme-name {
+    font-weight: 600;
+  }
+
+  .scheme-name :global(.icon) {
+    display: inline;
+    margin-inline-start: 0.3rem;
+    vertical-align: -0.12em;
+  }
+
+  .scheme p {
+    margin-top: 0.3rem;
+  }
+
+  .country-sources,
+  .source-list {
+    display: grid;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+
+  .source-list {
+    font-size: 0.85rem;
+    gap: 0.6rem;
+  }
+
+  .country-sources {
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .country-sources a,
+  .source-list a {
+    color: var(--muted);
+    text-decoration: underline;
+    text-decoration-color: var(--line-strong);
+    text-underline-offset: 3px;
+    overflow-wrap: anywhere;
+  }
+
+  .country-sources a:hover,
+  .source-list a:hover {
+    color: var(--emerald-700);
+    text-decoration-color: currentColor;
+  }
+</style>

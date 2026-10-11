@@ -1,0 +1,175 @@
+{
+  "policy": [
+    {
+      "text": "Depuis la rentrée 2024, l'État n'accorde plus de bourse à l'étranger aux nouveaux bacheliers. Les bourses à l'étranger vont désormais aux étudiants de master et aux doctorants, et l'argent économisé finance davantage de ces bourses et de nouveaux bâtiments universitaires.",
+      "source": {
+        "title": "AMI – Bourses d'étudiants à l'étranger : mise au point de la Commission nationale de l'orientation et des bourses (2 sept. 2024)",
+        "url": "https://ami.mr/fr/archives/253269"
+      }
+    },
+    {
+      "text": "Les places de licence offertes par les pays partenaires sont toujours réparties par l'orientation nationale, mais sans bourse de l'État mauritanien.",
+      "source": {
+        "title": "AMI – Bourses d'étudiants à l'étranger : mise au point de la Commission nationale de l'orientation et des bourses (2 sept. 2024)",
+        "url": "https://ami.mr/fr/archives/253269"
+      }
+    },
+    {
+      "text": "L'arrêté 009-2025 du 4 février 2025 donne la priorité, pour les bourses à l'étranger, aux majors de licence des établissements publics, aux lauréats de concours internationaux organisés en Mauritanie et aux étudiants des programmes d'échange bilatéraux.",
+      "source": {
+        "title": "Cridem – Publication d'un nouveau décret donnant la priorité aux lauréats pour l'obtention des bourses (11 févr. 2025)",
+        "url": "https://cridem.org/C_Info.php?article=781011"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "when": "Juillet",
+      "title": "Réussir le bac, de préférence à la première session",
+      "description": "Les places à l'étranger sont attribuées selon votre rang national dans votre série de bac. Les formations sélectives, en Mauritanie comme à l'étranger, sont pourvues dès les résultats de la première session."
+    },
+    {
+      "when": "Août",
+      "title": "Classer des formations à l'étranger parmi vos choix",
+      "description": "Les formations à l'étranger figurent sur etudiants-mesrs.app à côté des formations nationales, et vous les classez dans la même liste. En 2026, la plateforme proposait 160 formations, dont 29 à l'étranger."
+    },
+    {
+      "when": "Mi-août",
+      "title": "Recevoir votre orientation",
+      "description": "Les places sont attribuées selon le rang, l'ordre des choix et la capacité. En 2026, l'orientation de la première session a été annoncée le 19 août, et la plateforme a rouvert le 23 août pour les admis de la seconde session."
+    },
+    {
+      "when": "Après l'orientation",
+      "title": "Déposer votre candidature internationale",
+      "description": "Sur la page Candidature internationale de la plateforme, choisissez le pays, saisissez votre NNI et votre profil, déposez les pièces demandées en PDF puis soumettez. Le dossier est verrouillé une fois transmis."
+    },
+    {
+      "when": "Avant le départ",
+      "title": "Accomplir les démarches du pays d'accueil",
+      "description": "Le pays d'accueil gère l'inscription et sa propre bourse. Au Maroc, par exemple, les dossiers n'arrivent aux universités que par l'AMCI, et une autorisation d'inscription est exigée avant l'inscription. Renseignez-vous sur le visa étudiant auprès de l'ambassade du pays d'accueil à Nouakchott."
+    }
+  ],
+  "master": "Les places de master à l'étranger vont aux diplômés de licence des établissements publics mauritaniens, selon leur rang dans leur propre licence. Chaque licence reçoit quelques places par pays, en général une à trois : elles vont donc aux étudiants en tête de leur promotion.",
+  "countries": [
+    {
+      "code": "MA",
+      "summary": "Le Maroc accueille l'éventail le plus large d'étudiants de première année, en ingénierie, médecine, pharmacie, commerce et agronomie, et ouvre des places de master aux diplômés de nombreuses licences nationales.",
+      "schemes": [
+        {
+          "name": "Bourses de l'AMCI",
+          "description": "L'agence marocaine de coopération internationale, rattachée au ministère des Affaires étrangères, accorde des bourses et des facilités d'accueil aux étudiants étrangers. Les candidatures passent uniquement par la voie diplomatique : un dossier non transmis par l'AMCI n'est pas pris en compte.",
+          "url": "https://www.amci.ma/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Université Cadi Ayyad – Agence Marocaine de Coopération Internationale (AMCI)",
+          "url": "https://www.uca.ma/fr/page/agence-marocaine-de-la-cooperation-internationale-amci"
+        }
+      ]
+    },
+    {
+      "code": "DZ",
+      "summary": "L'Algérie offre le plus de places de master. Ses places de première année concernent uniquement la santé (médecine, médecine dentaire et pharmacie), et peu ont été pourvues en 2026-2027.",
+      "schemes": [
+        {
+          "name": "Bourses du gouvernement algérien",
+          "description": "À Nouakchott, en décembre 2024, le président Tebboune a réaffirmé l'offre algérienne de 2 000 bourses d'enseignement supérieur et 500 bourses de formation professionnelle par an aux étudiants africains.",
+          "url": "https://www.mesrs.dz/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Algérie Eco – L'Algérie s'engage à offrir 2.500 bourses aux étudiants africains (10 déc. 2024)",
+          "url": "https://algerie-eco.com/?p=206978"
+        }
+      ]
+    },
+    {
+      "code": "TN",
+      "summary": "La Tunisie accueille surtout des étudiants de master. Ses places de première année sont en médecine ; en 2025-2026, elle a aussi accueilli des étudiants en licence générale dans les universités tunisiennes.",
+      "schemes": [
+        {
+          "name": "Bourses de coopération tunisiennes",
+          "description": "Une bourse pour un étudiant étranger exige l'accord préalable de la direction de la coopération internationale du ministère tunisien de l'Enseignement supérieur. Le dossier comprend une copie du passeport et une attestation d'inscription dans un établissement public.",
+          "url": "https://www.mes.tn/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Idaraty (gouvernement tunisien) – Obtention d'une bourse universitaire en Tunisie (étudiants étrangers)",
+          "url": "https://www.idaraty.tn/public/fr/procedures/obtention-dune-bourse-universitaire-en-tunisie-etranger"
+        }
+      ]
+    },
+    {
+      "code": "TR",
+      "summary": "La Turquie est la destination la plus récente. Elle apparaît pour la première fois dans l'orientation 2026-2027, avec une à trois places de première année dans une quinzaine de formations, de la médecine à l'intelligence artificielle et à l'ingénierie spatiale.",
+      "schemes": [
+        {
+          "name": "Bourses de Turquie (Türkiye Bursları)",
+          "description": "Ouvertes à toutes les nationalités, avec une candidature gratuite en ligne. Elles couvrent l'admission à l'université, une allocation mensuelle, le logement, l'assurance maladie, un billet d'avion et un cours de turc. L'appel général court du 10 janvier au 20 février, avec des résultats début août.",
+          "url": "https://www.turkiyeburslari.gov.tr/en"
+        },
+        {
+          "name": "Accord YÖK–MESRS (juin 2026)",
+          "description": "Signé le 27 juin 2026, l'accord prévoit des quotas annuels de bourses pour les étudiants et chercheurs mauritaniens. Le nombre de places n'a pas été publié.",
+          "url": "https://www.yok.gov.tr/en/news/mauritania-invites-turkiye-to-establish-a-turkish-university-Uk6fD"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Türkiye Bursları – Calendrier des candidatures",
+          "url": "https://www.turkiyeburslari.gov.tr/calendar"
+        },
+        {
+          "title": "YÖK – Mauritania invites Türkiye to establish a Turkish university (27 juin 2026)",
+          "url": "https://www.yok.gov.tr/en/news/mauritania-invites-turkiye-to-establish-a-turkish-university-Uk6fD"
+        }
+      ]
+    },
+    {
+      "code": "SN",
+      "summary": "Le Sénégal accueille quelques étudiants en médecine à l'Université Cheikh Anta Diop (UCAD) de Dakar. Une seconde filière de médecine, à l'Université Iba Der Thiam de Thiès, était proposée en 2026-2027 mais n'a pas été pourvue.",
+      "schemes": [
+        {
+          "name": "Orientation du ministère uniquement",
+          "description": "Ces places sont attribuées par l'orientation nationale. Nous n'avons trouvé aucun appel public distinct pour les étudiants mauritaniens.",
+          "url": "https://www.ucad.sn/"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "code": "EG",
+      "summary": "L'Égypte figure sur la page de candidature internationale du ministère, mais aucun étudiant n'y a été orienté en 2025-2026 ni en 2026-2027.",
+      "schemes": [
+        {
+          "name": "Study in Egypt",
+          "description": "Le ministère égyptien de l'Enseignement supérieur offre des places aux étudiants mauritaniens dans le cadre de son initiative Study in Egypt. En 2022, le ministre égyptien a demandé d'en augmenter le nombre.",
+          "url": "https://admission.study-in-egypt.gov.eg/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Al-Fanar Media – منح دراسية لطلاب موريتانيا في مصر (juil. 2022)",
+          "url": "https://al-fanarmedia.org/ar/2022/07/%d9%85%d9%86%d8%ad-%d8%af%d8%b1%d8%a7%d8%b3%d9%8a%d8%a9-%d9%84%d8%b7%d9%84%d8%a7%d8%a8-%d9%85%d9%88%d8%b1%d9%8a%d8%aa%d8%a7%d9%86%d9%8a%d8%a7-%d9%81%d9%8a-%d9%85%d8%b5%d8%b1/"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "MESRS – Candidature internationale (etudiants-mesrs.app)",
+      "url": "https://etudiants-mesrs.app/international-application"
+    },
+    {
+      "title": "Madar – وزارة التعليم العالي تعلن نتائج توجيه الناجحين في الدورة الأولى من باكالوريا 2026 (19 août 2026)",
+      "url": "https://madar.mr/mauritanie/%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%AA%D8%B9%D9%84%D9%8A%D9%85-%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%8A-%D8%AA%D8%B9%D9%84%D9%86-%D9%86%D8%AA%D8%A7%D8%A6%D8%AC-%D8%AA%D9%88%D8%AC%D9%8A%D9%87/"
+    },
+    {
+      "title": "Le360 Afrique – Les bourses à l'étranger limitées aux master et doctorat : les explications du gouvernement mauritanien (31 août 2024)",
+      "url": "https://afrique.le360.ma/societe/les-bourses-a-letranger-limitees-aux-master-et-doctorat-les-explications-du-gouvernement-mauritanien_YCAH76IZXFDABKXZ2U7RTSO77E/"
+    }
+  ]
+}

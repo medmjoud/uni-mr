@@ -8,6 +8,7 @@ export const NAV: { path: string; label: UIKey }[] = [
   { path: '/#orientation', label: 'nav.orientation' },
   { path: '/admissions/', label: 'nav.admissions' },
   { path: '/scholarships/', label: 'nav.scholarships' },
+  { path: '/study-abroad/', label: 'nav.abroad' },
   { path: '/compare/', label: 'nav.compare' },
   { path: '/about/', label: 'nav.about' },
 ]

@@ -1,0 +1,175 @@
+{
+  "policy": [
+    {
+      "text": "منذ دخول 2024، لم تعد الدولة تمنح منحة للدراسة في الخارج للحاصلين الجدد على الباكالوريا. أصبحت المنح الخارجية مخصصة لطلاب الماستر والدكتوراه، وتُوجَّه المبالغ الموفرة إلى زيادة هذه المنح وإلى بناء منشآت جامعية جديدة.",
+      "source": {
+        "title": "AMI – Bourses d'étudiants à l'étranger : mise au point de la Commission nationale de l'orientation et des bourses (2 سبتمبر 2024)",
+        "url": "https://ami.mr/fr/archives/253269"
+      }
+    },
+    {
+      "text": "ما زالت مقاعد الليسانس التي تقدمها الدول الشريكة تُوزَّع عبر التوجيه الوطني، لكن دون منحة من الدولة الموريتانية.",
+      "source": {
+        "title": "AMI – Bourses d'étudiants à l'étranger : mise au point de la Commission nationale de l'orientation et des bourses (2 سبتمبر 2024)",
+        "url": "https://ami.mr/fr/archives/253269"
+      }
+    },
+    {
+      "text": "يمنح المقرر ⁦009-2025⁩ الصادر في 4 فبراير 2025 الأولوية في المنح الخارجية للأوائل في الليسانس بالمؤسسات العمومية، وللفائزين في المسابقات الدولية المنظمة في موريتانيا، ولطلاب برامج التبادل الثنائية.",
+      "source": {
+        "title": "Cridem – Publication d'un nouveau décret donnant la priorité aux lauréats pour l'obtention des bourses (11 فبراير 2025)",
+        "url": "https://cridem.org/C_Info.php?article=781011"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "when": "يوليو",
+      "title": "النجاح في الباكالوريا، ويُفضَّل في الدورة الأولى",
+      "description": "تُمنح المقاعد في الخارج حسب رتبتك الوطنية داخل شعبتك. وتُملأ التكوينات الانتقائية، في موريتانيا وفي الخارج، فور صدور نتائج الدورة الأولى."
+    },
+    {
+      "when": "أغسطس",
+      "title": "رتّب تكوينات الخارج ضمن اختياراتك",
+      "description": "تظهر التكوينات في الخارج على منصة etudiants-mesrs.app إلى جانب التكوينات الوطنية، وترتّبها في القائمة نفسها. في 2026 عرضت المنصة 160 تكوينًا، منها 29 في الخارج."
+    },
+    {
+      "when": "منتصف أغسطس",
+      "title": "استلم نتيجة توجيهك",
+      "description": "تُوزَّع المقاعد حسب الرتبة وترتيب الاختيارات والطاقة الاستيعابية. في 2026 أُعلنت نتائج توجيه الدورة الأولى يوم 19 أغسطس، وأُعيد فتح المنصة يوم 23 أغسطس لناجحي الدورة الثانية."
+    },
+    {
+      "when": "بعد التوجيه",
+      "title": "أرسل ملف الترشح الدولي",
+      "description": "في صفحة الترشح الدولي على المنصة، اختر البلد وأدخل رقمك الوطني (NNI) وملفك، ثم ارفع الوثائق المطلوبة بصيغة PDF وأرسل الملف. يُقفل الملف بعد إرساله."
+    },
+    {
+      "when": "قبل السفر",
+      "title": "أكمل إجراءات بلد الاستقبال",
+      "description": "يتولى بلد الاستقبال التسجيل ومنحته الخاصة. في المغرب مثلًا، لا تصل الملفات إلى الجامعات إلا عبر الوكالة المغربية للتعاون الدولي (AMCI)، ويلزم ترخيص بالتسجيل قبل التسجيل. استفسر عن تأشيرة الطالب لدى سفارة بلد الاستقبال في نواكشوط."
+    }
+  ],
+  "master": "تُمنح مقاعد الماستر في الخارج لخريجي الليسانس في المؤسسات العمومية الموريتانية، حسب رتبتهم داخل الليسانس التي درسوها. تحصل كل ليسانس على مقاعد قليلة في كل بلد، غالبًا من مقعد إلى ثلاثة، فتذهب إلى المتفوقين في دفعتهم.",
+  "countries": [
+    {
+      "code": "MA",
+      "summary": "يستقبل المغرب أوسع تنوع من طلاب السنة الأولى، في الهندسة والطب والصيدلة والتجارة والزراعة، ويفتح مقاعد ماستر لخريجي كثير من الليسانسات الوطنية.",
+      "schemes": [
+        {
+          "name": "منح الوكالة المغربية للتعاون الدولي (AMCI)",
+          "description": "تمنح الوكالة، التابعة لوزارة الخارجية المغربية، منحًا وتسهيلات استقبال للطلاب الأجانب. لا تُقبل الترشيحات إلا عبر القناة الدبلوماسية، ولا يُنظر في أي ملف لم تحِله الوكالة.",
+          "url": "https://www.amci.ma/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Université Cadi Ayyad – Agence Marocaine de Coopération Internationale (AMCI)",
+          "url": "https://www.uca.ma/fr/page/agence-marocaine-de-la-cooperation-internationale-amci"
+        }
+      ]
+    },
+    {
+      "code": "DZ",
+      "summary": "تقدم الجزائر أكبر عدد من مقاعد الماستر. أما مقاعد السنة الأولى فتقتصر على الصحة (الطب وطب الأسنان والصيدلة)، ولم يُشغل منها إلا القليل في ⁦2026-2027⁩.",
+      "schemes": [
+        {
+          "name": "منح الحكومة الجزائرية",
+          "description": "في نواكشوط، في ديسمبر 2024، جدّد الرئيس تبون عرض الجزائر بتقديم 2000 منحة في التعليم العالي و500 منحة في التكوين المهني سنويًا للطلاب الأفارقة.",
+          "url": "https://www.mesrs.dz/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Algérie Eco – L'Algérie s'engage à offrir 2.500 bourses aux étudiants africains (10 ديسمبر 2024)",
+          "url": "https://algerie-eco.com/?p=206978"
+        }
+      ]
+    },
+    {
+      "code": "TN",
+      "summary": "تستقبل تونس أساسًا طلاب الماستر. ومقاعد السنة الأولى فيها في الطب، وفي ⁦2025-2026⁩ استقبلت أيضًا طلابًا في ليسانس عامة بالجامعات التونسية.",
+      "schemes": [
+        {
+          "name": "منح التعاون التونسية",
+          "description": "تتطلب منحة الطالب الأجنبي موافقة مسبقة من إدارة التعاون الدولي بوزارة التعليم العالي التونسية. ويضم الملف نسخة من جواز السفر وشهادة تسجيل في مؤسسة عمومية.",
+          "url": "https://www.mes.tn/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Idaraty (الحكومة التونسية) – Obtention d'une bourse universitaire en Tunisie (étudiants étrangers)",
+          "url": "https://www.idaraty.tn/public/fr/procedures/obtention-dune-bourse-universitaire-en-tunisie-etranger"
+        }
+      ]
+    },
+    {
+      "code": "TR",
+      "summary": "تركيا أحدث الوجهات، إذ ظهرت لأول مرة في توجيه ⁦2026-2027⁩، بمقعد إلى ثلاثة مقاعد للسنة الأولى في نحو خمسة عشر تكوينًا، من الطب إلى الذكاء الاصطناعي وهندسة الفضاء.",
+      "schemes": [
+        {
+          "name": "المنح التركية (Türkiye Bursları)",
+          "description": "مفتوحة لجميع الجنسيات، والتقديم إلكتروني ومجاني. تشمل القبول الجامعي ومخصصًا شهريًا والسكن والتأمين الصحي وتذكرة طيران ودورة في اللغة التركية. يمتد الإعلان العام من 10 يناير إلى 20 فبراير، وتصدر النتائج في أوائل أغسطس.",
+          "url": "https://www.turkiyeburslari.gov.tr/en"
+        },
+        {
+          "name": "اتفاق مجلس التعليم العالي التركي (YÖK) والوزارة (يونيو 2026)",
+          "description": "وُقّع الاتفاق يوم 27 يونيو 2026، وينص على حصص سنوية من المنح للطلاب والباحثين الموريتانيين. لم يُنشر عدد المقاعد بعد.",
+          "url": "https://www.yok.gov.tr/en/news/mauritania-invites-turkiye-to-establish-a-turkish-university-Uk6fD"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Türkiye Bursları – رزنامة الترشح",
+          "url": "https://www.turkiyeburslari.gov.tr/calendar"
+        },
+        {
+          "title": "YÖK – Mauritania invites Türkiye to establish a Turkish university (27 يونيو 2026)",
+          "url": "https://www.yok.gov.tr/en/news/mauritania-invites-turkiye-to-establish-a-turkish-university-Uk6fD"
+        }
+      ]
+    },
+    {
+      "code": "SN",
+      "summary": "يستقبل السنغال عددًا قليلًا من طلاب الطب في جامعة الشيخ أنتا ديوب (UCAD) بدكار. وعُرض مسار ثانٍ للطب في جامعة إيبا دير تيام بتياس في ⁦2026-2027⁩ لكنه لم يُشغل.",
+      "schemes": [
+        {
+          "name": "التوجيه الوزاري فقط",
+          "description": "تُوزَّع هذه المقاعد عبر التوجيه الوطني. لم نجد أي إعلان عام مستقل موجّه للطلاب الموريتانيين.",
+          "url": "https://www.ucad.sn/"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "code": "EG",
+      "summary": "مصر مدرجة في صفحة الترشح الدولي التابعة للوزارة، لكن لم يُوجَّه إليها أي طالب في ⁦2025-2026⁩ ولا في ⁦2026-2027⁩.",
+      "schemes": [
+        {
+          "name": "ادرس في مصر (Study in Egypt)",
+          "description": "تقدم وزارة التعليم العالي المصرية مقاعد للطلاب الموريتانيين ضمن مبادرة «ادرس في مصر». وفي 2022 طلب الوزير المصري بحث زيادة عددهم.",
+          "url": "https://admission.study-in-egypt.gov.eg/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "الفنار للإعلام – منح دراسية لطلاب موريتانيا في مصر (يوليو 2022)",
+          "url": "https://al-fanarmedia.org/ar/2022/07/%d9%85%d9%86%d8%ad-%d8%af%d8%b1%d8%a7%d8%b3%d9%8a%d8%a9-%d9%84%d8%b7%d9%84%d8%a7%d8%a8-%d9%85%d9%88%d8%b1%d9%8a%d8%aa%d8%a7%d9%86%d9%8a%d8%a7-%d9%81%d9%8a-%d9%85%d8%b5%d8%b1/"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "وزارة التعليم العالي – الترشح الدولي (etudiants-mesrs.app)",
+      "url": "https://etudiants-mesrs.app/international-application"
+    },
+    {
+      "title": "مدار – وزارة التعليم العالي تعلن نتائج توجيه الناجحين في الدورة الأولى من باكالوريا 2026 (19 أغسطس 2026)",
+      "url": "https://madar.mr/mauritanie/%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%AA%D8%B9%D9%84%D9%8A%D9%85-%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%8A-%D8%AA%D8%B9%D9%84%D9%86-%D9%86%D8%AA%D8%A7%D8%A6%D8%AC-%D8%AA%D9%88%D8%AC%D9%8A%D9%87/"
+    },
+    {
+      "title": "Le360 Afrique – Les bourses à l'étranger limitées aux master et doctorat : les explications du gouvernement mauritanien (31 أغسطس 2024)",
+      "url": "https://afrique.le360.ma/societe/les-bourses-a-letranger-limitees-aux-master-et-doctorat-les-explications-du-gouvernement-mauritanien_YCAH76IZXFDABKXZ2U7RTSO77E/"
+    }
+  ]
+}

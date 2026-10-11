@@ -1,9 +1,9 @@
 ---
-import { ExternalLink, Landmark, Plane } from '@lucide/astro'
+import { ArrowRight, ExternalLink, Landmark, Plane } from '@lucide/astro'
 import Layout from '@/layouts/Layout.astro'
 import ShareWhatsApp from '@/components/ShareWhatsApp.astro'
 import { getContext } from '@/lib/context'
-import { langParams, toLocale, useTranslations } from '@/i18n'
+import { langParams, localePath, toLocale, useTranslations } from '@/i18n'
 
 export function getStaticPaths() {
   return langParams().map((params) => ({ params }))
@@ -29,6 +29,15 @@ const groups = [
   </header>
 
   <div class="wrap grid gap-16 py-14">
+    <a class="card abroad-callout" href={localePath(lang, '/study-abroad/')}>
+      <span class="group-icon" aria-hidden="true"><Plane class="icon" /></span>
+      <span class="grid gap-1">
+        <span class="abroad-callout-title">{t('abr.fromScholarshipsLink')}</span>
+        <span class="text-muted text-[0.95rem]">{t('abr.fromScholarships')}</span>
+      </span>
+      <ArrowRight class="icon abroad-callout-arrow flip-rtl" aria-hidden="true" />
+    </a>
+
     {
       groups.map((group) => (
         <section aria-labelledby={group.id}>
@@ -76,6 +85,33 @@ const groups = [
     height: 3rem;
     border-radius: 12px;
     background: var(--emerald-50);
+    color: var(--emerald-700);
+  }
+
+  .abroad-callout {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 1.35rem;
+    background: var(--mint);
+    border-color: var(--emerald-100);
+    transition: box-shadow 200ms ease, border-color 200ms ease;
+  }
+
+  .abroad-callout:hover {
+    border-color: color-mix(in oklab, var(--emerald-600) 35%, var(--line));
+    box-shadow: var(--shadow-lift);
+  }
+
+  .abroad-callout-title {
+    font-family: var(--font-readex), system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--ink);
+  }
+
+  .abroad-callout-arrow {
     color: var(--emerald-700);
   }
 

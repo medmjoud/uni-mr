@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest'
 import institutions from '../src/data/institutions.json'
 import context from '../src/data/context.json'
 import media from '../src/data/media.json'
+import abroad from '../src/data/abroad.json'
+import abroadStats from '../src/data/abroad-stats.json'
 import { existsSync, readdirSync } from 'node:fs'
 
 // Rough bounding box of Mauritania, with a small margin.
@@ -103,5 +105,33 @@ describe('media.json', () => {
       expect(photo.author && photo.license && photo.licenseUrl && photo.source, id).toBeTruthy()
       for (const lang of ['en', 'fr', 'ar'] as const) expect(photo.caption[lang], `${id} ${lang}`).toBeTruthy()
     }
+  })
+})
+
+describe('study abroad', () => {
+  const shape = (o: unknown): unknown =>
+    Array.isArray(o) ? o.map(shape) : o && typeof o === 'object' ? Object.fromEntries(Object.entries(o).map(([k, v]) => [k, shape(v)])) : typeof o
+
+  it('describes every country that has placements, and only known countries', () => {
+    const described = abroad.countries.map((c) => c.code)
+    expect(new Set(described).size).toBe(described.length)
+    for (const code of described) expect(abroadStats.countries, code).toHaveProperty(code)
+    for (const y of abroadStats.years)
+      for (const row of [...y.licence, ...y.master]) expect(described, `${y.year} ${row.country}`).toContain(row.country)
+  })
+
+  it('cites https sources', () => {
+    const urls = [
+      ...abroad.sources.map((s) => s.url),
+      ...abroad.policy.map((p) => p.source.url),
+      ...abroad.countries.flatMap((c) => [...c.sources.map((s) => s.url), ...c.schemes.map((s) => s.url)]),
+    ]
+    for (const url of urls) expect(url).toMatch(/^https:\/\//)
+  })
+
+  it.each(['fr', 'ar'])('mirrors the English text structure in %s', async (lang) => {
+    const t = (await import(`../src/data/i18n/abroad.${lang}.json`)).default
+    expect(shape(t)).toEqual(shape(abroad))
+    expect(t.countries.map((c: { code: string }) => c.code)).toEqual(abroad.countries.map((c) => c.code))
   })
 })

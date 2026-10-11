@@ -1,0 +1,175 @@
+{
+  "policy": [
+    {
+      "text": "Since the 2024 intake, the state no longer pays a grant abroad to new Bac holders. Grants abroad now go to master's and doctoral students, and the money saved pays for more of those grants and for new university buildings.",
+      "source": {
+        "title": "AMI – Bourses d'étudiants à l'étranger : mise au point de la Commission nationale de l'orientation et des bourses (2 Sep 2024)",
+        "url": "https://ami.mr/fr/archives/253269"
+      }
+    },
+    {
+      "text": "Licence places offered by partner countries are still shared out through the national orientation, but without a Mauritanian state grant.",
+      "source": {
+        "title": "AMI – Bourses d'étudiants à l'étranger : mise au point de la Commission nationale de l'orientation et des bourses (2 Sep 2024)",
+        "url": "https://ami.mr/fr/archives/253269"
+      }
+    },
+    {
+      "text": "Order 009-2025 of 4 February 2025 gives priority for grants abroad to the top-ranked licence graduates of public institutions, to winners of international competitions held in Mauritania, and to students in bilateral exchange programmes.",
+      "source": {
+        "title": "Cridem – Publication d'un nouveau décret donnant la priorité aux lauréats pour l'obtention des bourses (11 Feb 2025)",
+        "url": "https://cridem.org/C_Info.php?article=781011"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "when": "July",
+      "title": "Pass the Bac, ideally in the first session",
+      "description": "Places abroad are awarded by your national rank within your Bac series. Selective programmes, at home and abroad, are filled right after the first-session results."
+    },
+    {
+      "when": "August",
+      "title": "Rank programmes abroad among your choices",
+      "description": "Programmes abroad are listed on etudiants-mesrs.app next to national ones, and you rank them in the same list. In 2026 the platform offered 160 programmes, 29 of them abroad."
+    },
+    {
+      "when": "Mid-August",
+      "title": "Get your placement",
+      "description": "Places go by rank, order of choice and capacity. In 2026, first-session placements were announced on 19 August, and the platform reopened on 23 August for second-session candidates."
+    },
+    {
+      "when": "After placement",
+      "title": "Send your international application",
+      "description": "On the platform's Candidature internationale page, choose the country, enter your NNI and your profile, upload the requested documents as PDF files and submit. The file is locked once it is sent."
+    },
+    {
+      "when": "Before you leave",
+      "title": "Complete the host country's steps",
+      "description": "The host country handles enrolment and its own grant. In Morocco, for example, files reach universities only through the AMCI, and you need an enrolment authorisation before registering. Ask the host country's embassy in Nouakchott about the student visa."
+    }
+  ],
+  "master": "Master's places abroad go to licence graduates of Mauritanian public institutions, by rank within their own licence. Each licence gets a few places per country, usually one to three, so they go to students at the top of their class.",
+  "countries": [
+    {
+      "code": "MA",
+      "summary": "Morocco takes the widest range of first-year students, in engineering, medicine, pharmacy, business and agronomy, and offers master's places to graduates of many national licences.",
+      "schemes": [
+        {
+          "name": "AMCI grants",
+          "description": "Morocco's international cooperation agency, under the foreign ministry, gives grants and reception support to foreign students. Applications only go through the diplomatic channel: a file the AMCI has not forwarded is not considered.",
+          "url": "https://www.amci.ma/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Université Cadi Ayyad – Agence Marocaine de Coopération Internationale (AMCI)",
+          "url": "https://www.uca.ma/fr/page/agence-marocaine-de-la-cooperation-internationale-amci"
+        }
+      ]
+    },
+    {
+      "code": "DZ",
+      "summary": "Algeria offers the most master's places. Its first-year places are in health only (medicine, dentistry and pharmacy), and few were filled in 2026-2027.",
+      "schemes": [
+        {
+          "name": "Algerian government grants",
+          "description": "Speaking in Nouakchott in December 2024, President Tebboune restated Algeria's offer of 2,000 higher-education grants and 500 vocational-training grants a year to African students.",
+          "url": "https://www.mesrs.dz/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Algérie Eco – L'Algérie s'engage à offrir 2.500 bourses aux étudiants africains (10 Dec 2024)",
+          "url": "https://algerie-eco.com/?p=206978"
+        }
+      ]
+    },
+    {
+      "code": "TN",
+      "summary": "Tunisia mainly takes master's students. Its first-year places are in medicine; in 2025-2026 it also took students into a general licence track at Tunisian universities.",
+      "schemes": [
+        {
+          "name": "Tunisian cooperation grants",
+          "description": "A grant for a foreign student needs the prior approval of the international cooperation department of Tunisia's higher education ministry. The file includes a copy of the passport and proof of enrolment at a public institution.",
+          "url": "https://www.mes.tn/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Idaraty (Tunisian government) – Obtention d'une bourse universitaire en Tunisie (étudiants étrangers)",
+          "url": "https://www.idaraty.tn/public/fr/procedures/obtention-dune-bourse-universitaire-en-tunisie-etranger"
+        }
+      ]
+    },
+    {
+      "code": "TR",
+      "summary": "Türkiye is the newest destination. It first appears in the 2026-2027 orientation, with one to three first-year places in each of about fifteen programmes, from medicine to artificial intelligence and space engineering.",
+      "schemes": [
+        {
+          "name": "Türkiye Scholarships (Türkiye Bursları)",
+          "description": "Open to all nationalities, with a free online application. It covers university placement, a monthly stipend, accommodation, health insurance, a flight and a Turkish language course. The general call runs from 10 January to 20 February, and results come out in early August.",
+          "url": "https://www.turkiyeburslari.gov.tr/en"
+        },
+        {
+          "name": "YÖK–MESRS agreement (June 2026)",
+          "description": "Signed on 27 June 2026, the agreement plans annual scholarship quotas for Mauritanian students and researchers. The number of places has not been published.",
+          "url": "https://www.yok.gov.tr/en/news/mauritania-invites-turkiye-to-establish-a-turkish-university-Uk6fD"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Türkiye Bursları – Application calendar",
+          "url": "https://www.turkiyeburslari.gov.tr/calendar"
+        },
+        {
+          "title": "YÖK – Mauritania invites Türkiye to establish a Turkish university (27 Jun 2026)",
+          "url": "https://www.yok.gov.tr/en/news/mauritania-invites-turkiye-to-establish-a-turkish-university-Uk6fD"
+        }
+      ]
+    },
+    {
+      "code": "SN",
+      "summary": "Senegal takes a few medical students at Université Cheikh Anta Diop (UCAD) in Dakar. A second medicine track, at Université Iba Der Thiam in Thiès, was offered in 2026-2027 but not filled.",
+      "schemes": [
+        {
+          "name": "Ministry orientation only",
+          "description": "These places are allocated through the national orientation. We found no separate public call for Mauritanian students.",
+          "url": "https://www.ucad.sn/"
+        }
+      ],
+      "sources": []
+    },
+    {
+      "code": "EG",
+      "summary": "Egypt is listed on the ministry's international application page, but no student was placed there in the 2025-2026 or 2026-2027 orientation.",
+      "schemes": [
+        {
+          "name": "Study in Egypt",
+          "description": "Egypt's higher education ministry offers places to Mauritanian students through its Study in Egypt initiative. In 2022 the Egyptian minister asked for their number to be increased.",
+          "url": "https://admission.study-in-egypt.gov.eg/"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Al-Fanar Media – منح دراسية لطلاب موريتانيا في مصر (Jul 2022)",
+          "url": "https://al-fanarmedia.org/ar/2022/07/%d9%85%d9%86%d8%ad-%d8%af%d8%b1%d8%a7%d8%b3%d9%8a%d8%a9-%d9%84%d8%b7%d9%84%d8%a7%d8%a8-%d9%85%d9%88%d8%b1%d9%8a%d8%aa%d8%a7%d9%86%d9%8a%d8%a7-%d9%81%d9%8a-%d9%85%d8%b5%d8%b1/"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "MESRS – Candidature internationale (etudiants-mesrs.app)",
+      "url": "https://etudiants-mesrs.app/international-application"
+    },
+    {
+      "title": "Madar – وزارة التعليم العالي تعلن نتائج توجيه الناجحين في الدورة الأولى من باكالوريا 2026 (19 Aug 2026)",
+      "url": "https://madar.mr/mauritanie/%D9%88%D8%B2%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%AA%D8%B9%D9%84%D9%8A%D9%85-%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%8A-%D8%AA%D8%B9%D9%84%D9%86-%D9%86%D8%AA%D8%A7%D8%A6%D8%AC-%D8%AA%D9%88%D8%AC%D9%8A%D9%87/"
+    },
+    {
+      "title": "Le360 Afrique – Les bourses à l'étranger limitées aux master et doctorat : les explications du gouvernement mauritanien (31 Aug 2024)",
+      "url": "https://afrique.le360.ma/societe/les-bourses-a-letranger-limitees-aux-master-et-doctorat-les-explications-du-gouvernement-mauritanien_YCAH76IZXFDABKXZ2U7RTSO77E/"
+    }
+  ]
+}

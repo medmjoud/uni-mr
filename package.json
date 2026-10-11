@@ -12,6 +12,7 @@
     "check": "astro check",
     "test": "vitest run",
     "geo": "node scripts/build-geo.mjs",
+    "abroad": "node scripts/fetch-abroad.mjs",
     "deploy": "pnpm build && wrangler deploy"
   },
   "dependencies": {
