@@ -1,5 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro'
+import ShareWhatsApp from '@/components/ShareWhatsApp.astro'
 import { getInstitutions, hostname, localized } from '@/lib/institutions'
 import { langParams, localePath, toLocale, useTranslations } from '@/i18n'
 
@@ -20,6 +21,7 @@ const payload = Object.fromEntries(
       e.id,
       {
         name,
+        short: d.acronym ?? name,
         alt: lang === 'ar' ? (d.nameAr ? d.name : null) : d.nameAr,
         href: localePath(lang, `/universities/${e.id}/`),
         rows: [
@@ -47,6 +49,9 @@ const payload = Object.fromEntries(
     <div class="wrap py-14 md:py-16">
       <h1 class="display text-[clamp(2.2rem,5vw,3.8rem)]">{t('cmp.title')}</h1>
       <p class="page-band-lede mt-4 measure">{t('cmp.intro')}</p>
+      <div class="mt-6" data-share data-generic={t('share.compare')} data-names={t('share.compareNames')}>
+        <ShareWhatsApp lang={lang} text={t('share.compare')} />
+      </div>
     </div>
   </header>
 
@@ -162,7 +167,7 @@ const payload = Object.fromEntries(
 </style>
 
 <script>
-  type Entry = { name: string; alt: string | null; href: string; rows: [string, string | null][] }
+  type Entry = { name: string; short: string; alt: string | null; href: string; rows: [string, string | null][] }
   const data: Record<string, Entry> = JSON.parse(document.getElementById('compare-data')!.textContent!)
   const form = document.querySelector<HTMLFormElement>('[data-pickers]')!
   const selects = [...form.querySelectorAll<HTMLSelectElement>('select')]
@@ -170,6 +175,8 @@ const payload = Object.fromEntries(
   const wrap = document.querySelector<HTMLElement>('[data-table-wrap]')!
   const empty = document.querySelector<HTMLElement>('[data-empty]')!
   const notPublished = empty.dataset.notPublished!
+  const share = document.querySelector<HTMLElement>('[data-share]')!
+  const shareLink = share.querySelector<HTMLElement>('[data-wa-share]')!
 
   const ids = (new URLSearchParams(location.search).get('ids') ?? '')
     .split(',')
@@ -187,6 +194,10 @@ const payload = Object.fromEntries(
   function render() {
     const chosen = [...new Set(selects.map((s) => s.value).filter(Boolean))]
     history.replaceState(null, '', chosen.length ? `?ids=${chosen.join(',')}` : location.pathname)
+    shareLink.dataset.shareText =
+      chosen.length >= 2
+        ? share.dataset.names!.replace('{names}', chosen.map((id) => data[id].short).join(', '))
+        : share.dataset.generic!
 
     wrap.hidden = chosen.length < 2
     empty.hidden = chosen.length >= 2

@@ -1,6 +1,7 @@
 ---
 import { MapPin, CalendarDays, Plus, Check, SlidersHorizontal, Search } from '@lucide/astro'
-import { countBy, monogram, searchText, type Institution } from '@/lib/institutions'
+import InstitutionMark from '@/components/InstitutionMark.astro'
+import { countBy, searchText, type Institution } from '@/lib/institutions'
 import { localePath, useTranslations, type Locale } from '@/i18n'
 
 interface Props {
@@ -104,7 +105,7 @@ const fields = countBy(institutions, (e) => e.data.fields)
           >
             <a href={localePath(lang, `/universities/${entry.id}/`)} class="inst-link">
               <div class="inst-top">
-                <span class:list={['mono', d.type]} aria-hidden="true">{monogram(entry)}</span>
+                <InstitutionMark entry={entry} />
                 <span class:list={['badge', d.type]}>{t(`type.${d.type}`)}</span>
               </div>
               <h3 class="inst-name">{primary}</h3>
@@ -348,30 +349,6 @@ const fields = countBy(institutions, (e) => e.data.fields)
     align-items: center;
     justify-content: space-between;
     gap: 0.75rem;
-  }
-
-  .mono {
-    display: inline-grid;
-    place-items: center;
-    min-width: 3rem;
-    height: 3rem;
-    border-radius: 12px;
-    padding-inline: 0.55rem;
-    font-family: var(--font-readex), system-ui, sans-serif;
-    font-weight: 700;
-    font-size: 0.9rem;
-    letter-spacing: -0.01em;
-    direction: ltr;
-  }
-
-  .mono.public {
-    background: var(--emerald-50);
-    color: var(--emerald-700);
-  }
-
-  .mono.private {
-    background: var(--gold-50);
-    color: var(--gold-700);
   }
 
   .badge {

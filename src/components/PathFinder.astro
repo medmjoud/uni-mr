@@ -1,6 +1,7 @@
 ---
 import { ArrowRight, Info } from '@lucide/astro'
-import { monogram, type Institution } from '@/lib/institutions'
+import InstitutionMark from '@/components/InstitutionMark.astro'
+import type { Institution } from '@/lib/institutions'
 import { getContext } from '@/lib/context'
 import { localePath, useTranslations, type Locale } from '@/i18n'
 
@@ -88,7 +89,7 @@ const allFields = [...new Set(Object.values(seriesFields).flat())]
           institutions.map((e) => (
             <li data-fields={e.data.fields.join('|')} hidden>
               <a href={localePath(lang, `/universities/${e.id}/`)} class="mini">
-                <span class:list={['mini-mono', e.data.type]} aria-hidden="true">{monogram(e)}</span>
+                <InstitutionMark entry={e} size="xs" />
                 <span class="min-w-0">
                   <span class="mini-name">{lang === 'ar' && e.data.nameAr ? e.data.nameAr : e.data.name}</span>
                   <span class="mini-meta">{city(e.data.city)}, {t(`type.${e.data.type}`)}</span>
@@ -297,29 +298,6 @@ const allFields = [...new Set(Object.values(seriesFields).flat())]
 
   .mini:hover {
     border-color: var(--emerald-600);
-  }
-
-  .mini-mono {
-    display: grid;
-    place-items: center;
-    flex-shrink: 0;
-    min-width: 2.4rem;
-    height: 2.4rem;
-    border-radius: 10px;
-    padding-inline: 0.35rem;
-    font-size: 0.72rem;
-    font-weight: 600;
-    direction: ltr;
-  }
-
-  .mini-mono.public {
-    background: var(--emerald-50);
-    color: var(--emerald-700);
-  }
-
-  .mini-mono.private {
-    background: var(--gold-50);
-    color: var(--gold-700);
   }
 
   .mini > span:last-child {

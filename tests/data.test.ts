@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import institutions from '../src/data/institutions.json'
 import context from '../src/data/context.json'
+import media from '../src/data/media.json'
+import { existsSync, readdirSync } from 'node:fs'
 
 // Rough bounding box of Mauritania, with a small margin.
 const BOUNDS = { minLat: 14.5, maxLat: 27.5, minLon: -17.3, maxLon: -4.6 }
@@ -79,5 +81,27 @@ describe('translations', () => {
       Array.isArray(o) ? o.map(shape) : o && typeof o === 'object' ? Object.fromEntries(Object.entries(o).map(([k, v]) => [k, shape(v)])) : typeof o
     const t = (await import(`../src/data/i18n/context.${lang}.json`)).default
     expect(shape(t)).toEqual(shape(context))
+  })
+})
+
+describe('media.json', () => {
+  const ids = new Set(institutions.map((i) => i.id))
+  const logoFiles = readdirSync('src/assets/logos').map((f) => f.replace(/\.webp$/, ''))
+
+  it('has a logo file for every logo source, and a source for every logo file', () => {
+    expect(logoFiles.sort()).toEqual(Object.keys(media.logos).sort())
+    for (const [id, url] of Object.entries(media.logos)) {
+      expect(ids.has(id), id).toBe(true)
+      expect(url, id).toMatch(/^https:\/\//)
+    }
+  })
+
+  it('credits every photo with an author, license and existing file', () => {
+    for (const [id, photo] of Object.entries(media.photos)) {
+      expect(ids.has(id), id).toBe(true)
+      expect(existsSync(`src/assets/photos/${photo.file}`), id).toBe(true)
+      expect(photo.author && photo.license && photo.licenseUrl && photo.source, id).toBeTruthy()
+      for (const lang of ['en', 'fr', 'ar'] as const) expect(photo.caption[lang], `${id} ${lang}`).toBeTruthy()
+    }
   })
 })

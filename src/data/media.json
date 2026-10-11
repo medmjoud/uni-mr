@@ -1,0 +1,39 @@
+{
+  "logos": {
+    "universite-de-nouakchott": "https://www.univ-nkc.mr/",
+    "universite-des-sciences-islamiques-aioun": "https://www.usia.mr/ar",
+    "ecole-superieure-polytechnique": "https://www.esp.mr/",
+    "institut-superieur-du-numerique": "https://supnum.mr/",
+    "iscae": "https://iscae.mr/",
+    "ecole-normale-superieure-nouakchott": "https://ens.mr/",
+    "enajm": "https://enajm.mr/",
+    "iseri": "https://www.iseri.mr/",
+    "higher-institute-of-english": "https://www.hie.mr/",
+    "isplti-nouadhibou": "https://www.isplti.mr/",
+    "universite-de-nouadhibou": "https://univ-ndb.mr/fr",
+    "institut-superieur-de-genie-industriel": "https://isgi.mr/fr",
+    "liu-mauritanie": "https://liu.edu.mr/",
+    "sup-management-mauritanie": "https://supmanagement-mauritanie.com/",
+    "universite-moderne-chinguitti": "https://umchinguitt.mr/",
+    "umlc": "https://www.mauribac.com/fr/higher-education/institutions/private/umlc/",
+    "geu-academie": "https://geuacademie.com/",
+    "edge-mauritanie": "https://edge.mr/",
+    "emsi-mauritanie": "https://emsi.mr/",
+    "isb-mauritanie": "https://www.mauribac.com/fr/higher-education/institutions/private/isb/",
+    "same-paris-nouakchott": "https://same-paris.fr/"
+  },
+  "photos": {
+    "universite-de-nouakchott": {
+      "file": "universite-de-nouakchott.jpg",
+      "caption": {
+        "en": "Faculty of Science and Technology",
+        "fr": "Faculté des sciences et techniques",
+        "ar": "كلية العلوم والتقنيات"
+      },
+      "author": "Chafei07",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Faculty_of_science_and_techniques,_University_of_Nouakchott_Al_aasriya.jpg"
+    }
+  }
+}

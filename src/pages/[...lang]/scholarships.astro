@@ -1,6 +1,7 @@
 ---
 import { ExternalLink, Landmark, Plane } from '@lucide/astro'
 import Layout from '@/layouts/Layout.astro'
+import ShareWhatsApp from '@/components/ShareWhatsApp.astro'
 import { getContext } from '@/lib/context'
 import { langParams, toLocale, useTranslations } from '@/i18n'
 
@@ -23,6 +24,7 @@ const groups = [
     <div class="wrap py-14 md:py-20">
       <h1 class="display page-title">{t('sch.title')}</h1>
       <p class="page-band-lede mt-5 text-lg measure">{t('sch.intro')}</p>
+      <div class="mt-6"><ShareWhatsApp lang={lang} text={t('share.scholarships')} /></div>
     </div>
   </header>
 
