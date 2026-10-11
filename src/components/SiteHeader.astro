@@ -1,7 +1,7 @@
 ---
 import { Menu } from '@lucide/astro'
 import Logo from './Logo.astro'
-import { NAV } from '@/lib/site'
+import { HEADER_NAV, NAV } from '@/lib/site'
 import { LOCALES, LOCALE_META, localePath, useTranslations, type Locale } from '@/i18n'
 
 interface Props {
@@ -23,7 +23,7 @@ const { t } = useTranslations(lang)
     <nav aria-label="Main" class="nav-desktop">
       <ul>
         {
-          NAV.map((item) => (
+          HEADER_NAV.map((item) => (
             <li>
               <a
                 href={localePath(lang, item.path)}
@@ -103,7 +103,7 @@ const { t } = useTranslations(lang)
     font-weight: 500;
   }
 
-  @media (min-width: 1180px) {
+  @media (min-width: 1080px) {
     .nav-desktop ul {
       display: flex;
     }
@@ -172,7 +172,7 @@ const { t } = useTranslations(lang)
     position: relative;
   }
 
-  @media (min-width: 1180px) {
+  @media (min-width: 1080px) {
     .mobile-nav {
       display: none;
     }
