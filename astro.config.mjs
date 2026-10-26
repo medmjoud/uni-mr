@@ -8,6 +8,8 @@ export default defineConfig({
   site: process.env.SITE_URL ?? 'https://universitesmauritanie.com',
   integrations: [
     sitemap({
+      // The thank-you page after a correction is not worth indexing.
+      filter: (page) => !page.includes('/corrections/sent/'),
       i18n: {
         defaultLocale: 'fr',
         locales: { fr: 'fr-MR', ar: 'ar-MR', en: 'en' },

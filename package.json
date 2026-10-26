@@ -7,9 +7,10 @@
   },
   "scripts": {
     "dev": "astro dev --port 3000",
-    "build": "astro check && astro build",
+    "build": "astro check && tsc -p worker && astro build",
     "preview": "astro preview",
-    "check": "astro check",
+    "check": "astro check && tsc -p worker",
+    "types": "wrangler types worker/worker-configuration.d.ts",
     "test": "vitest run",
     "geo": "node scripts/build-geo.mjs",
     "abroad": "node scripts/fetch-abroad.mjs",

@@ -17,3 +17,6 @@ pnpm-debug.log*
 
 # local browser screenshots
 .playwright-mcp/
+
+# Worker secrets for local dev
+.dev.vars*

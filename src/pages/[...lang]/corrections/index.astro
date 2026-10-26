@@ -1,0 +1,205 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { langParams, localePath, toLocale, useTranslations } from '@/i18n'
+
+export function getStaticPaths() {
+  return langParams().map((params) => ({ params }))
+}
+
+const lang = toLocale(Astro.params.lang)
+const { t } = useTranslations(lang)
+---
+
+<Layout lang={lang} title={t('corr.title')} description={t('corr.meta')}>
+  <div class="wrap py-12 md:py-16">
+    <div class="shell">
+      <h1 class="display page-title">{t('corr.title')}</h1>
+      <p class="mt-4 text-[1.05rem] text-muted">{t('corr.intro')}</p>
+
+      <!-- Posts to the Worker (worker/index.ts). The script below sends it with fetch so an error keeps what was typed. -->
+      <form
+        class="card correction mt-8"
+        method="post"
+        action="/api/corrections"
+        data-correction
+        data-sent-url={localePath(lang, '/corrections/sent/')}
+        data-sending={t('corr.sending')}
+        data-error-invalid={t('corr.errorInvalid')}
+        data-error-busy={t('corr.errorBusy')}
+        data-error-send={t('corr.errorSend')}
+      >
+        <p class="alert" role="alert" data-alert hidden></p>
+        <input type="hidden" name="lang" value={lang} />
+        <input type="hidden" name="page" data-page />
+
+        <div class="row">
+          <label for="about">{t('corr.about')}</label>
+          <input class="field" id="about" name="about" maxlength="200" autocomplete="off" dir="auto" />
+        </div>
+
+        <div class="row">
+          <label for="message">{t('corr.message')}</label>
+          <p class="hint" id="message-hint">{t('corr.messageHint')}</p>
+          <textarea
+            class="field"
+            id="message"
+            name="message"
+            rows="6"
+            required
+            minlength="10"
+            maxlength="3000"
+            dir="auto"
+            aria-describedby="message-hint"></textarea>
+        </div>
+
+        <div class="row">
+          <label for="source">{t('corr.source')}</label>
+          <p class="hint" id="source-hint">{t('corr.sourceHint')}</p>
+          <input class="field" id="source" name="source" maxlength="500" dir="auto" aria-describedby="source-hint" />
+        </div>
+
+        <div class="row">
+          <label for="email">{t('corr.email')}</label>
+          <p class="hint" id="email-hint">{t('corr.emailHint')}</p>
+          <input
+            class="field"
+            type="email"
+            id="email"
+            name="email"
+            maxlength="200"
+            autocomplete="email"
+            dir="ltr"
+            aria-describedby="email-hint"
+          />
+        </div>
+
+        <!-- Honeypot: hidden from people, so only bots fill it in. -->
+        <div class="trap" aria-hidden="true">
+          <label>Website <input name="website" tabindex="-1" autocomplete="off" /></label>
+        </div>
+
+        <div>
+          <button class="btn btn-primary" type="submit" data-submit>{t('corr.send')}</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .shell {
+    max-width: 42rem;
+  }
+
+  .page-title {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+  }
+
+  .correction {
+    display: grid;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .correction {
+      padding: 2rem;
+    }
+  }
+
+  .row {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  label {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .hint {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  textarea.field {
+    resize: vertical;
+    min-height: 9rem;
+  }
+
+  .alert {
+    margin: 0;
+    border: 1px solid #f1c2bd;
+    border-radius: var(--radius-sm);
+    background: #fdf0ee;
+    padding: 0.85rem 1rem;
+    color: #8a1c14;
+  }
+
+  .trap {
+    position: absolute;
+    inset-inline-start: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-correction]')
+
+  if (form) {
+    const params = new URLSearchParams(location.search)
+    const alertBox = form.querySelector<HTMLElement>('[data-alert]')!
+    const button = form.querySelector<HTMLButtonElement>('[data-submit]')!
+    const pageInput = form.querySelector<HTMLInputElement>('[data-page]')!
+    const aboutInput = form.querySelector<HTMLInputElement>('#about')!
+    const label = button.textContent
+
+    // Prefill from the link the reader followed. Only same-site paths are kept.
+    const page = params.get('page') ?? ''
+    if (/^\/(?!\/)/.test(page)) pageInput.value = page
+    aboutInput.value = params.get('about') ?? ''
+
+    const messages: Record<string, string | undefined> = {
+      invalid: form.dataset.errorInvalid,
+      busy: form.dataset.errorBusy,
+      send: form.dataset.errorSend,
+    }
+    const showError = (code: string) => {
+      alertBox.textContent = messages[code] ?? messages.send ?? ''
+      alertBox.hidden = false
+      alertBox.scrollIntoView({ block: 'center' })
+    }
+
+    // Without JavaScript the Worker redirects back here with ?error=.
+    const error = params.get('error')
+    if (error) showError(error)
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault()
+      alertBox.hidden = true
+      button.disabled = true
+      button.textContent = form.dataset.sending ?? label
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        })
+        const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string }
+        if (res.ok && data.ok) {
+          const back = pageInput.value ? `?page=${encodeURIComponent(pageInput.value)}` : ''
+          location.href = `${form.dataset.sentUrl}${back}`
+          return
+        }
+        showError(data.error ?? 'send')
+      } catch {
+        showError('send')
+      }
+      button.disabled = false
+      button.textContent = label
+    })
+  }
+</script>

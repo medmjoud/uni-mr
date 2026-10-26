@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content'
 import Layout from '@/layouts/Layout.astro'
 import { LAST_VERIFIED, getInstitutions } from '@/lib/institutions'
-import { CORRECTIONS_URL } from '@/lib/site'
+import { correctionHref } from '@/lib/site'
 import { langParams, toLocale, useTranslations } from '@/i18n'
 import geo from '@/data/geo/mauritania.json'
 
@@ -46,7 +46,7 @@ const stats = [
         <p>{t('about.p4')}</p>
         <h2 class="headline mt-10 text-2xl">{t('about.mistakeTitle')}</h2>
         <p class="mt-3">{t('about.mistakeText')}</p>
-        <a class="btn btn-primary mt-6" href={CORRECTIONS_URL}>{t('footer.report')}</a>
+        <a class="btn btn-primary mt-6" href={correctionHref(lang)}>{t('footer.report')}</a>
       </div>
     </article>
 

@@ -3,7 +3,7 @@ import Layout from '@/layouts/Layout.astro'
 import KeyDateList from '@/components/KeyDateList.astro'
 import ShareWhatsApp from '@/components/ShareWhatsApp.astro'
 import { getCalendar } from '@/lib/calendar'
-import { CORRECTIONS_URL } from '@/lib/site'
+import { correctionHref } from '@/lib/site'
 import { langParams, toLocale, useTranslations } from '@/i18n'
 
 export function getStaticPaths() {
@@ -46,7 +46,7 @@ const { upcoming, past } = getCalendar(lang)
 
     <p class="text-sm text-muted">
       {t('cal.missing')}{' '}
-      <a class="link" href={`${CORRECTIONS_URL}?title=${encodeURIComponent('Calendar: ')}`}>{t('footer.report')}</a>
+      <a class="link" href={correctionHref(lang, Astro.url.pathname, t('nav.calendar'))}>{t('footer.report')}</a>
     </p>
   </div>
 </Layout>

@@ -3,11 +3,19 @@
   "name": "uni-mr",
   "account_id": "0490ce4a381279f585ef445dc9618726",
   "compatibility_date": "2026-10-01",
-  // Fully static Astro build: Cloudflare serves dist/ directly, no Worker script needed.
+  // Cloudflare serves the static Astro build in dist/ directly; only /api/* reaches the Worker script.
+  "main": "worker/index.ts",
   "assets": {
     "directory": "./dist",
-    "not_found_handling": "404-page"
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
   },
+  // Correction reports are emailed through Email Routing. The inbox is the CORRECTIONS_TO secret,
+  // which must be a verified Email Routing destination address.
+  "send_email": [{ "name": "CORRECTIONS_EMAIL" }],
+  // At most 5 reports per minute from one IP address.
+  "ratelimits": [{ "name": "CORRECTIONS_LIMIT", "namespace_id": "1001", "simple": { "limit": 5, "period": 60 } }],
   // Keep the old address up so links already shared on WhatsApp still work.
   "workers_dev": true,
   // Cloudflare creates the DNS records and certificates for these on deploy.

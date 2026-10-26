@@ -1,6 +1,6 @@
 ---
 import Logo from './Logo.astro'
-import { CORRECTIONS_URL, NAV } from '@/lib/site'
+import { NAV, correctionHref } from '@/lib/site'
 import { LAST_VERIFIED } from '@/lib/institutions'
 import { localePath, useTranslations, type Locale } from '@/i18n'
 
@@ -37,7 +37,7 @@ const { t, date } = useTranslations(lang)
     <div>
       <h2 class="footer-title">{t('footer.helpTitle')}</h2>
       <p class="mt-4 text-[0.95rem] text-muted">{t('footer.helpText')}</p>
-      <a class="btn btn-quiet mt-5" href={CORRECTIONS_URL}>{t('footer.report')}</a>
+      <a class="btn btn-quiet mt-5" href={correctionHref(lang, Astro.url.pathname)}>{t('footer.report')}</a>
     </div>
   </div>
 

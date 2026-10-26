@@ -1,4 +1,5 @@
 import type { UIKey } from '@/i18n/ui'
+import { localePath, type Locale } from '@/i18n'
 
 /** The name in French, used where one fixed name is needed. Localised as 'site.name'. */
 export const SITE_NAME = 'Universités de Mauritanie'
@@ -18,5 +19,11 @@ export const NAV: { path: string; label: UIKey }[] = [
 /** The shorter list in the header: home-page sections and the about page stay in the footer. */
 export const HEADER_NAV = NAV.filter((item) => item.path !== '/#orientation' && item.path !== '/about/')
 
-/** Link for readers to report a correction. Swap for a form or inbox before launch. */
-export const CORRECTIONS_URL = 'https://github.com/medmjoud/uni-mr/issues/new'
+/** Link to the correction form, prefilled with the page the reader came from and what it is about. */
+export function correctionHref(lang: Locale, page?: string, about?: string) {
+  const params = new URLSearchParams()
+  if (about) params.set('about', about)
+  if (page) params.set('page', page)
+  const query = params.toString()
+  return localePath(lang, '/corrections/') + (query ? `?${query}` : '')
+}

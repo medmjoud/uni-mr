@@ -9,7 +9,7 @@ import KeyDateList from '@/components/KeyDateList.astro'
 import { upcomingFor } from '@/lib/calendar'
 import { getInstitutions, hostname, localized, related, type Institution } from '@/lib/institutions'
 import { logoFor, photoFor } from '@/lib/media'
-import { CORRECTIONS_URL } from '@/lib/site'
+import { correctionHref } from '@/lib/site'
 import { langParams, localePath, toLocale, useTranslations } from '@/i18n'
 
 export async function getStaticPaths() {
@@ -197,7 +197,7 @@ const facts = [
         </ol>
         <p class="mt-5 text-sm text-muted">
           {t('profile.outdated')}{' '}
-          <a class="link" href={`${CORRECTIONS_URL}?title=${encodeURIComponent(`Correction: ${d.name}`)}`}>{t('footer.report')}</a>
+          <a class="link" href={correctionHref(lang, Astro.url.pathname, d.name)}>{t('footer.report')}</a>
         </p>
       </section>
     </article>
