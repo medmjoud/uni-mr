@@ -4,8 +4,8 @@ import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  // Set SITE_URL in the deploy environment once the production domain is known.
-  site: process.env.SITE_URL ?? 'https://uni-mr.fiche.workers.dev',
+  // Production domain; SITE_URL overrides it for preview deploys.
+  site: process.env.SITE_URL ?? 'https://universitesmauritanie.com',
   integrations: [
     sitemap({
       i18n: {
