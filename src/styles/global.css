@@ -77,6 +77,11 @@ a {
   color: inherit;
 }
 
+/* Fieldsets default to min-width: min-content, so Safari lets a wide grid inside one stretch the page sideways. */
+fieldset {
+  min-width: 0;
+}
+
 :focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 3px;
