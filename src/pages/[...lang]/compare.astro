@@ -9,7 +9,7 @@ export function getStaticPaths() {
 }
 
 const lang = toLocale(Astro.params.lang)
-const { t, term, city, num } = useTranslations(lang)
+const { t, term, city, num, list } = useTranslations(lang)
 const institutions = await getInstitutions()
 
 // Everything the comparison table needs, keyed by id, rendered client-side from ?ids=.
@@ -32,9 +32,9 @@ const payload = Object.fromEntries(
             t('cmp.rowStudents'),
             d.studentCount ? `${num(d.studentCount)}${d.studentCountYear ? ` (${d.studentCountYear})` : ''}` : null,
           ],
-          [t('cmp.rowFields'), d.fields.map(term).join(', ')],
-          [t('cmp.rowDegrees'), d.degrees.map(term).join(', ') || null],
-          [t('cmp.rowLanguages'), d.languages.map(term).join(', ') || null],
+          [t('cmp.rowFields'), list(d.fields.map(term))],
+          [t('cmp.rowDegrees'), list(d.degrees.map(term)) || null],
+          [t('cmp.rowLanguages'), list(d.languages.map(term)) || null],
           [t('cmp.rowWebsite'), d.website ? hostname(d.website) : null],
           [t('cmp.rowAdmission'), localized(e, lang).admission],
         ],

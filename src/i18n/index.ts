@@ -47,5 +47,7 @@ export function useTranslations(lang: Locale) {
   const num = (value: number) => value.toLocaleString(LOCALE_META[lang].intl === 'ar-MR' ? 'fr-FR' : LOCALE_META[lang].intl)
   const date = (iso: string) =>
     new Date(iso).toLocaleDateString(LOCALE_META[lang].intl, { day: 'numeric', month: 'long', year: 'numeric' })
-  return { t, term, city, num, date }
+  /** Join list items with the comma this language uses (Arabic has its own: ،), skipping empty ones. */
+  const list = (items: (string | null | undefined)[]) => items.filter(Boolean).join(lang === 'ar' ? '، ' : ', ')
+  return { t, term, city, num, date, list }
 }

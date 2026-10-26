@@ -12,7 +12,8 @@ export default defineConfig({
       filter: (page) => !page.includes('/corrections/sent/'),
       i18n: {
         defaultLocale: 'fr',
-        locales: { fr: 'fr-MR', ar: 'ar-MR', en: 'en' },
+        // Same codes as the pages' hreflang links (LOCALE_META.htmlLang), so Google sees one consistent set.
+        locales: { fr: 'fr', ar: 'ar', en: 'en' },
       },
     }),
   ],

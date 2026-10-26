@@ -26,7 +26,7 @@ interface Props {
 
 const { entry, all } = Astro.props
 const lang = toLocale(Astro.params.lang)
-const { t, term, city, num } = useTranslations(lang)
+const { t, term, city, num, list } = useTranslations(lang)
 const d = entry.data
 const text = localized(entry, lang)
 const nearby = related(entry, all)
@@ -34,12 +34,12 @@ const dates = upcomingFor(entry, lang)
 
 const primary = lang === 'ar' && d.nameAr ? d.nameAr : d.name
 const secondary = lang === 'ar' ? (d.nameAr ? d.name : null) : d.nameAr
-const typeLabel = `${t(`type.${d.type}`)}, ${t(`cat.${d.category}`)}`
+const typeLabel = list([t(`type.${d.type}`), t(`cat.${d.category}`)])
 const logo = logoFor(entry.id)
 const photo = photoFor(entry.id, lang)
 const absolute = async (image: ImageMetadata, width: number, format: 'png' | 'jpg') =>
   new URL((await getImage({ src: image, width, format })).src, Astro.site).href
-const description = `${primary}${d.acronym ? ` (${d.acronym})` : ''}: ${typeLabel}, ${city(d.city)}. ${text.summary}`.slice(0, 300)
+const description = `${primary}${d.acronym ? ` (${d.acronym})` : ''}: ${list([typeLabel, city(d.city)])}. ${text.summary}`
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -65,14 +65,14 @@ const jsonLd = {
 
 const facts = [
   { icon: Landmark, label: t('profile.factType'), value: typeLabel },
-  { icon: MapPin, label: t('profile.factLocation'), value: [city(d.city), d.wilaya].filter(Boolean).join(', ') },
+  { icon: MapPin, label: t('profile.factLocation'), value: list([city(d.city), d.wilaya]) },
   { icon: CalendarDays, label: t('profile.factFounded'), value: d.founded ? String(d.founded) : null },
   {
     icon: Users,
     label: t('profile.factStudents'),
     value: d.studentCount ? `${num(d.studentCount)}${d.studentCountYear ? ` (${d.studentCountYear})` : ''}` : null,
   },
-  { icon: Languages, label: t('profile.factLanguages'), value: d.languages.length ? d.languages.map(term).join(', ') : null },
+  { icon: Languages, label: t('profile.factLanguages'), value: d.languages.length ? list(d.languages.map(term)) : null },
 ]
 ---
 
