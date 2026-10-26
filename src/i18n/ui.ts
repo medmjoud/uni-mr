@@ -1,6 +1,7 @@
 // Interface text in French, Arabic and English. `{name}` placeholders are filled by t().
 const en = {
-  'site.tagline': 'Universities in Mauritania',
+  'site.name': 'Universités de Mauritanie',
+  'site.tagline': 'Universities, scholarships and study abroad',
   'nav.universities': 'Universities',
   'nav.map': 'Map',
   'nav.admissions': 'Admissions',
@@ -134,9 +135,9 @@ const en = {
   'profile.related': 'You might also compare',
   'profile.translationNote': 'This description is a translation. Names and faculties are given as published by the institution.',
   'share.whatsapp': 'Share on WhatsApp',
-  'share.institution': '{name} ({city}) on UniMauritania: programmes, admission and contacts.',
-  'share.compare': 'Compare Mauritanian universities side by side on UniMauritania.',
-  'share.compareNames': 'Comparing {names} on UniMauritania.',
+  'share.institution': '{name} ({city}) on Universités de Mauritanie: programmes, admission and contacts.',
+  'share.compare': 'Compare Mauritanian universities side by side on Universités de Mauritanie.',
+  'share.compareNames': 'Comparing {names} on Universités de Mauritanie.',
   'share.scholarships': 'Scholarships for Mauritanian students, in Mauritania and abroad.',
   'media.logo': 'Logo',
   'media.photo': 'Photo',
@@ -235,9 +236,9 @@ const en = {
   'cal.missing': 'Know a date that is missing or has changed?',
   'share.calendar': 'Key dates for Mauritanian students: Bac, orientation, registration and scholarships.',
 
-  'about.meta': "Where UniMauritania's information comes from, how it is checked, and how to report a correction.",
+  'about.meta': "Where the information on Universités de Mauritanie comes from, how it is checked, and how to report a correction.",
   'about.title': 'About the data',
-  'about.p1': 'UniMauritania is an independent guide. It is not run by a university or by the Ministry of Higher Education, and it does not process applications.',
+  'about.p1': 'Universités de Mauritanie is an independent guide. It is not run by a university or by the Ministry of Higher Education, and it does not process applications.',
   'about.p2': 'Each institution profile was compiled from public sources: official websites, ministry publications, news agencies such as AMI, and encyclopedias. Every profile lists the pages it draws on, so you can check any fact yourself. When a figure such as the number of students could not be confirmed, the profile says “Not published” instead of guessing.',
   'about.p3': 'Websites are only linked if they responded when the data was last checked, on {date}. Map positions come from OpenStreetMap and Wikidata; where a campus has not been mapped yet, the profile shows the city centre and says so.',
   'about.p4': "The enrollment chart reads the World Bank's Open Data API every time the site is built, so it picks up new UNESCO figures as soon as they are published.",
@@ -260,7 +261,8 @@ const en = {
 export type UIKey = keyof typeof en
 
 const fr: Record<UIKey, string> = {
-  'site.tagline': 'Universités en Mauritanie',
+  'site.name': 'Universités de Mauritanie',
+  'site.tagline': 'Universités, bourses et études à l’étranger',
   'nav.universities': 'Établissements',
   'nav.map': 'Carte',
   'nav.admissions': 'Admission',
@@ -394,9 +396,9 @@ const fr: Record<UIKey, string> = {
   'profile.related': 'À comparer aussi',
   'profile.translationNote': "Cette description est une traduction. Les noms et les facultés sont indiqués tels que publiés par l'établissement.",
   'share.whatsapp': 'Partager sur WhatsApp',
-  'share.institution': '{name} ({city}) sur UniMauritania : formations, admission et contacts.',
-  'share.compare': 'Comparez les universités mauritaniennes côte à côte sur UniMauritania.',
-  'share.compareNames': 'Comparaison {names} sur UniMauritania.',
+  'share.institution': '{name} ({city}) sur Universités de Mauritanie : formations, admission et contacts.',
+  'share.compare': 'Comparez les universités mauritaniennes côte à côte sur Universités de Mauritanie.',
+  'share.compareNames': 'Comparaison {names} sur Universités de Mauritanie.',
   'share.scholarships': 'Bourses pour les étudiants mauritaniens, en Mauritanie et à l’étranger.',
   'media.logo': 'Logo',
   'media.photo': 'Photo',
@@ -495,9 +497,9 @@ const fr: Record<UIKey, string> = {
   'cal.missing': 'Une date manque ou a changé ?',
   'share.calendar': 'Les dates clés pour les étudiants mauritaniens : bac, orientation, inscriptions et bourses.',
 
-  'about.meta': "D'où viennent les informations d'UniMauritania, comment elles sont vérifiées et comment signaler une correction.",
+  'about.meta': "D'où viennent les informations du site Universités de Mauritanie, comment elles sont vérifiées et comment signaler une correction.",
   'about.title': 'Nos données',
-  'about.p1': "UniMauritania est un guide indépendant. Il n'est géré ni par une université ni par le ministère de l'Enseignement supérieur, et ne traite aucune candidature.",
+  'about.p1': "Universités de Mauritanie est un guide indépendant. Il n'est géré ni par une université ni par le ministère de l'Enseignement supérieur, et ne traite aucune candidature.",
   'about.p2': "Chaque fiche a été établie à partir de sources publiques : sites officiels, publications du ministère, agences de presse comme l'AMI et encyclopédies. Chaque fiche liste les pages utilisées, pour que vous puissiez tout vérifier. Quand un chiffre, comme le nombre d'étudiants, n'a pas pu être confirmé, la fiche indique « Non publié » plutôt que de deviner.",
   'about.p3': "Les sites web ne sont liés que s'ils répondaient lors de la dernière vérification, le {date}. Les positions viennent d'OpenStreetMap et de Wikidata ; quand un campus n'est pas encore cartographié, la fiche affiche le centre-ville et le précise.",
   'about.p4': "Le graphique des inscriptions interroge l'API Open Data de la Banque mondiale à chaque construction du site : les nouveaux chiffres de l'UNESCO apparaissent dès leur publication.",
@@ -518,7 +520,8 @@ const fr: Record<UIKey, string> = {
 }
 
 const ar: Record<UIKey, string> = {
-  'site.tagline': 'الجامعات في موريتانيا',
+  'site.name': 'جامعات موريتانيا',
+  'site.tagline': 'الجامعات والمنح والدراسة في الخارج',
   'nav.universities': 'المؤسسات',
   'nav.map': 'الخريطة',
   'nav.admissions': 'القبول',
@@ -652,9 +655,9 @@ const ar: Record<UIKey, string> = {
   'profile.related': 'قد ترغب أيضًا في مقارنة',
   'profile.translationNote': 'هذا الوصف مترجم. الأسماء والكليات مذكورة كما تنشرها المؤسسة.',
   'share.whatsapp': 'مشاركة عبر واتساب',
-  'share.institution': '{name} ({city}) على UniMauritania: التخصصات والقبول ووسائل الاتصال.',
-  'share.compare': 'قارن بين الجامعات الموريتانية جنبًا إلى جنب على UniMauritania.',
-  'share.compareNames': 'مقارنة {names} على UniMauritania.',
+  'share.institution': '{name} ({city}) على جامعات موريتانيا: التخصصات والقبول ووسائل الاتصال.',
+  'share.compare': 'قارن بين الجامعات الموريتانية جنبًا إلى جنب على جامعات موريتانيا.',
+  'share.compareNames': 'مقارنة {names} على جامعات موريتانيا.',
   'share.scholarships': 'منح للطلاب الموريتانيين داخل موريتانيا وخارجها.',
   'media.logo': 'الشعار',
   'media.photo': 'صورة',
@@ -753,9 +756,9 @@ const ar: Record<UIKey, string> = {
   'cal.missing': 'هل ينقص موعد أو تغيّر؟',
   'share.calendar': 'المواعيد المهمة لطلاب موريتانيا: البكالوريا والتوجيه والتسجيل والمنح.',
 
-  'about.meta': 'من أين تأتي معلومات UniMauritania، وكيف يتم التحقق منها، وكيف تبلغ عن تصحيح.',
+  'about.meta': 'من أين تأتي معلومات جامعات موريتانيا، وكيف يتم التحقق منها، وكيف تبلغ عن تصحيح.',
   'about.title': 'عن البيانات',
-  'about.p1': 'UniMauritania دليل مستقل. لا تديره أي جامعة ولا وزارة التعليم العالي، ولا يعالج طلبات التسجيل.',
+  'about.p1': 'جامعات موريتانيا دليل مستقل. لا تديره أي جامعة ولا وزارة التعليم العالي، ولا يعالج طلبات التسجيل.',
   'about.p2': 'جُمعت بطاقة كل مؤسسة من مصادر عامة: المواقع الرسمية ومنشورات الوزارة ووكالات الأنباء مثل الوكالة الموريتانية للأنباء والموسوعات. تذكر كل بطاقة الصفحات التي اعتمدت عليها لتتمكن من التحقق بنفسك. وعندما يتعذر تأكيد رقم مثل عدد الطلاب، تكتب البطاقة «غير منشور» بدل التخمين.',
   'about.p3': 'لا نضع رابط موقع إلا إذا كان يعمل عند آخر تحقق بتاريخ {date}. تأتي المواقع على الخريطة من OpenStreetMap وويكي بيانات؛ وإذا لم يُحدَّد الحرم الجامعي بعد، تعرض البطاقة وسط المدينة وتنبّه إلى ذلك.',
   'about.p4': 'يقرأ مخطط الالتحاق بيانات البنك الدولي المفتوحة عند كل بناء للموقع، فتظهر أرقام اليونسكو الجديدة فور نشرها.',

@@ -1,61 +1,78 @@
 ---
+import { BRAND_GOLD, BRAND_GREEN, DOOR_PATH, STEP_RECT } from '@/lib/brand'
+import type { Locale } from '@/i18n'
+
 interface Props {
+  lang: Locale
   inverted?: boolean
 }
-const { inverted = false } = Astro.props
+const { lang, inverted = false } = Astro.props
 ---
 
-<!-- Wordmark only: a two-weight name with a dune-shaped stroke under "Uni". -->
+<!-- The doorway mark beside the name: two lines in French and English, one in Arabic. -->
 <span class:list={['logo', { inverted }]}>
-  <span class="uni">Uni<svg class="dune" viewBox="0 0 40 8" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M1 6.5C9 1.5 15 1 20 3.5S31 7.5 39 2" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path>
-    </svg></span><span class="rest">Mauritania</span>
+  <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+    <rect width="100" height="100" rx="24" fill={BRAND_GREEN}></rect>
+    <path d={DOOR_PATH} fill={BRAND_GOLD}></path>
+    <rect {...STEP_RECT} fill={BRAND_GOLD}></rect>
+  </svg>
+  {
+    lang === 'ar' ? (
+      <span class="name name-ar">
+        <span>جامعات</span> <span>موريتانيا</span>
+      </span>
+    ) : (
+      <span class="name" lang="fr">
+        <span>Universités</span>
+        <span>de Mauritanie</span>
+      </span>
+    )
+  }
 </span>
 
 <style>
   .logo {
     display: inline-flex;
-    align-items: baseline;
+    align-items: center;
+    gap: 0.6rem;
     color: var(--ink);
-    font-size: 1.3rem;
-    line-height: 1;
-    letter-spacing: -0.03em;
-    direction: ltr;
     white-space: nowrap;
   }
 
-  .uni {
-    position: relative;
+  .mark {
+    flex-shrink: 0;
+    width: 2.35rem;
+    height: 2.35rem;
+  }
+
+  .name {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
     font-weight: 700;
-    color: var(--emerald-700);
+    letter-spacing: -0.015em;
+    line-height: 1.08;
   }
 
-  .dune {
-    position: absolute;
-    left: 0;
-    right: 0.05em;
-    bottom: -0.42em;
-    width: calc(100% - 0.05em);
-    height: 0.36em;
-    color: var(--gold-400);
-    overflow: visible;
+  .name-ar {
+    flex-direction: row;
+    gap: 0.3em;
+    font-size: 1.2rem;
+    letter-spacing: 0;
+    line-height: 1.2;
   }
 
-  .rest {
-    font-weight: 400;
-  }
-
-  @media (max-width: 380px) {
-    .logo {
-      font-size: 1.12rem;
+  /* One line is too wide beside the phone header's buttons, so stack it like the French name. */
+  @media (max-width: 480px) {
+    .name-ar {
+      flex-direction: column;
+      gap: 0;
+      font-size: 1.05rem;
+      line-height: 1.15;
     }
   }
 
   .inverted {
     color: #fff;
-  }
-
-  .inverted .uni {
-    color: var(--gold-300);
   }
 </style>

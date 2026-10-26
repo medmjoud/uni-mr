@@ -15,7 +15,7 @@ const { t, date } = useTranslations(lang)
 <footer class="site-footer">
   <div class="wrap grid gap-10 py-14 md:grid-cols-[1.5fr_1fr_1fr]">
     <div>
-      <Logo />
+      <Logo lang={lang} />
       <p class="mt-4 max-w-sm text-[0.95rem] text-muted">
         {t('footer.about', { date: date(LAST_VERIFIED) })}
       </p>

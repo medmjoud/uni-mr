@@ -3,7 +3,6 @@ import { Font } from 'astro:assets'
 import '@/styles/global.css'
 import SiteHeader from '@/components/SiteHeader.astro'
 import SiteFooter from '@/components/SiteFooter.astro'
-import { SITE_NAME } from '@/lib/site'
 import { LOCALES, LOCALE_META, localePath, stripLocale, useTranslations, type Locale } from '@/i18n'
 
 interface Props {
@@ -18,7 +17,8 @@ const { lang, title, description, jsonLd } = Astro.props
 const { t } = useTranslations(lang)
 const meta = LOCALE_META[lang]
 const path = stripLocale(Astro.url.pathname)
-const pageTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} | ${t('site.tagline')}`
+const siteName = t('site.name')
+const pageTitle = title ? `${title} | ${siteName}` : `${siteName} | ${t('site.tagline')}`
 const canonical = new URL(localePath(lang, path), Astro.site)
 const ogImage = new URL('/og.png', Astro.site)
 ---
@@ -34,11 +34,12 @@ const ogImage = new URL('/og.png', Astro.site)
     {LOCALES.map((l) => <link rel="alternate" hreflang={LOCALE_META[l].htmlLang} href={new URL(localePath(l, path), Astro.site)} />)}
     <link rel="alternate" hreflang="x-default" href={new URL(localePath('fr', path), Astro.site)} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="theme-color" content="#ffffff" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:site_name" content={siteName} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />

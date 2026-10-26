@@ -31,7 +31,8 @@ const description = t('home.meta', { count: institutions.length })
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: SITE_NAME,
+  name: t('site.name'),
+  alternateName: lang === 'ar' ? SITE_NAME : 'جامعات موريتانيا',
   url: new URL(localePath(lang, '/'), Astro.site).href,
   inLanguage: lang,
   description,

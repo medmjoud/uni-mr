@@ -1,4 +1,4 @@
-# UniMauritania
+# Universités de Mauritanie
 
 An independent, sourced guide to universities, schools and institutes in Mauritania, in **French, Arabic and English**. Built with [Astro](https://astro.build) as a fully static site.
 

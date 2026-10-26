@@ -1,6 +1,7 @@
 import type { UIKey } from '@/i18n/ui'
 
-export const SITE_NAME = 'UniMauritania'
+/** The name in French, used where one fixed name is needed. Localised as 'site.name'. */
+export const SITE_NAME = 'Universités de Mauritanie'
 
 /** Every page, as listed in the footer. Paths are locale-free; wrap them with localePath(). */
 export const NAV: { path: string; label: UIKey }[] = [
