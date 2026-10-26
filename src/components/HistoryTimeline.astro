@@ -28,7 +28,7 @@ const label = (e: Institution) => e.data.acronym ?? (lang === 'ar' && e.data.nam
     <p class="mx-auto mt-3 max-w-xl text-muted">{t('history.intro')}</p>
   </div>
 
-  <ol class="timeline" dir="ltr">
+  <ol class="timeline">
     {
       decades.map(({ decade, entries }) => (
         <li class="decade">
@@ -42,7 +42,7 @@ const label = (e: Institution) => e.data.acronym ?? (lang === 'ar' && e.data.nam
               <li>
                 <a href={localePath(lang, `/universities/${e.id}/`)} title={e.data.name}>
                   <span class="year">{e.data.founded}</span>
-                  <span class="name">{label(e)}</span>
+                  <span class="name" dir="auto">{label(e)}</span>
                 </a>
               </li>
             ))}
@@ -56,40 +56,35 @@ const label = (e: Institution) => e.data.acronym ?? (lang === 'ar' && e.data.nam
 </section>
 
 <style>
+  /* Phones and tablets: a vertical timeline, decades stacked top to bottom along a line at the start edge. */
   .timeline {
     position: relative;
     margin-top: 2.75rem;
     display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(10.5rem, 1fr);
-    gap: 1rem;
-    overflow-x: auto;
-    padding-bottom: 0.5rem;
-    scroll-snap-type: x proximity;
+    gap: 1.75rem;
+    padding-inline-start: 1.9rem;
   }
 
   /* The line the decades sit on */
   .timeline::before {
     content: '';
     position: absolute;
-    top: 0.55rem;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--emerald-100), var(--emerald-600));
+    top: 0.5rem;
+    bottom: 0.5rem;
+    inset-inline-start: 0.4rem;
+    width: 2px;
+    background: linear-gradient(180deg, var(--emerald-100), var(--emerald-600));
   }
 
   .decade {
     position: relative;
     min-width: 0;
-    scroll-snap-align: start;
-    padding-top: 2rem;
   }
 
   .dot {
     position: absolute;
-    top: 0.15rem;
-    left: 0;
+    top: 0.35rem;
+    inset-inline-start: -1.9rem;
     width: 0.95rem;
     height: 0.95rem;
     border: 3px solid #fff;
@@ -98,12 +93,45 @@ const label = (e: Institution) => e.data.acronym ?? (lang === 'ar' && e.data.nam
     box-shadow: 0 0 0 1px var(--emerald-600);
   }
 
+  /* Wide screens: one row, oldest on the left, with the line running across the top. */
+  @media (min-width: 1080px) {
+    .timeline {
+      direction: ltr;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(9.5rem, 1fr);
+      gap: 1rem;
+      padding-inline-start: 0;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+
+    .timeline::before {
+      top: 0.55rem;
+      bottom: auto;
+      left: 0;
+      right: 0;
+      width: auto;
+      height: 2px;
+      background: linear-gradient(90deg, var(--emerald-100), var(--emerald-600));
+    }
+
+    .decade {
+      padding-top: 2rem;
+    }
+
+    .dot {
+      top: 0.15rem;
+      left: 0;
+    }
+  }
+
   .decade-label {
     display: flex;
     align-items: baseline;
     gap: 0.5rem;
     font-weight: 600;
     font-size: 1.35rem;
+    line-height: 1.2;
     color: var(--ink);
   }
 
@@ -119,7 +147,8 @@ const label = (e: Institution) => e.data.acronym ?? (lang === 'ar' && e.data.nam
   .entries {
     margin-top: 0.75rem;
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
+    /* Two columns on most phones, so long decades stay short; one column inside a desktop decade. */
+    grid-template-columns: repeat(auto-fill, minmax(min(9.5rem, 100%), 1fr));
     gap: 0.4rem;
   }
 

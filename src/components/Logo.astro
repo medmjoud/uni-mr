@@ -5,17 +5,23 @@ import type { Locale } from '@/i18n'
 interface Props {
   lang: Locale
   inverted?: boolean
+  /** Show the doorway mark beside the name. The header leaves it out. */
+  mark?: boolean
 }
-const { lang, inverted = false } = Astro.props
+const { lang, inverted = false, mark = true } = Astro.props
 ---
 
 <!-- The doorway mark beside the name: two lines in French and English, one in Arabic. -->
 <span class:list={['logo', { inverted }]}>
-  <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
-    <rect width="100" height="100" rx="24" fill={BRAND_GREEN}></rect>
-    <path d={DOOR_PATH} fill={BRAND_GOLD}></path>
-    <rect {...STEP_RECT} fill={BRAND_GOLD}></rect>
-  </svg>
+  {
+    mark && (
+      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+        <rect width="100" height="100" rx="24" fill={BRAND_GREEN}></rect>
+        <path d={DOOR_PATH} fill={BRAND_GOLD}></path>
+        <rect {...STEP_RECT} fill={BRAND_GOLD}></rect>
+      </svg>
+    )
+  }
   {
     lang === 'ar' ? (
       <span class="name name-ar">
