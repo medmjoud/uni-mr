@@ -310,6 +310,8 @@ const facts = [
 
   .profile-grid {
     display: grid;
+    /* minmax(0, …) stops long source links from stretching the column past the screen. */
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.25rem;
     padding-block: 1.5rem 3rem;
   }

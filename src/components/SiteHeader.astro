@@ -196,6 +196,21 @@ const { t } = useTranslations(lang)
     }
   }
 
+  /* The smallest phones (320px) can't fit the logo and both controls at the sizes above. */
+  @media (max-width: 360px) {
+    .bar,
+    .actions {
+      gap: 0.35rem;
+    }
+    .lang-switch a {
+      min-width: 1.7rem;
+      padding-inline: 0.3rem;
+    }
+    .mobile-nav summary {
+      padding: 0.5rem;
+    }
+  }
+
   .mobile-nav summary::-webkit-details-marker {
     display: none;
   }

@@ -72,6 +72,22 @@ const { lang, inverted = false } = Astro.props
     }
   }
 
+  @media (max-width: 360px) {
+    .logo {
+      gap: 0.45rem;
+    }
+    .mark {
+      width: 2rem;
+      height: 2rem;
+    }
+    .name {
+      font-size: 0.92rem;
+    }
+    .name-ar {
+      font-size: 0.98rem;
+    }
+  }
+
   .inverted {
     color: #fff;
   }
