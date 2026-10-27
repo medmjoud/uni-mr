@@ -1,0 +1,69 @@
+# Every Monday, compare each school's own web pages with last week's copy.
+# Copies live on the page-snapshots branch; changes go into an open "School pages changed" issue.
+name: Watch school pages
+
+on:
+  schedule:
+    - cron: '30 7 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency: watch-pages
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - name: Load last week's copies
+        run: |
+          if git fetch --depth=1 origin page-snapshots:page-snapshots; then
+            git worktree add snapshots page-snapshots
+          else
+            # First run: start the branch empty, with none of main's files.
+            git worktree add --detach snapshots
+            git -C snapshots checkout -q --orphan page-snapshots
+            git -C snapshots rm -rfq .
+          fi
+
+      - name: Compare every page
+        id: watch
+        run: node scripts/watch-pages.mjs snapshots > report.md
+
+      - name: Save this week's copies
+        id: save
+        working-directory: snapshots
+        run: |
+          git add -A
+          if git diff --cached --quiet; then exit 0; fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit -q -m "Snapshots of $(date -u +%F)"
+          git push -q origin page-snapshots
+          echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Show the report on the run page
+        run: cat report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Open or update the issue
+        if: steps.watch.outputs.changed != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          COMMIT: ${{ steps.save.outputs.commit }}
+        run: |
+          if [ -n "$COMMIT" ]; then
+            printf '\nFull diff: %s/%s/commit/%s\n' "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$COMMIT" >> report.md
+          fi
+          title="School pages changed"
+          number=$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number')
+          if [ -n "$number" ]; then
+            gh issue comment "$number" --body-file report.md
+          else
+            gh issue create --title "$title" --body-file report.md
+          fi

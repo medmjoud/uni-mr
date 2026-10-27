@@ -15,6 +15,7 @@
     "geo": "node scripts/build-geo.mjs",
     "abroad": "node scripts/fetch-abroad.mjs",
     "sources": "node scripts/check-sources.mjs",
+    "watch-pages": "node scripts/watch-pages.mjs",
     "deploy": "pnpm build && wrangler deploy"
   },
   "dependencies": {
