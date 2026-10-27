@@ -26,7 +26,7 @@ interface Props {
 
 const { entry, all } = Astro.props
 const lang = toLocale(Astro.params.lang)
-const { t, term, city, num, list } = useTranslations(lang)
+const { t, term, city, num, date, list } = useTranslations(lang)
 const d = entry.data
 const text = localized(entry, lang)
 const nearby = related(entry, all)
@@ -196,7 +196,7 @@ const facts = [
           {logo && <li>{t('media.logo')}: <a href={logo.source}>{hostname(logo.source)}</a></li>}
         </ol>
         <p class="mt-5 text-sm text-muted">
-          {t('profile.outdated')}{' '}
+          {t('profile.verified', { date: date(d.verified) })} {t('profile.outdated')}{' '}
           <a class="link" href={correctionHref(lang, Astro.url.pathname, d.name)}>{t('footer.report')}</a>
         </p>
       </section>

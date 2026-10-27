@@ -4,11 +4,12 @@ import type { Locale } from '@/i18n'
 import { normalizeSearch } from './search'
 import fr from '@/data/i18n/institutions.fr.json'
 import ar from '@/data/i18n/institutions.ar.json'
+import data from '@/data/institutions.json'
 
 export type Institution = CollectionEntry<'institutions'>
 
-/** Date the dataset in src/data/institutions.json was last checked against its sources. */
-export const LAST_VERIFIED = '2026-10-09'
+/** Every institution has been checked against its sources on or after this date: the oldest `verified`. */
+export const LAST_VERIFIED = data.map((i) => i.verified).sort()[0]
 
 type Localized = { summary: string; highlights: string[]; admission: string | null }
 const translations: Partial<Record<Locale, Record<string, Partial<Localized>>>> = { fr, ar }

@@ -51,6 +51,14 @@ describe('institutions.json', () => {
   it('tags every institution with at least one field of study', () => {
     for (const i of institutions) expect(i.fields.length, i.id).toBeGreaterThan(0)
   })
+
+  it('records when each institution was last checked, never in the future', () => {
+    const today = new Date().toISOString().slice(0, 10)
+    for (const i of institutions) {
+      expect(i.verified, i.id).toMatch(/^\d{4}-\d{2}-\d{2}$/)
+      expect(i.verified <= today, `${i.id} verified ${i.verified}`).toBe(true)
+    }
+  })
 })
 
 describe('context.json', () => {

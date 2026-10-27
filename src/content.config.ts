@@ -43,6 +43,8 @@ const institutions = defineCollection({
     highlights: z.array(z.string()),
     admission: z.string().nullable(),
     sources: z.array(source).min(1),
+    /** Day the entry was last checked against its sources. */
+    verified: z.iso.date(),
   }),
 })
 

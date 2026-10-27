@@ -1,0 +1,42 @@
+# Every Monday, open every link in src/data and flag institutions not checked in a year.
+# When something needs fixing, the report goes into an open "Sources to check" issue.
+name: Check sources
+
+on:
+  schedule:
+    - cron: '0 7 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - name: Check links and verification dates
+        id: check
+        continue-on-error: true
+        run: node scripts/check-sources.mjs > report.md
+
+      - name: Show the report on the run page
+        run: cat report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Open or update the issue
+        if: steps.check.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="Sources to check"
+          number=$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number')
+          if [ -n "$number" ]; then
+            gh issue comment "$number" --body-file report.md
+          else
+            gh issue create --title "$title" --body-file report.md
+          fi
