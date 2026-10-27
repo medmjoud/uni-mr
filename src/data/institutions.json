@@ -1727,7 +1727,7 @@
   {
     "id": "edge-mauritanie",
     "name": "EDGE Mauritanie – Grande École de Management et d'Ingénierie",
-    "nameAr": null,
+    "nameAr": "المدرسة العليا للتسيير والهندسة",
     "nameEn": "EDGE Mauritania – School of Management and Engineering",
     "acronym": "EDGE",
     "type": "private",
@@ -1738,10 +1738,12 @@
     "studentCount": null,
     "studentCountYear": null,
     "faculties": [
-      "Classes Préparatoires Intégrées",
-      "Cycle Licence (Management)",
-      "Cycle Master",
-      "Cycle Ingénieur"
+      "Classes Préparatoires Intégrées (2 ans, tronc commun)",
+      "Licence Management & Digital",
+      "Licence Management des Organisations",
+      "Master Marketing, Communication Digitale & Franchise",
+      "Master Management de Projet, Audit & Fintech",
+      "Cycle Ingénieur – Ingénierie Software (spécialisation IA ou Cybersécurité)"
     ],
     "fields": [
       "Business",
@@ -1771,7 +1773,7 @@
       "Double-degree agreements with Université Polytechnique Hauts-de-France (licence) and UHA Business School (master)",
       "Engineering track offers final-year specialisations in artificial intelligence or cybersecurity"
     ],
-    "admission": "Online application. The engineering cycle is open only by competitive exam. Students with a Bac+2, Bac+3 or Bac+4 can join directly at licence, Master 1 or Master 2 level.",
+    "admission": "Apply online with identity documents, transcripts and diplomas. Management candidates then have an interview; the engineering cycle is open only by competitive exam, and submitting the file registers you for it. Students with a Bac+2, Bac+3 or Bac+4 can join directly at licence, Master 1 or Master 2 level. Merit-based excellence scholarships are available.",
     "sources": [
       {
         "title": "Official website – EDGE Mauritanie",
@@ -1989,9 +1991,14 @@
     "studentCount": null,
     "studentCountYear": null,
     "faculties": [
-      "Classes Préparatoires",
-      "Cycle Bachelor",
-      "Cycle Masters",
+      "Prépa Économique (ECG) – parcours ESH et HGGMC",
+      "Prépa Scientifique (MPSI)",
+      "Prépa Technologique (ECT)",
+      "Bachelor en management (3 ans)",
+      "MSc Digital Marketing & Omnicanal",
+      "MSc Strategic Project Management",
+      "MSc Entrepreneurship & Sustainable",
+      "MSc Global Finance & Market",
       "Formations continues"
     ],
     "fields": [
