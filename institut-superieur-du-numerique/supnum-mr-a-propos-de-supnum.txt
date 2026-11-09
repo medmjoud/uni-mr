@@ -6,10 +6,61 @@ Suivre
 Rentrée 2025-2026 !
 Inscription
 Accueil
+L’Institut
+Présentation
+Gouvernance
+Plan stratégique
+Chiffres clés
+Assurance qualité
+Campus et laboratoires
+Services et contacts
 Formations
-A propos
-Staff
+Licence DSI
+Licence RSS
+Licence DWM
+Licence IDS
+Licence ISCA
+Master DEML
+Master Cybersécurité
+Formation continue
+Calendrier et règlement
+DevLab
+Admission
+Admission en licence
+Admission en master
+Frais et bourses
+Recherche
+Publications
+Projets
+École doctorale
+Enseignants
+Développement professionnel
+Entreprises
+Stages
+Insertion des diplômés
+Entrepreneuriat
+Forum de l’emploi
+Alumni
+International
+Partenaires universitaires
+Coopération
+Mobilité
+Vie étudiante
+Clubs
+Compétitions
+Services
+Droits et devoirs
+Égalité et respect
+Impact
+ODD 17
+ODD 4
+ODD 5
+ODD 9
+ODD 8
+Recherche et ODD
+Programmes phares
 Actualités
+Agenda
 Contacts
 Fr
 An
@@ -47,3 +98,4 @@ Contacts
 contact@supnum.mr
 Suivre
 Suivre
+© 2026 Institut Supérieur du Numérique (SupNum) · Mentions légales · Plan du site
